@@ -1,0 +1,48 @@
+<h1>新增食物</h1>
+
+<%= form_for(@food) do |form| %>
+
+  <div>
+    <%= form.label :title, ' title:' %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :address, ' address:' %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :phone, ' phone:' %>
+    <%= form.text_field :phone %>
+  </div>
+    
+  <div>
+    <%= form.label :quantity, ' quantity:' %>
+    <%= form.text_field :quantity %>
+  </div>
+
+  <div>
+    <%= form.label :origin_price, ' origin_price:' %>
+    <%= form.text_field :origin_price %>
+  </div>
+
+  <div>
+    <%= form.label :discount_price, ' discount_price:' %>
+    <%= form.text_field :discount_price %>
+  </div>
+
+  <div>
+    <%= form.label :pickup_time, ' pickup_time:' %>
+    <%= form.text_field :pickup_time %>
+  </div>
+
+   <div>
+     <%= form.label :description, ' description:' %>
+    <%= form.text_area :description %>
+   </div>
+
+  <%= form.submit '新增', class:'btn btn-danger' %>
+<% end %>
+
+<%= link_to "取消", foods_path, class: 'btn btn-success' %>
