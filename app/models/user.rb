@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :foods
   has_one :cart
+  has_many :orders
 
 end
