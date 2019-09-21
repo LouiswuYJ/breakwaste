@@ -3,9 +3,9 @@ Rails.application.routes.draw do
              registrations: 'users/registrations'
              }
 
-devise_scope :user do
-  get '/users' => 'users/registrations#show'
-end
+  devise_scope :user do
+    get '/users' => 'users/registrations#show'
+  end
 
  resources :foods do
    member do
@@ -13,6 +13,5 @@ end
    end
  end
  root 'foods#search'
-
 
 end

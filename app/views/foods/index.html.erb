@@ -1,7 +1,10 @@
 <%= flash[:notice] %>
 <h1>首頁</h1>
-<%= link_to "會員中心", '#', class: 'navlink' %>
-<%= link_to "個人資料", user_registration_path, class: 'nav-link' %>
+<% if user_signed_in? %>
+  <%= link_to "會員中心", '#', class: 'navlink' %>
+  <%= link_to "個人資料", user_registration_path, class: 'nav-link' %>
+<%end%>
+
 <% @foods.each do |food| %>
   <div>
     <img src="<%=food.picture%>" alt="">

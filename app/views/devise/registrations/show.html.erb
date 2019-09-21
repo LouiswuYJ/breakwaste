@@ -1,1 +1,15 @@
 <h1>會員資料</h1>
+<div>
+  名字：<%= @user.name %>
+</div>
+<div>
+  電話：<%= @user.phone %>
+</div>
+<div>
+  地址：<%= @user.address %>
+</div>
+<div>
+  信箱：<%= @user.email %>
+</div>
+<%= link_to "編輯個人資料", edit_user_registration_path, class: 'btn btn-info' %>
+<%= link_to "回上一頁", foods_path, class:'btn btn-dark' %>

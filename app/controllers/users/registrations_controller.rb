@@ -4,8 +4,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
   
-
   def show
+    if current_user.name.empty?
+      redirect_to edit_user_registration_path
+    else
+      @user = User.find_by(id: current_user.id)      
+    end
+  end
+
+  def update
+    redirect_to foods_path
   end
 
   private
@@ -28,9 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-    
-  # end
+  
 
   # DELETE /resource
   # def destroy
