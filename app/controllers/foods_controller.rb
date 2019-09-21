@@ -12,7 +12,11 @@ class FoodsController < ApplicationController
   end
 
   def new
-    @food = Food.new
+    if user_signed_in?
+      @food = Food.new
+    else
+      redirect_to user_session_path   
+    end
   end
 
   def create
