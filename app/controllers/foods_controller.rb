@@ -16,8 +16,7 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.new(clean_params)
-
+    @food = current_user.foods.build(clean_params)
     if @food.save
       redirect_to foods_path, notice: '新增po文成功'
     else
@@ -50,7 +49,7 @@ class FoodsController < ApplicationController
   end
 
   def find_food
-    @food = Food.find_by(id: params[:id])
+    @food = current_user.foods.find_by(id: params[:id])
   end
 end
 
