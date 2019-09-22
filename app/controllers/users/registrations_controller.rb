@@ -8,12 +8,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if current_user.name.empty?
       redirect_to edit_user_registration_path
     else
-      @user = User.find_by(id: current_user.id)      
+      @user = current_user     
     end
-  end
-
-  def update
-    redirect_to foods_path
   end
 
   private
