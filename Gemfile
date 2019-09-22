@@ -3,10 +3,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 gem 'devise'
+# gem 'better_errors', '~> 2.1', '>= 2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'bootstrap', '~> 4.3.1'
+gem 'omniauth', '~> 1.9'
+gem 'omniauth-google-oauth2'
+gem 'figaro', '~> 1.0'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
