@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-  before_action :find_food, only: [:show, :edit, :update, :destroy]
+  before_action :find_food, only: [:edit, :update, :destroy]
   def search
     
   end
@@ -9,10 +9,15 @@ class FoodsController < ApplicationController
   end
 
   def show
+    @food = Food.find_by(id: params[:id])
   end
 
   def new
-    @food = Food.new
+    if user_signed_in?
+      @food = Food.new
+    else
+      redirect_to user_session_path   
+    end
   end
 
   def create

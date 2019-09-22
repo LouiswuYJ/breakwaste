@@ -1,6 +1,10 @@
 </head>
 <%= flash[:notice] %>
 <h1>首頁</h1>
+<% if user_signed_in? %>
+  <%= link_to "會員中心", '#', class: 'navlink' %>
+  <%= link_to "個人資料", user_registration_path, class: 'nav-link' %>
+<%end%>
 
 <% @foods.each do |food| %>
   <div>
@@ -11,9 +15,12 @@
     可領取時間:<%= food.pickup_time %>
     原始價:<%= food.origin_price %>
     救援價:<%= food.discount_price %>
-    <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning' %>
-    <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger', data: {confirm: '確定要刪除嗎？'} %>
     <%= link_to "MORE+", food_path(food.id), class:'btn btn-lg btn-info' %>
+
+    <% if user_signed_in? %>
+    <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning' %>
+    <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger', data: {confirm: '確定要刪除嗎？'} %>    
+    <% end %>
   </div>
 <% end %>
   <%= link_to "新增po文", new_food_path, class:'btn btn-primary' %> <!-- #到時後會放在navbar -->
