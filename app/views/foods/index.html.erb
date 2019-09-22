@@ -4,6 +4,7 @@
 <% if user_signed_in? %>
   <%= link_to "會員中心", '#', class: 'navlink' %>
   <%= link_to "個人資料", user_registration_path, class: 'nav-link' %>
+  <%= link_to "我的購物車", cart_path, class: 'nav-link' %>
 <%end%>
 
 <% @foods.each do |food| %>
@@ -16,6 +17,7 @@
     原始價:<%= food.origin_price %>
     救援價:<%= food.discount_price %>
     <%= link_to "MORE+", food_path(food.id), class:'btn btn-lg btn-info' %>
+    <%= link_to "加入購物車", add_to_cart_food_path(food.id), method: 'put',class:'btn btn-success' %>
 
     <% if user_signed_in? %>
     <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning' %>

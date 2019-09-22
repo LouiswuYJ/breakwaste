@@ -11,8 +11,11 @@ Rails.application.routes.draw do
  resources :foods do
    member do
      get :search
+     put :add_to_cart
    end
  end
  root 'foods#search'
 
+  resource :cart, only: [:show, :destroy]
+  # get '/checkout', to: 'carts#checkout'
 end

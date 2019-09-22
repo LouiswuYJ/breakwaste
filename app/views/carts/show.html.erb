@@ -1,0 +1,14 @@
+<h1>我的購物車</h1>
+
+<% @foods.each do |food| %>
+  <ul>
+    <li>
+      名稱：<%= food.title%>
+      數量：<%= food.quantity%>
+      可領取時間：<%= food.pickup_time%>
+      原價：<%= food.origin_price%>
+      救援價：<%= food.discount_price%>
+      描述：<%= food.description%>
+    </li>
+  </ul>
+<%end%>
