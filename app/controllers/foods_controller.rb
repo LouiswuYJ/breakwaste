@@ -1,7 +1,6 @@
 class FoodsController < ApplicationController
   before_action :find_food, only: [:edit, :update, :destroy, :add_to_cart]
   def search
-    
   end
 
   def index
@@ -51,16 +50,15 @@ class FoodsController < ApplicationController
   def add_to_cart
     @add_food = Food.find(params[:id])
     if user_signed_in?
-      if current_user.cart.nil?
-        Cart.create(user_id: current_user.id)
-      else
-        current_cart = Cart.find_by(user_id: current_user.id)
         current_cart.foods << [@add_food]
         redirect_to foods_path, notice: '已加入購物車！'
-      end  
     else
       redirect_to new_user_session_path
     end
+  end
+
+  def current_cart
+    @current_cart ||= Cart.find_or_create_by(user: current_user)
   end
 
   private
@@ -72,4 +70,3 @@ class FoodsController < ApplicationController
     @food = current_user.foods.find_by(id: params[:id])
   end
 end
-
