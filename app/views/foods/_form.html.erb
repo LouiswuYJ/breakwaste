@@ -1,0 +1,78 @@
+<form>
+<% if @food.errors.any? %>
+  <ul>
+    <% @food.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<fieldset>
+  <legend>新增食物</legend>
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" class="form-control-file pic_btn" id="exampleInputFile" aria-describedby="fileHelp">
+    <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+  </div>  <!--- 上傳照片 --->
+  
+  <%= form_for(@food) do |form| %>
+  <div class="form-group">
+    <%= form.label :title, ' Title' %><br>
+    <%= form.text_field :title %>
+  </div>
+  <div class="form-group">
+    <%= form.label :address, ' Addres' %><br>
+    <%= form.text_field :address %>
+  </div>
+  <div class="form-group">
+    <%= form.label :phone, ' Phone' %><br>
+    <%= form.text_field :phone %>
+  </div>
+  <div class="form-group">
+    <%= form.label :quantity, ' Quantity' %><br>
+    <%= form.text_field :quantity %>
+  </div>
+  <div class="form-group">
+    <%= form.label :origin_price, ' Origin_price' %><br>
+    <%= form.text_field :origin_price %>
+  </div>
+   <div class="form-group">
+    <%= form.label :discount_price, ' Discount_price' %><br>
+    <%= form.text_field :discount_price %>
+  </div>
+  <div class="form-group">
+    <%= form.label :pickup_time, ' Pickup_time' %><br>
+    <%= form.text_field :pickup_time %>
+  </div>
+   <div class="form-group">
+    <%= form.label :description, ' Description' %><br>
+    <%= form.text_area :description %>
+  </div>
+  <fieldset class="form-group">
+  <% end %>
+  <!-- radio按鈕先保留 -->
+  </fieldset>
+  <fieldset>
+  <legend>Custom forms</legend>
+    <div class="form-group">
+      <div class="custom-control custom-radio">
+        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked="">
+        <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="">
+        <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+      </div>
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" disabled="" id="customSwitch2">
+        <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
+      </div>
+    </div>
+  </fieldset>
+</form>

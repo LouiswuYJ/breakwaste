@@ -11,6 +11,12 @@
 
   <body>
     <%= render 'shared/frontend/navbar' %>
+    <% if params[:controller] == 'foods' && params[:action] == 'search' %>
+      <%= stylesheet_link_tag 'foods', media: 'all' %>
+    <% end %>
+     <% if params[:controller] == 'foods' && params[:action] == 'new' || 'edit' %>
+      <%= stylesheet_link_tag 'foods', media: 'all' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
