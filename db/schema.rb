@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 2019_09_21_060133) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "google_uid"
+    t.string "google_token"
     t.string "address"
     t.string "phone"
     t.string "name"
