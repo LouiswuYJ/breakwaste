@@ -13,5 +13,23 @@
  *= require_tree .
  *= require_self
  */
+ $theme-colors: (
+   "primary": rgb(38, 119, 211),
+   "secondary": rgb(255, 115, 72),
+   "success": #015668,
+   "info": rgb(127, 192, 97),
+   "warning": rgb(228, 206, 112),
+   "danger": #06648C,
+   "light": rgb(255, 101, 126),
+   "dark": #c76b6b,
+ );
+
+ body,html{
+  height: 85%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #ffffff !important;
+}
 
  @import "bootstrap";

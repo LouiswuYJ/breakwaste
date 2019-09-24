@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
   
   def show
-    if current_user.name.empty?
+    if current_user.name.nil?
       redirect_to edit_user_registration_path
     else
       @user = current_user     
