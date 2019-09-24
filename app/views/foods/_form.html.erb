@@ -1,4 +1,3 @@
-<form>
 <% if food.errors.any? %>
   <ul>
     <% food.errors.full_messages.each do |message| %>
@@ -68,32 +67,7 @@
 
     <%= form.submit class:'btn btn-danger' %>   <!-- 再來想怎麼在不同頁面改按鈕名稱 -->
     <%= link_to "取消", foods_path, class: 'btn btn-success' %>
-
-  <fieldset class="form-group">
   <% end %>
-  <!-- radio按鈕先保留 -->
+  
   </fieldset>
-  <fieldset>
-  <legend>Custom forms</legend>
-    <div class="form-group">
-      <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked="">
-        <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
-      </div>
-      <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-        <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="">
-        <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
-      </div>
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" disabled="" id="customSwitch2">
-        <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
-      </div>
-    </div>
-  </fieldset>
-</form>
+
