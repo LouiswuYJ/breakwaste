@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-  before_action :find_food, only: [:edit, :update, :destroy, :add_to_cart]
+  before_action :find_food, only: [:edit, :update, :destroy]
   def search
   end
 
@@ -42,23 +42,17 @@ class FoodsController < ApplicationController
   def destroy
     if @food.destroy
       redirect_to foods_path, notice: "刪除成功"
-    else
-      
     end
   end
 
   def add_to_cart
     @add_food = Food.find(params[:id])
     if user_signed_in?
-        current_cart.foods << [@add_food]
-        redirect_to foods_path, notice: '已加入購物車！'
+      current_cart.foods << [@add_food]   #current_cart寫在appication_controller.rb
+      redirect_to foods_path, notice: '已加入購物車！'
     else
       redirect_to new_user_session_path
     end
-  end
-
-  def current_cart
-    @current_cart ||= Cart.find_or_create_by(user: current_user)
   end
 
   private

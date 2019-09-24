@@ -23,7 +23,7 @@
 
     <% if food.user == current_user %>
     <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning' %>
-    <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger', data: {confirm: '確定要刪除嗎？'} %>    
+    <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger', data: {confirm: '確定要刪除嗎？'} %>   
     <% end %>
   </div>
 <% end %>

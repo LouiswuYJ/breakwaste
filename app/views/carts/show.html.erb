@@ -9,6 +9,11 @@
       原價：<%= food.origin_price%>
       救援價：<%= food.discount_price%>
       描述：<%= food.description%>
+      <%= link_to "刪除這筆", cart_path(food.id), method: 'delete', class: 'btn btn-danger', data:{confirm: '確定要刪除嗎？'} %>
     </li>
   </ul>
+<%end%>
+
+<%if @current_cart%>
+  <%= link_to "清空購物車", destroy_cart_cart_path, method: 'delete', class: 'btn btn-danger', data:{confirm: '確定要清空嗎？'} %>
 <%end%>
