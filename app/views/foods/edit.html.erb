@@ -1,6 +1,4 @@
-<%# <h1>編輯食物po文</h1> %>
-<%= form_for(@food) do |form| %>
-  <%= render 'form' %>
-  <%= form.submit '儲存', class:'btn btn-danger save_btn' %>
-  <%= link_to "取消", foods_path, class: 'btn btn-success' %>
-<% end %>
+<h1>編輯食物po文</h1>
+  <%= render 'form', food: @food %>
+
+

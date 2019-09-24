@@ -1,7 +1,7 @@
 <form>
-<% if @food.errors.any? %>
+<% if food.errors.any? %>
   <ul>
-    <% @food.errors.full_messages.each do |message| %>
+    <% food.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
@@ -15,39 +15,60 @@
     <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
   </div>  <!--- 上傳照片 --->
   
-  <%= form_for(@food) do |form| %>
+  <%= form_for(food) do |form| %>
   <div class="form-group">
-    <%= form.label :title, ' Title' %><br>
+    <%= form.label :title, '食物名稱:' %>
     <%= form.text_field :title %>
   </div>
+
   <div class="form-group">
-    <%= form.label :address, ' Addres' %><br>
+    <%= form.label :picture, '圖片:' %>
+    <%= form.text_field :picture %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address, '地址:' %>
     <%= form.text_field :address %>
   </div>
+
   <div class="form-group">
-    <%= form.label :phone, ' Phone' %><br>
+    <%= form.label :phone, '電話:' %>
     <%= form.text_field :phone %>
   </div>
+
   <div class="form-group">
-    <%= form.label :quantity, ' Quantity' %><br>
-    <%= form.text_field :quantity %>
+    <%= form.label :quantity, ' 數量:' %>
+    <%= form.select :quantity, options_for_select(["請選擇數量", [*1..20]].flatten, selected: form.object.quantity), class: 'genForm_dropBox' %>
   </div>
-  <div class="form-group">
-    <%= form.label :origin_price, ' Origin_price' %><br>
+
+    <div class="form-group">
+    <%= form.label :origin_price, '原價:' %>
     <%= form.text_field :origin_price %>
   </div>
-   <div class="form-group">
-    <%= form.label :discount_price, ' Discount_price' %><br>
+
+  <div class="form-group">
+    <%= form.label :discount_price, '救援價:' %>
     <%= form.text_field :discount_price %>
   </div>
+
   <div class="form-group">
-    <%= form.label :pickup_time, ' Pickup_time' %><br>
-    <%= form.text_field :pickup_time %>
+    <%= form.label :pickup_time, '領取時間:' %>
+    <%= form.time_field :pickup_time, value: form.object.pickup_time %>
   </div>
-   <div class="form-group">
-    <%= form.label :description, ' Description' %><br>
-    <%= form.text_area :description %>
+
+  <div class="form-group">
+    <%= form.label :endup_time, '結束時間:' %>
+    <%= form.time_field :endup_time, value: form.object.endup_time %>
   </div>
+
+    <div class="form-group">
+     <%= form.label :description, '描述:' %>
+     <%= form.text_area :description %>
+   </div>
+
+    <%= form.submit class:'btn btn-danger' %>   <!-- 再來想怎麼在不同頁面改按鈕名稱 -->
+    <%= link_to "取消", foods_path, class: 'btn btn-success' %>
+
   <fieldset class="form-group">
   <% end %>
   <!-- radio按鈕先保留 -->

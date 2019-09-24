@@ -1,7 +1,6 @@
-<%# <h1>新增食物</h1> %>
-<%= form_for(@food) do |form| %>
-  <%= render 'form' %>
-  <%= form.submit '新增', class:'btn btn-danger add_btn' %>
-  <%= link_to "取消", foods_path, class: 'btn btn-success' %>
-<% end %>
+<h1>新增食物</h1>
+
+<%= render 'form', food: @food %>
+
+
 

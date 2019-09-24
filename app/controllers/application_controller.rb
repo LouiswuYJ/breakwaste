@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # The callback which stores the current location must be added before you authenticate the user 
   # as `authenticate_user!` (or whatever your resource is) will halt the filter chain and redirect 
   # before the location can be stored.
+  
 
   private
     # Its important that the location is NOT stored if:
@@ -17,5 +18,13 @@ class ApplicationController < ActionController::Base
     def store_user_location!
       # :user is the scope we are authenticating
       store_location_for(:user, request.fullpath)
+    end
+
+    def current_cart
+      @current_cart = Cart.find_by(user_id: current_user.id)
+    end
+
+    def current_cart
+      @current_cart ||= Cart.find_or_create_by(user: current_user)
     end
 end

@@ -5,11 +5,18 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable,
           :omniauthable, omniauth_providers: [:google_oauth2]
 
-  has_many :foods
+  has_many :foods, dependent: :destroy
   has_one :cart
   has_many :orders
-
   
+  has_many :cart_foods, through: :cart
+  
+
+  # def load_cart
+  #   @cart ||= Cart.find_or_create_by(user_id: self.id)
+  #   # @cart || @cart = Cart.find_or_create_by(user_id: self.id)
+  # end 
+
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info
     user = User.where(:google_token => access_token.credentials.token, :google_uid => access_token.uid ).first    
