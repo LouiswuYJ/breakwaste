@@ -24,7 +24,7 @@ class FoodsController < ApplicationController
     if @food.save
       redirect_to foods_path, notice: '新增po文成功'
     else
-      render :new
+      render :edit
     end
   end
 
@@ -57,7 +57,7 @@ class FoodsController < ApplicationController
 
   private
   def clean_params
-    params.require(:food).permit(:title, :address, :phone, :quantity, :origin_price, :discount_price, :pickup_time, :picture, :description)
+    params.require(:food).permit(:title, :address, :phone, :quantity, :origin_price, :discount_price, :pickup_time, :picture, :description, :endup_time)
   end
 
   def find_food

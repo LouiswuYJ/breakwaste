@@ -1,0 +1,62 @@
+<% if food.errors.any? %>
+  <ul>
+    <% food.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(food) do |form| %>
+
+  <div>
+    <%= form.label :title, '食物名稱:' %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :picture, '圖片:' %>
+    <%= form.text_field :picture %>
+  </div>
+
+  <div>
+    <%= form.label :address, '地址:' %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :phone, '電話:' %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <%= form.label :quantity, ' 數量:' %>
+  <%= form.select :quantity, options_for_select(["請選擇數量", [*1..20]].flatten, selected: form.object.quantity), class: 'genForm_dropBox' %>
+
+  <div>
+    <%= form.label :origin_price, '原價:' %>
+    <%= form.text_field :origin_price %>
+  </div>
+
+  <div>
+    <%= form.label :discount_price, '救援價:' %>
+    <%= form.text_field :discount_price %>
+  </div>
+
+  <div>
+    <%= form.label :pickup_time, '領取時間:' %>
+    <%= form.time_field :pickup_time, value: form.object.pickup_time %>
+  </div>
+
+  <div>
+    <%= form.label :endup_time, '結束時間:' %>
+    <%= form.time_field :endup_time, value: form.object.endup_time %>
+  </div>
+
+   <div>
+     <%= form.label :description, '描述:' %>
+     <%= form.text_area :description %>
+   </div>
+
+  <%= form.submit class:'btn btn-danger' %>   <!-- 再來想怎麼在不同頁面改按鈕名稱 -->
+<% end %>
+
+<%= link_to "取消", foods_path, class: 'btn btn-success' %>
