@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+  # require 'net/http'
   before_action :find_food, only: [:edit, :update, :destroy]
   def search
     
@@ -20,12 +21,13 @@ class FoodsController < ApplicationController
     end
   end
 
-  def create
+  def create   
     @food = current_user.foods.build(clean_params)
     if @food.save
       redirect_to foods_path, notice: '新增po文成功'
     else
       render :new
+
     end
   end
 
