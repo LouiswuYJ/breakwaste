@@ -1,5 +1,5 @@
 </head>
-<%= flash[:notice] %>
+<%= flash[:notice] %>1
 <h1>首頁</h1>
 <% if user_signed_in? %>
   <%= link_to "會員中心", '#', class: 'navlink' %>
@@ -28,4 +28,10 @@
   </div>
 <% end %>
   <%= link_to "新增po文", new_food_path, class:'btn btn-primary' %> <!-- #到時後會放在navbar -->
+
+
+
+
+
+
 
