@@ -19,6 +19,10 @@ class CartsController < ApplicationController
     end   
   end
 
+  def checkout
+    @order = current_user.orders.build()
+  end
+
   private
   def current_cart_foods
     current_user.cart_foods
