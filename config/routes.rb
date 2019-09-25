@@ -17,8 +17,9 @@ Rails.application.routes.draw do
  root 'foods#search'
 
   resource :cart, only: [:show, :destroy] do
-    member do
+    collection do
       delete :destroy_cart
+      get :checkout 
     end
   end
 
