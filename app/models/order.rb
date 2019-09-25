@@ -47,4 +47,4 @@ class Order < ApplicationRecord
 
 #     "%0d%02d%02d-%s" % [year, month, day, serial]
 #   end
-# end
+end

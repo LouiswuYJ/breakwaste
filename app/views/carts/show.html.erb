@@ -16,3 +16,4 @@
 <%if @current_cart%>
   <%= link_to "清空購物車", destroy_cart_cart_path, method: 'delete', class: 'btn btn-danger', data:{confirm: '確定要清空嗎？'} %>
 <%end%>
+ <%= link_to "結帳", checkout_cart_path, class:'btn btn-danger' %>

@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :find_cart_food, only: [:destroy]
+
   def show
     # current_cart = Cart.find_by(user_id: current_user.id)    寫在application
     @foods = current_cart.foods
@@ -22,7 +23,7 @@ class CartsController < ApplicationController
   end
 
   def checkout
-    @order = current_user.orders.build()
+    @order = current_user.orders.build
   end
 
   private
@@ -33,4 +34,5 @@ class CartsController < ApplicationController
   def find_cart_food
     @food = current_cart.foods.find_by(id: params[:format])    
   end
+
 end
