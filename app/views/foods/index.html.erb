@@ -12,6 +12,7 @@
 <% @foods.each do |food| %>
   <div>
     <img src="<%=food.picture%>" alt="">
+    <%= image_tag food.avatar.variant(resize: '300x300') if food.avatar.attached? %> <!-- 圖片大小從這改 -->
     名稱:<%= food.title %>
     地區:<%= food.address %>   <!-- #到時候在修正成只顯示區域 -->
     數量:<%= food.quantity %>

@@ -18,7 +18,7 @@ current_user = User.first
                             discount_price:Faker::Number.between(from: 0.1, to: 0.9),
                             pickup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
                             endup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-                            picture:Faker::LoremPixel.image(size: "200x200", is_gray: false, category: 'food'),
+                            # picture:Faker::LoremPixel.image(size: "200x200", is_gray: false, category: 'food'),
                             description:Faker::Food.description)
 end
 puts "完成!"

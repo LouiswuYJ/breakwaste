@@ -1,6 +1,7 @@
   <div>
     <img src="<%=@food.picture%>" alt="">
     名稱:<%= @food.title %>
+    <%= image_tag @food.avatar.variant(resize: '400x400') if @food.avatar.attached? %> <!-- 圖片大小從這改 -->
     地區:<%= @food.address %>   <!-- #到時候在修正成只顯示區域 -->
     數量:<%= @food.quantity %>
     可領取時間:<%= @food.pickup_time %>

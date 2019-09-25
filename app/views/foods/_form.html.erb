@@ -7,22 +7,18 @@
 <% end %>
 
 <fieldset>
-  <legend>新增食物</legend>
-  <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" class="form-control-file pic_btn" id="exampleInputFile" aria-describedby="fileHelp">
-    <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-  </div>  <!--- 上傳照片 --->
-  
   <%= form_for(food) do |form| %>
+
+  
+
   <div class="form-group">
-    <%= form.label :title, '食物名稱:' %>
-    <%= form.text_field :title %>
+    <%= form.label :avatar, '檔案上傳' %>
+    <%= form.file_field :avatar%>
   </div>
 
   <div class="form-group">
-    <%= form.label :picture, '圖片:' %>
-    <%= form.text_field :picture %>
+    <%= form.label :title, '食物名稱:' %>
+    <%= form.text_field :title %>
   </div>
 
   <div class="form-group">

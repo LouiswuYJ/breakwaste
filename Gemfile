@@ -14,7 +14,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'omniauth', '~> 1.9'
 gem 'omniauth-google-oauth2'
 gem 'figaro', '~> 1.0'
-
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
