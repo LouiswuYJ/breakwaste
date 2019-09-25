@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_25_071024) do
+ActiveRecord::Schema.define(version: 2019_09_25_100016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,13 +59,13 @@ ActiveRecord::Schema.define(version: 2019_09_25_071024) do
     t.integer "quantity"
     t.integer "origin_price"
     t.integer "discount_price"
-    t.string "pickup_time"
     t.string "picture"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "endup_time"
+    t.datetime "pickup_time"
+    t.datetime "endup_time"
     t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
