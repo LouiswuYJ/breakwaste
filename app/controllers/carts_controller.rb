@@ -23,6 +23,7 @@ class CartsController < ApplicationController
   end
 
   def checkout
+    @foods = current_cart.foods
     @order = current_user.orders.build
   end
 
