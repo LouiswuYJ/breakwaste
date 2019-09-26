@@ -14,6 +14,19 @@
   </ul>
 <%end%>
 
+<hr>
+  <%= form_for(@order) do |form| %>
+    <%= form.label :recipent, '領取人:' %>
+    <%= form.text_field :recipient %>
+    <%= form.label :phone, '聯絡電話:' %>
+    <%= form.text_field :phone %>
+    
+    <%= form.submit '建立訂單', class: 'btn btn-success btn-lg' %>
+  <% end %>
+
+
+
+
 
 
 

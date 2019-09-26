@@ -8,16 +8,15 @@ class OrdersController < ApplicationController
     
     if @order.save
       # /orders/2/payment
-      session[:cart9527] = nil #訂單成立後購物車要清空
-      redirect_to  payment_order_path(@order), notice: '訂單已成立'
+      current_user.cart.cart_foods.destroy_all, notice: '訂單已成立'#訂單成立後購物車要清空
     else
       render 'carts/checkout'
     end
   end
  
   private
-  def  order_params
-    params.require(:order).permit(:recipient,:phone,:address,:note)
+  def order_params
+    params.require(:order).permit(:recipient,:phone,:note)
   end
 
 end
