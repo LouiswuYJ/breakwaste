@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "omniauth_callbacks.scss"
+    ],
+    "names": [],
+    "file": "omniauth_callbacks.css"
+}

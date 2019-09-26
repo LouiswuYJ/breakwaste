@@ -10,11 +10,8 @@
         <a class="nav-link" href="http://localhost:3000/foods">食物救援 <span class="sr-only">(current)</span></a>  <!-- 只是方便自己作業 -->
       </li>
     </ul>
+    
     <ul class="navbar-nav">
-      <% if user_signed_in? %>
-        
-      <%end%>
-      
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "會員中心", '#', class: 'nav-link' %>
