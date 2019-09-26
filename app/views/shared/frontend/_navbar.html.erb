@@ -21,7 +21,7 @@
         </li>
         <% if current_user.cart %>
           <li>
-           <%= link_to "購物車", cart_path, class: 'nav-link' %>
+           <%= link_to "購物車(#{current_cart.foods.count})", cart_path, class: 'nav-link' if current_cart.present?%>
           </li>
         <%end%>  
         <li class="nav-item">

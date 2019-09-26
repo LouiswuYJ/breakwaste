@@ -50,7 +50,7 @@ class FoodsController < ApplicationController
     @add_food = Food.find(params[:id])
     if user_signed_in?
       current_cart.foods << [@add_food]   #current_cart寫在appication_controller.rb
-      # redirect_to foods_path, notice: '已加入購物車！'  
+      redirect_to foods_path, notice: '已加入購物車！'  
     else
       redirect_to new_user_session_path
     end
