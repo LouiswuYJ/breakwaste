@@ -7,37 +7,31 @@
 <% end %>
 
 <fieldset>
-  <legend>新增食物</legend>
-  <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" class="form-control-file pic_btn" id="exampleInputFile" aria-describedby="fileHelp">
-    <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-  </div>  <!--- 上傳照片 --->
-  
   <%= form_for(food) do |form| %>
+
+  <div class="form-group">
+    <%= form.label :avatar, '檔案上傳' %>
+    <%= form.file_field :avatar%>
+  </div>
+
   <div class="form-group">
     <%= form.label :title, '食物名稱:' %>
     <%= form.text_field :title %>
   </div>
 
   <div class="form-group">
-    <%= form.label :picture, '圖片:' %>
-    <%= form.text_field :picture %>
-  </div>
-
-  <div class="form-group">
     <%= form.label :address, '地址:' %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address,value: current_user.address %>
   </div>
 
   <div class="form-group">
-    <%= form.label :phone, '電話:' %>
-    <%= form.text_field :phone %>
+    <%= form.label :phone, '電話:'%>
+    <%= form.text_field :phone ,value: current_user.phone %>
   </div>
 
   <div class="form-group">
     <%= form.label :quantity, ' 數量:' %>
-    <%= form.select :quantity, options_for_select(["請選擇數量", [*1..20]].flatten, selected: form.object.quantity), class: 'genForm_dropBox' %>
+    <%= form.select :quantity, options_for_select(["請選擇數量", [*1..30]].flatten, selected: form.object.quantity), class: 'genForm_dropBox' %>
   </div>
 
     <div class="form-group">
@@ -52,12 +46,12 @@
 
   <div class="form-group">
     <%= form.label :pickup_time, '領取時間:' %>
-    <%= form.time_field :pickup_time, value: form.object.pickup_time %>
+    <%= form.datetime_field :pickup_time, default: form.object.pickup_time %>
   </div>
 
   <div class="form-group">
     <%= form.label :endup_time, '結束時間:' %>
-    <%= form.time_field :endup_time, value: form.object.endup_time %>
+    <%= form.datetime_field :endup_time, default: form.object.endup_time %>
   </div>
 
     <div class="form-group">

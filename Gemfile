@@ -14,7 +14,8 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'omniauth', '~> 1.9'
 gem 'omniauth-google-oauth2'
 gem 'figaro', '~> 1.0'
-
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+gem 'rails-i18n'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -51,6 +52,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'hirb-unicode', '~> 0.0.5'
+  gem 'faker', '~> 2.4'
 end
 
 group :development do

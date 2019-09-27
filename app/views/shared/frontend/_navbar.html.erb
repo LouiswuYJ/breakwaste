@@ -10,6 +10,7 @@
         <a class="nav-link" href="http://localhost:3000/foods">食物救援 <span class="sr-only">(current)</span></a>  <!-- 只是方便自己作業 -->
       </li>
     </ul>
+    
     <ul class="navbar-nav">
       <% if user_signed_in? %>
         <li class="nav-item">
@@ -18,8 +19,11 @@
         <li class="nav-item">
           <%= link_to "個人資料", user_registration_path, class: 'nav-link' %>
         </li>
-      <%end%>
-      <% if user_signed_in? %>
+        <% if current_user.cart %>
+          <li>
+           <%= link_to "購物車", cart_path, class: 'nav-link' %>
+          </li>
+        <%end%>  
         <li class="nav-item">
           <%= link_to "登出", destroy_user_session_path, class: 'nav-link', method: 'delete' %>
         </li>
