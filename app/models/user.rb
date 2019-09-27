@@ -6,7 +6,6 @@ class User < ApplicationRecord
           :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_many :foods, dependent: :destroy
-  accepts_nested_attributes_for :food, :allow_destroy => true, :reject_if => :all_blank
 
   has_one :cart
   has_many :orders
