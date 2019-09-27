@@ -20,7 +20,9 @@
     <%= form.text_field :recipient %>
     <%= form.label :phone, '聯絡電話:' %>
     <%= form.text_field :phone %>
-    
+    <%= form.label :note, '備註:' %>
+    <%= form.text_field :note %>
+
     <%= form.submit '建立訂單', class: 'btn btn-success btn-lg' %>
   <% end %>
 

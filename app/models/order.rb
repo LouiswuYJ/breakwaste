@@ -1,7 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items
-#   validates :phone, :address, presence: true
    
 #   def total_price
 #     order_items.reduce(0) { |sum, item| sum + item.total_price }
