@@ -27,6 +27,9 @@
         <li class="nav-item">
           <%= link_to "登出", destroy_user_session_path, class: 'nav-link', method: 'delete' %>
         </li>
+        <li class="nav-item">
+          <%= link_to "我的訂單", orders_path, class: 'nav-link' %>
+        </li>
       <% else %>
         <li class="nav-item">
           <%= link_to "註冊", new_user_registration_path, class: 'nav-link' %>

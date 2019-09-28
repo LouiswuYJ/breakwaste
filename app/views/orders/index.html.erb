@@ -1,0 +1,22 @@
+<h1>我的訂單</h1>
+
+<table class='table'>
+<thead>
+  <tr>
+    <th>訂單編號</th>
+    <th>日期</th>
+    <th>狀態</th>
+    <th>詳細內容</th>
+  </tr>
+</thead>
+  <tbody>
+    <% @orders.each do |order|%>
+    <tr>
+      <td><%= order.id%></td>
+      <td><%= order.created_at%></td>
+      <td><%= order.status%></td>
+      <td><%= link_to "詳細內容", '#', class:'btn btn-success btn-sm' %><td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
