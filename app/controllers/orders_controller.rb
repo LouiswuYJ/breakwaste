@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
     #把購物車裡的東西拿出來，一條一條塞入order_items 
     
     if @order.save
-      current_user.cart.cart_foods.destroy #訂單成立後購物車要清空 
+      current_cart.foods.destroy #訂單成立後購物車要清空 
       redirect_to payment_order_path(@order), notice: '訂單已成立'
     else
       render 'carts/checkout'
@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
   end
 
   def payment
-  
+    @order = current_user.orders.find(params[:id])
   end
  
   private
