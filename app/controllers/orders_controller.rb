@@ -1,4 +1,12 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+  
+  def index
+    # @orders = Order.where(user: current_cart)
+    #或從使用者角度建立
+    @orders = current_user.orders.order(created_at: :desc)
+  end
+  
   def create
     @order = current_user.orders.new(order_params)
     current_cart.foods.each do |food|
