@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :cart_foods
+
   # delete '/cart/:id', to: 'cart#destroy'
   # get '/checkout', to: 'carts#checkout'
 end

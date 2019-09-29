@@ -21,13 +21,7 @@
 
     <% if food.user == current_user %>
       <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning' %>
-      <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger', data: {confirm: '確定要刪除嗎？'} %>   
-    <%else%>  
-      <%= form_for(food) do |form| %>
-        <%= form.label :quantity, ' 數量:' %>
-        <%= form.select :quantity, options_for_select(["請選擇數量", [*1..(food.quantity)]].flatten, selected: 1), class: 'genForm_dropBox' %>
-      <% end %>
-      <%= link_to "加入購物車", add_to_cart_food_path(food.id), method: 'put',class:'btn btn-success' %>
+      <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger', data: {confirm: '確定要刪除嗎？'} %>  
     <% end %>
   </div>
 <% end %>

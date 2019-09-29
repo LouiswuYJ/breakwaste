@@ -9,6 +9,14 @@
     描述:<%= @food.description %>
   </div>
 
+    <%= form_for @current_cart_food, url: cart_foods_path(@food.id) do |form| %>
+      <%= form.label :quantity, ' 數量:' %>
+      <%= form.select :quantity, options_for_select(["請選擇數量", [*1..(@food.quantity)]].flatten, selected: 1), class: 'genForm_dropBox' %>
+      <%= form.submit %>
+    <% end %>
+    
+    <%= link_to "加入購物車", add_to_cart_food_path(@food.id), method: 'put',class:'btn btn-success' %>
+
    <style>
       #map {
         height: 60%;
