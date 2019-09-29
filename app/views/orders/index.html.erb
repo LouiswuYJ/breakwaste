@@ -15,7 +15,9 @@
       <td><%= order.id%></td>
       <td><%= order.created_at%></td>
       <td><%= order.status%></td>
-      <td><%= link_to "詳細內容", '#', class:'btn btn-success btn-sm' %><td>
+      <td><%= link_to "詳細內容", order_path(@orders), class:'btn btn-success btn-sm' %><td>
+       <%= link_to "付款", payment_order_path(order), class: 'btn btn-danger btn-sm' if order.may_pay? %>
+        <%= link_to "取消", '#', class: 'btn btn-info btn-sm' if order.may_cancel? %>
     </tr>
     <%end%>
   </tbody>

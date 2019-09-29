@@ -10,6 +10,8 @@
       救援價：<%= food.discount_price%>
       描述：<%= food.description%>
       <%= link_to "刪除這筆", cart_path(food.id), method: 'delete', class: 'btn btn-danger', data:{confirm: '確定要刪除嗎？'} %>
+      <%= link_to "取消", "#", class: 'btn btn-info btn-sm' if order.may_cancel? %>
+      <%= link_to "付款", '#', class: 'btn btn-danger btn-sm' if order.may_pay? %>
     </li>
   </ul>
 <%end%>
