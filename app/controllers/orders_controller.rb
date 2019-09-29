@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_order, only: [:show, :payment, :transaction]
   
   def index
     # @orders = Order.where(user: current_cart)
     #或從使用者角度建立
-    @orders = current_user.orders.order(created_at: :desc)
+    @orders = current_user.orders.order(created_at: :asc)
   end
   
   def create
@@ -22,11 +23,23 @@ class OrdersController < ApplicationController
     end
   end
 
+  def show
+  
+  end
+
   def payment
-    @order = current_user.orders.find(params[:id])
+    
+  end
+
+  def transaction
+    
   end
  
   private
+  def find_order
+    @order = current_user.orders.friendly.find(params[:id])
+  end
+  
   def order_params
     params.require(:order).permit(:recipient, :phone, :note)
   end
