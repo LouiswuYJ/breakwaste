@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cart_foods
+  resource :cart_foods, only: [:create, :update]
 
   # delete '/cart/:id', to: 'cart#destroy'
   # get '/checkout', to: 'carts#checkout'

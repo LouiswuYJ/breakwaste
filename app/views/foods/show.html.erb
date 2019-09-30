@@ -8,14 +8,14 @@
     救援價:<%= @food.discount_price %>
     描述:<%= @food.description %>
   </div>
-
-    <%= form_for @current_cart_food, url: cart_foods_path(@food.id) do |form| %>
+    
+    <%= form_for @current_cart_food, url: cart_foods_path(@food.id), :method => :patch do |form| %>
       <% if @food.id == current_cart_food.food_id %>
         <h2>您已加過購物車</h2> 
       <% else %>
         <%= form.label :quantity, ' 數量:' %>
         <%= form.select :quantity, options_for_select(["請選擇數量", [*1..(@food.quantity)]].flatten, selected: 1), class: 'genForm_dropBox' %>
-        <%= form.submit '加入購物車'%>
+        <%= form.submit %>
       <% end %>
     <% end %>
     

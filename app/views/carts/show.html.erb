@@ -4,7 +4,7 @@
   <ul>
     <li>
       名稱：<%= food.title%>
-      數量：<%= current_cart_food.quantity%>
+      數量：<%= @cart_food.quantity%>
       可領取時間:<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%= I18n.l(food.pickup_time, formats: :default) %>
       原價：<%= food.origin_price%>
       救援價：<%= food.discount_price%>
