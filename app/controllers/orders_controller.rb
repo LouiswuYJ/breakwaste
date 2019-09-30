@@ -17,31 +17,41 @@ class OrdersController < ApplicationController
     
     if @order.save
       current_cart.foods.destroy #訂單成立後購物車要清空 
-      redirect_to payment_order_path(@order), notice: '訂單已成立'
+      redirect_to payment_order_path(@order), notice: '訂單已成立' 
     else
       render 'carts/checkout'
     end
   end
 
   def show
-  
+    
   end
+
 
   def payment
     
   end
 
+  def destroy
+    find_order.destroy
+    redirect_to order_path, notice: '訂單已取消'  
+  end
+
   def transaction
-    
+    # if @order.may_pay? #may_pay? 是AASM 產生的方法
+    #     @order.pay!       #pay! 是AASM 產生的方法 
+    # else
+    #   redirect_to orders_path, notice: '訂單已完成付款'
+    # end  
   end
  
   private
   def find_order
-    @order = current_user.orders.friendly.find(params[:id])
+    @order = Order.friendly.find_by(id: params[:id]) 
   end
   
   def order_params
     params.require(:order).permit(:recipient, :phone, :note)
   end
-
+    
 end

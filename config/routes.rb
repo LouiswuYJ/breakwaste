@@ -24,10 +24,10 @@ Rails.application.routes.draw do
   end
 
 
-
   resource :cart_foods, only: [:create, :update]
 
-  resources :orders, only: [:index, :show, :create] do
+  resources :orders, only: [:index, :show, :create, :destroy] do
+
     member do
       get :payment
       post :transaction

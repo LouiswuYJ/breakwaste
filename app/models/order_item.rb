@@ -6,4 +6,5 @@ class OrderItem < ApplicationRecord
     food.discount_price * quantity
   end
 
+  
 end
