@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   extend FriendlyId
   friendly_id :order_generator, use: :slugged
   belongs_to :user
-  has_many :order_items
+  has_many :order_items, dependent: :delete_all
    
   def total_price
     order_items.reduce(0) { |sum, item| sum + item.total_price }
