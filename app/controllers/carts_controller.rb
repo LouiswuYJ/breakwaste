@@ -3,7 +3,8 @@ class CartsController < ApplicationController
   def show
     # current_cart = Cart.find_by(user_id: current_user.id)    寫在application
     @foods = current_cart.foods
-    @cart_food = @cart_food = CartFood.find_by(food_id: params[:id])
+    # @cart_food = CartFood.find_by(food_id: params[:id])
+    @cart_foods = CartFood.all
   end
 
   def destroy
