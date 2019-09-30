@@ -14,9 +14,10 @@ class CartFoodsController < ApplicationController
   
   def update
     # render html:params[:format]
-    @cart_food = CartFood.find_by(cart_id: current_cart.id)
+    @cart_food = CartFood.find_or_initialize_by(cart_id: current_cart.id)
     if @cart_food.food_id == params[:fomrat] 
-      @cart_food..update(cart_food_params)
+      @cart_food.update(cart_food_params)
+      redirect_to foods_path, notice: '已更改此商品數量！！'
     else 
       @cart_food = CartFood.new(cart_food_params)
       @cart_food.cart = current_cart
