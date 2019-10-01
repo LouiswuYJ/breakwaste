@@ -1,5 +1,5 @@
 <%= flash[:notice] %>
-<h1>我的訂單<%= @order.slug%></h1>
+<h1>我的訂單<%= @order.slug.upcase%></h1>
   <div>
     訂單編號:<%= @order.id %>
     總金額:<%= @order.total_price %>   

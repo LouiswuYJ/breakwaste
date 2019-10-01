@@ -13,11 +13,11 @@ class CartFood < ApplicationRecord
   #   @quantity += n
   # end
 
-  def food
-    Food.find_by(id: food_id)
-  end
+  # def food
+  #   Food.find_by(id: food_id)
+  # end
 
-  def total_price
-    food.price * quantity
-  end
+  # def total_price
+  #   food.price * quantity
+  # end
 end

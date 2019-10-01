@@ -1,11 +1,14 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_order, only: [:show, :payment, :transaction]
+  before_action :find_order, only: [:show, :transaction, :destroy, :payment]
   
   def index
     # @orders = Order.where(user: current_cart)
     #或從使用者角度建立
     @orders = current_user.orders.order(created_at: :asc)
+  end
+
+  def payment
   end
   
   def create
@@ -24,17 +27,15 @@ class OrdersController < ApplicationController
   end
 
   def show
-    
   end
 
 
   def payment
-    
   end
 
   def destroy
-    find_order.destroy
-    redirect_to order_path, notice: '訂單已取消'  
+    @order.destroy
+    redirect_to orders_path, notice: '訂單已取消' 
   end
 
   def transaction
@@ -47,11 +48,10 @@ class OrdersController < ApplicationController
  
   private
   def find_order
-    @order = Order.friendly.find_by(id: params[:id]) 
+    @order = current_user.orders.friendly.find(params[:id]) 
   end
   
   def order_params
     params.require(:order).permit(:recipient, :phone, :note)
-  end
-    
+  end  
 end
