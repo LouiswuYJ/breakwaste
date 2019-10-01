@@ -4,14 +4,14 @@ class CartFood < ApplicationRecord
   belongs_to :food
 
 
-  def initialize(food_id, quantity = 1)
-    @food_id = food_id
-    @quantity = quantity
-  end
+  # def initialize(food_id, quantity = 1)
+  #   @food_id = food_id
+  #   @quantity = quantity
+  # end
 
-  def increment(n = 1)
-    @quantity += n
-  end
+  # def increment(n = 1)
+  #   @quantity += n
+  # end
 
   def food
     Food.find_by(id: food_id)
