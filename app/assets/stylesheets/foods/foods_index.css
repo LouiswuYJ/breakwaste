@@ -1,0 +1,10 @@
+#food_quantity{
+  width: 50px;
+  /* align-items: center; */
+  /* margin: 40px auto 80px; */
+}
+
+.edit_food{
+  margin: 0;       
+  /* 只是為了方便看先這樣寫，之後負責的人可以再直接刪掉 */
+}

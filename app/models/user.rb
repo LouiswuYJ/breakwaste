@@ -6,6 +6,7 @@ class User < ApplicationRecord
           :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_many :foods, dependent: :destroy
+
   has_one :cart
   has_many :orders
   

@@ -10,6 +10,7 @@ class FoodsController < ApplicationController
 
   def show
     @food = Food.find_by(id: params[:id])
+    current_cart_food
   end
 
   def new
@@ -46,15 +47,15 @@ class FoodsController < ApplicationController
     end
   end
 
-  def add_to_cart
-    @add_food = Food.find(params[:id])
-    if user_signed_in?
-      current_cart.foods << [@add_food]   #current_cart寫在appication_controller.rb
-      # redirect_to foods_path, notice: '已加入購物車！'  
-    else
-      redirect_to new_user_session_path
-    end
-  end
+  # def add_to_cart
+  #   @add_food = CartFood.find_or_create_by(id: params[:id])
+  #   if user_signed_in?
+  #     current_cart.cart_foods << [@add_food]   #current_cart寫在appication_controller.rb
+  #     redirect_to foods_path, notice: '已加入購物車！'  
+  #   else
+  #     redirect_to new_user_session_path
+  #   end
+  # end
 
   private
   def clean_params
