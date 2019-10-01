@@ -14,7 +14,7 @@ class CartFood < ApplicationRecord
   end
 
   def food
-    food.find_by(id: food_id)
+    Food.find_by(id: food_id)
   end
 
   def total_price
