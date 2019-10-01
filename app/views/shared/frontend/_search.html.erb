@@ -22,6 +22,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <div class="row no-gutters row_about">
       <div class="col col-lg-6 col-md-6 col-sm-8 col-8 col_search_btn">
           <h3>About Us</h3>
@@ -59,6 +60,21 @@
         </div>
       </div>
 
+=======
+      <input class="search_input" type="text" name="" placeholder="Search...">
+      <a href="#" class="search_btn"><i class="fas fa-search"></i></a>
+      
+      
+      <%= form_tag(foods_path, method: :get) do %>
+        <%= text_field_tag :search, params[:search], placeholder: "食物名稱、食物描述、地點..." %>
+        <%= submit_tag "搜尋", name: nil %>
+      <% end %>
+
+      <hr>
+      <%= link_to "新增po文", new_food_path, class:'btn btn-primary new_btn' %>
+    </div>
+    
+>>>>>>> Searching basice feature done
   </div>
 </div>
 

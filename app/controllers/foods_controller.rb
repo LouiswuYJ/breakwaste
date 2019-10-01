@@ -5,7 +5,7 @@ class FoodsController < ApplicationController
   end
 
   def index
-    @foods = Food.order(created_at: :desc)  
+    @foods = Food.search(params[:search]).order(created_at: :desc)
   end
 
   def show
