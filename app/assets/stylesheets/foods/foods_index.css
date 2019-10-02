@@ -14,7 +14,6 @@
   margin: 30px auto;
 }
 .row_list{
-
   border-radius: 5px;
   background-color: rgba(255,255,255,1);
 }
@@ -24,21 +23,13 @@
 .col_list{
   padding: 20px 0 20px 0;
 }
-.col_img{
-  flex-wrap: wrap;
-  text-align: center;
-  justify-content: center;
-}
-img + .img_list{
-  width: 50%;
-  margin: 0 auto;
-  border-radius: 10px;
-  background-color: #333;
+.img_list{
+  width: 100%;
 }
 .col_info > h3{
   color: rgb(196, 0, 0);
-  font-size: 30xp;
-  padding: 0 80px;
+  font-size: 30px;
+  padding: 0 60px;
   margin-bottom: 30px;
 }
 @media screen and (min-width: 768px){
@@ -60,7 +51,7 @@ img + .img_list{
 .col_btn{
   text-align: right;
 }
-a{
+a.btn_list{
   width: 100px;
   border: none;
   margin: 5px 0;

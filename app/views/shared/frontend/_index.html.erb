@@ -8,11 +8,11 @@
 <% @foods.each do |food| %>
     <div class="container-fluid container_list">
       <div class="row row_list">
-        <div class="col col-lg-4 col-md-2 col-sm-12 col-12 col_list col_img">
+        <div class="col col-lg-4 col-md-4 col-sm-12 col-12 col_list col_img">
           <img src="<%=food.picture%>" alt="" class="img_list">
-          <%= image_tag food.avatar.variant(resize: '250x250') if food.avatar.attached? %>
+          <%= image_tag food.avatar.variant(resize: '100x100') if food.avatar.attached? %>
         </div>
-       <div class="col col-lg-6 col-md-6 col-sm-12 col-12 col_list col_info">
+       <div class="col col-lg-4 col-md-6 col-sm-12 col-12 col_list col_info">
           <h3><%= food.title %></h3>
           <p>地區：<%= food.address %></p>  <!-- #到時候在修正成只顯示區域 -->
           <p>數量：<%= food.quantity %></p>
@@ -20,13 +20,12 @@
           <p>原始價：<%= food.origin_price %></p>
           <p>救援價：<%= food.discount_price %></p>
         </div>
-        <div class="col col-lg-2 col-md-4 col-sm-12 col-12 align-self-end justify-content-end col_list col_btn">
+        <div class="col col-lg-4 col-md-12 col-sm-12 col-12 align-self-end justify-content-end col_list col_btn">
           <%= link_to "MORE+", food_path(food.id), class:'btn btn-dark btn_more btn_list' %>
-          <%= link_to "加購物車", add_to_cart_food_path(food.id), method: 'put', class:'btn btn-primary btn_add_cart btn_list' %>
           
           <% if food.user == current_user %>
-            <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning' %>
-            <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger', data: {confirm: '確定要刪除嗎？'} %> 
+            <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning  btn_list' %>
+            <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger  btn_list', data: {confirm: '確定要刪除嗎？'} %> 
           <% end %>  
         </div>
       </div>
