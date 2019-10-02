@@ -1,15 +1,16 @@
-<%= flash[:notice] %>
-<div class="section_list">
 <div class="list_description">
 <h1>首頁清單</h1>
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 </div>
 
+<%= flash[:notice] %>
+<div class="section_list">
 <% @foods.each do |food| %>
     <div class="container-fluid container_list">
       <div class="row row_list">
-        <div class="col col-lg-4 col-md-4 col-sm-12 col-12 col_list col_img">
+        <div class="col col-lg-4 col-md-2 col-sm-12 col-12 col_list col_img">
           <img src="<%=food.picture%>" alt="" class="img_list">
+          <%= image_tag food.avatar.variant(resize: '250x250') if food.avatar.attached? %>
         </div>
        <div class="col col-lg-6 col-md-6 col-sm-12 col-12 col_list col_info">
           <h3><%= food.title %></h3>
@@ -19,8 +20,7 @@
           <p>原始價：<%= food.origin_price %></p>
           <p>救援價：<%= food.discount_price %></p>
         </div>
-        <div class="col col-lg-2 col-md-2 col-sm-12 col-12 align-self-end col_list col_btn">
-
+        <div class="col col-lg-2 col-md-4 col-sm-12 col-12 align-self-end justify-content-end col_list col_btn">
           <%= link_to "MORE+", food_path(food.id), class:'btn btn-dark btn_more btn_list' %>
           <%= link_to "加購物車", add_to_cart_food_path(food.id), method: 'put', class:'btn btn-primary btn_add_cart btn_list' %>
           

@@ -1,5 +1,5 @@
 <%= render "devise/shared/error_messages", resource: resource %>
-<div class="container container_sign_up">
+<div class="containercontainer-fluid container_sign_up">
   <div class="row">
     <div class="col col-lg-6 col-md-12 col-sm-12 col-12 col_form">
 
@@ -30,7 +30,7 @@
           <%= render "devise/shared/links" %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group ">
           <%= recaptcha_tags site_key: ENV["RECAPTCHA_V2_CHECKBOX_SITE_KEY"] %>
         </div>
     <% end %>

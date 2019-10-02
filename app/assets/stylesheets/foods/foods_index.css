@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #food_quantity{
   width: 50px;
   /* align-items: center; */
@@ -14,37 +15,66 @@
   background-color: #eee;
   margin: auto;
 }
+=======
+>>>>>>> Fix conflict
 .list_description{
-  width: 50%;
+  width: 100%;
   margin: auto;
-  margin-bottom: 50px;
+  padding: 50px;
   text-align: center;
+  background-color: rgb(255, 210, 0);
+}
+.section_list{
+  padding: 30px 50px;
+  background-image: url(/assets/bg.jpg);
+  margin: auto;
 }
 .container-fluid.container_list{
-  margin: 20px auto;
+  margin: 30px auto;
 }
 .row_list{
-  border-radius: 10px;
-  border: 1px solid #aaa;
-  background-color: #fff;
+
+  border-radius: 5px;
+  background-color: rgba(255,255,255,1);
 }
 .row_list:hover{
   border: 5px solid  rgb(255, 195, 0);
 }
 .col_list{
-  padding: 50px;
+  padding: 20px 0 20px 0;
 }
-.img_list{
-  width: 100%;
+.col_img{
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+img + .img_list{
+  width: 50%;
+  margin: 0 auto;
   border-radius: 10px;
   background-color: #333;
 }
 .col_info > h3{
+  color: rgb(196, 0, 0);
+  font-size: 30xp;
+  padding: 0 80px;
   margin-bottom: 30px;
 }
+@media screen and (min-width: 768px){
+  .col_info > h3{
+    padding: 0px;
+  }
+}
 .col_info > p{
+  font-size: 22px;
+  padding: 0 80px;
   margin: 3px 0;
   letter-spacing: 2px
+}
+@media screen and (min-width: 768px){
+  .col_info > p{
+    padding: 0px;
+  }
 }
 .col_btn{
   text-align: right;
