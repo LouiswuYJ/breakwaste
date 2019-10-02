@@ -4,16 +4,6 @@
 <h1>首頁清單</h1>
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 </div>
-  <!----
-<% if user_signed_in? %>
-
-  <%= link_to "會員中心", '#', class: 'navlink' %>
-  <%= link_to "個人資料", user_registration_path, class: 'nav-link' %>
-
-  <% if current_user.cart %>
-    <%= link_to "我的購物車", cart_path, class: 'nav-link' %>
-  <%end%>  
-<%end%>  --->
 
 <% @foods.each do |food| %>
     <div class="container-fluid container_list">
@@ -30,8 +20,9 @@
           <p>救援價：<%= food.discount_price %></p>
         </div>
         <div class="col col-lg-2 col-md-2 col-sm-12 col-12 align-self-end col_list col_btn">
-          <%= link_to "MORE+", food_path(food.id), class:'btn btn-dark btn_more' %>
-          <%= link_to "加購物車", add_to_cart_food_path(food.id), method: 'put',class:'btn btn-primary btn_add_cart' %>
+
+          <%= link_to "MORE+", food_path(food.id), class:'btn btn-dark btn_more btn_list' %>
+          <%= link_to "加購物車", add_to_cart_food_path(food.id), method: 'put', class:'btn btn-primary btn_add_cart btn_list' %>
           
           <% if food.user == current_user %>
             <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning' %>

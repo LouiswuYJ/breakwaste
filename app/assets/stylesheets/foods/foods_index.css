@@ -29,10 +29,10 @@
   background-color: #fff;
 }
 .row_list:hover{
-  border: 5px solid #fa0;
+  border: 5px solid  rgb(255, 195, 0);
 }
 .col_list{
-  padding: 25px;
+  padding: 50px;
 }
 .img_list{
   width: 100%;
