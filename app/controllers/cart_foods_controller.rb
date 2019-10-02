@@ -10,7 +10,7 @@ class CartFoodsController < ApplicationController
       @cart_food.cart = current_cart
       @cart_food.food = Food.find_by(id: params[:format])
     end
-   
+
     if @cart_food.save
       redirect_to foods_path, notice: '已加入購物車！！'
     else

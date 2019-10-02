@@ -1,0 +1,36 @@
+<h1>結帳</h1>
+
+<% @foods.each do |food| %>
+  <ul>
+    <li>
+      名稱：<%= food.title%>
+      數量：<%= food.quantity%>
+      可領取時間：<%= food.pickup_time %> ～ <%= food.endup_time %>
+      原價：<%= food.origin_price%>
+      救援價：<%= food.discount_price%>
+      描述：<%= food.description%>
+      <%= link_to "刪除這筆", cart_path(food.id), method: 'delete', class: 'btn btn-danger', data:{confirm: '確定要刪除嗎？'} %>
+    </li>
+  </ul>
+<%end%>
+
+<hr>
+  <%= form_for(@order) do |form| %>
+    <%= form.label :recipent, '領取人:' %>
+    <%= form.text_field :recipient %>
+    <%= form.label :phone, '聯絡電話:' %>
+    <%= form.text_field :phone %>
+    <%= form.label :note, '備註:' %>
+    <%= form.text_field :note %>
+
+    <%= form.submit '建立訂單', class: 'btn btn-success btn-lg' %>
+  <% end %>
+
+
+
+
+
+
+
+
+

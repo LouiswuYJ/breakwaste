@@ -17,12 +17,22 @@ Rails.application.routes.draw do
  root 'foods#search'
 
   resource :cart, only: [:show, :destroy] do
-    member do
+    collection do
       delete :destroy_cart
+      get :checkout 
     end
   end
 
+
   resource :cart_foods, only: [:create, :update]
+
+  resources :orders, only: [:index, :show, :create, :destroy] do
+
+    member do
+      get :payment
+      post :transaction
+    end
+  end
 
   # delete '/cart/:id', to: 'cart#destroy'
   # get '/checkout', to: 'carts#checkout'
