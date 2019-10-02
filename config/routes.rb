@@ -12,7 +12,12 @@ Rails.application.routes.draw do
    member do
      get :search
      put :add_to_cart
+     
    end
+
+   collection do  
+     get :history
+   end  
  end
  root 'foods#search'
 

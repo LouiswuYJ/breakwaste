@@ -64,11 +64,18 @@
             <%= form.label :description, '描述：' %>
             <%= form.text_area :description %>
           </div>
-
-          <%= form.submit class:'btn btn-danger btn_form' %>   <!-- 再來想怎麼在不同頁面改按鈕名稱 -->
-          <%= link_to "取消", foods_path, class: 'btn btn-success btn_form' %>
       </div>
     </div>
+
+    <% if params[:controller] == 'foods' && params[:action] == 'new' %>
+      <%= form.submit "新增食物",class:'btn btn-danger' %> 
+    <% else %> 
+      <%= form.submit "儲存編輯",class:'btn btn-danger' %> 
+    <% end %>
+
+      <!-- 再來想怎麼在不同頁面改按鈕名稱 -->
+    <%= link_to "取消", foods_path, class: 'btn btn-success btn_form' %>
+
   <% end %>
 </div>
 

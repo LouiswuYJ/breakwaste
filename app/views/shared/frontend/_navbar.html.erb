@@ -17,6 +17,9 @@
         <li class="nav-item">
           <%= link_to "個人資料", user_registration_path, class: 'nav-link' %>
         </li>
+        <li>
+          <%= link_to "PO文紀錄", history_foods_path, class: 'nav-link' %>
+        </li>
         <% if current_user.cart %>
           <li>
            <%= link_to "購物車(#{current_cart.foods.count})", cart_path, class: 'nav-link' if current_cart.present?%>

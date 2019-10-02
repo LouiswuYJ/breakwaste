@@ -1,8 +1,6 @@
 class FoodsController < ApplicationController
   # require 'net/http'
   before_action :find_food, only: [:edit, :update, :destroy]
-  def search
-  end
 
   def index
     @foods = Food.search(params[:search]).order(created_at: :desc)
@@ -13,8 +11,20 @@ class FoodsController < ApplicationController
     current_cart_food
   end
 
+  # def to_new_hash
+  #    @foods = Food.where(user_id: current_user.id)
+  #   {
+  #     "Food" => @foods.map do |i|
+  #                  {"food_id" => i.food_id, "quantity" => i.quantity }
+  #                end
+  #   }
+  # end
+
   def new
+    #暫時保留，可能會改寫”重新PO文的功能“
+    # old_food_params = Food.find_by(id: params[:from_id]) &.to_new_hash || {}  
     if user_signed_in?
+      # @food = Food.new(old_food_params)
       @food = Food.new
     else
       redirect_to user_session_path   
@@ -45,6 +55,10 @@ class FoodsController < ApplicationController
     if @food.destroy
       redirect_to foods_path, notice: "刪除成功"
     end
+  end
+
+  def history
+    @foods = Food.where(user_id: current_user.id)
   end
 
   # def add_to_cart

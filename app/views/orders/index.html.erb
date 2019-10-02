@@ -6,14 +6,14 @@
     <th>訂單編號</th>
     <th>日期</th>
     <th>狀態</th>
-    <th>詳細內容</th>
+    <th>備註</th>
   </tr>
 </thead>
   <tbody>
     <% @orders.each do |order|%>
     <tr>
       <td><%= order.friendly_id.upcase%></td>
-      <td><%= order.created_at%></td>
+      <td><%= I18n.l(order.created_at, formats: :default) %></td>
       <td><%= order.status%></td>
       <td><%= order.note%></td>
       <td><%= link_to "詳細內容", order_path(order), class:'btn btn-success btn-sm' %><td>

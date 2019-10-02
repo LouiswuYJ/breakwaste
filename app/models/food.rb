@@ -14,4 +14,8 @@ class Food < ApplicationRecord
       all
     end
   end
+
+  # def to_new_hash    #暫時保留，可能會重寫"重新PO文的功能"
+  #   self.
+  # end
 end
