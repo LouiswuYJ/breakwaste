@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #food_quantity{
   width: 50px;
   /* align-items: center; */
@@ -7,4 +8,50 @@
 .edit_food{
   margin: 0;       
   /* 只是為了方便看先這樣寫，之後負責的人可以再直接刪掉 */
+=======
+.section_list{
+  padding: 60px 40px;
+  background-color: #eee;
+  margin: auto;
+}
+.list_description{
+  width: 50%;
+  margin: auto;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.container-fluid.container_list{
+  margin: 20px auto;
+}
+.row_list{
+  border-radius: 10px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+}
+.row_list:hover{
+  border: 5px solid #fa0;
+}
+.col_list{
+  padding: 25px;
+}
+.img_list{
+  width: 100%;
+  border-radius: 10px;
+  background-color: #333;
+}
+.col_info > h3{
+  margin-bottom: 30px;
+}
+.col_info > p{
+  margin: 3px 0;
+  letter-spacing: 2px
+}
+.col_btn{
+  text-align: right;
+}
+a{
+  width: 100px;
+  border: none;
+  margin: 5px 0;
+>>>>>>> add list view
 }

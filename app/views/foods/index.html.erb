@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 </head>
 <%= flash[:notice] %>
 <h1>首頁</h1>
@@ -16,6 +17,20 @@
         救援價:<%= food.discount_price %>
       </li>
     </ul>
+=======
+<%# 首頁 %>
+<%= render 'shared/frontend/index' %>
+<!--
+<% @foods.each do |food| %>
+  <div>
+    <img src="<%=food.picture%>" alt="">
+    名稱:<%= food.title %>
+    地區:<%= food.address %>    #到時候在修正成只顯示區域 
+    數量:<%= food.quantity %>
+    可領取時間：<%= food.pickup_time %> ～ <%= food.endup_time %>
+    原始價:<%= food.origin_price %>
+    救援價:<%= food.discount_price %>
+>>>>>>> add list view
     <%= link_to "MORE+", food_path(food.id), class:'btn btn-lg btn-info' %>
     
 
@@ -25,7 +40,7 @@
     <% end %>
   </div>
 <% end %>
-  <%= link_to "新增po文", new_food_path, class:'btn btn-primary' %> <!-- #到時後會放在navbar -->
+  <%= link_to "新增po文", new_food_path, class:'btn btn-primary' %>  #到時後會放在navbar -->
 
 
 

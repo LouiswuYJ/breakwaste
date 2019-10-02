@@ -1,0 +1,44 @@
+<div class="section_list">
+<%= flash[:notice] %>
+<div class="list_description">
+<h1>首頁清單</h1>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+</div>
+  <!----
+<% if user_signed_in? %>
+
+  <%= link_to "會員中心", '#', class: 'navlink' %>
+  <%= link_to "個人資料", user_registration_path, class: 'nav-link' %>
+
+  <% if current_user.cart %>
+    <%= link_to "我的購物車", cart_path, class: 'nav-link' %>
+  <%end%>  
+<%end%>  --->
+
+<% @foods.each do |food| %>
+    <div class="container-fluid container_list">
+      <div class="row row_list">
+        <div class="col col-lg-4 col-md-4 col-sm-12 col-12 col_list col_img">
+          <img src="<%=food.picture%>" alt="" class="img_list">
+        </div>
+       <div class="col col-lg-6 col-md-6 col-sm-12 col-12 col_list col_info">
+          <h3><%= food.title %></h3>
+          <p>地區：<%= food.address %></p>  <!-- #到時候在修正成只顯示區域 -->
+          <p>數量：<%= food.quantity %></p>
+          <p>可領取時間：<%= food.pickup_time %> ～ <%= food.endup_time %></p>
+          <p>原始價：<%= food.origin_price %></p>
+          <p>救援價：<%= food.discount_price %></p>
+        </div>
+        <div class="col col-lg-2 col-md-2 col-sm-12 col-12 align-self-end col_list col_btn">
+          <%= link_to "MORE+", food_path(food.id), class:'btn btn-dark btn_more' %>
+          <%= link_to "加購物車", add_to_cart_food_path(food.id), method: 'put',class:'btn btn-primary btn_add_cart' %>
+          
+          <% if food.user == current_user %>
+            <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning' %>
+            <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger', data: {confirm: '確定要刪除嗎？'} %> 
+          <% end %>  
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div>
