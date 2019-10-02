@@ -1,35 +1,34 @@
-<div class="container">
+<div class="container container_sign_in">
+  <div class="row">
+    <div class="col col-lg-6 col-md-12 col-sm-12 col-12 col_form">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <h2>Sign In</h2>
+      <hr class="colorgraph"> <!---- 我是線 ---->
 
-  <!---- form for ---->
- <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input_form" %>
+        </div>
+        <div class="form-group">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class: "input_form" %>
+        </div>
 
-  <h2>Sign In</h2>
-  <hr class="colorgraph"> <!---- 我是線 ---->
-  <div class="form-group">
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-  </div>
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
 
-    <% if devise_mapping.rememberable? %>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+      <hr class="colorgraph"> <!---- 我是線 ---->
+
+      <div class="actions">
+        <%= f.submit "Log in", class: 'sign_in' %>
       </div>
-    <% end %>
-
-    <hr class="colorgraph"> <!---- 我是線 ---->
-
-    <div class="actions">
-      <%= f.submit "Log in", class: 'sign_in' %>
+      <%= render "devise/shared/links" %>
+      
+      <% end %>
     </div>
-    <%= render "devise/shared/links" %>
-  <% end %> 
+  </div>
 </div>

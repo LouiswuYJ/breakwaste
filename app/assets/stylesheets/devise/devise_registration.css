@@ -1,3 +1,17 @@
+form > h2{
+  text-align: center;
+  margin-top: 30px;
+}
+.sign_in, .sign_up, .btn_send{
+  width: 300px;
+  height: 50px;
+  color: #fff;
+  border: none;
+  margin-bottom: 30px;
+  align-content: center;
+  border-radius: 5px;
+  background-color: #fa0;
+}
 .colorgraph {
   height: 5px;
   border-top: 0;
@@ -7,13 +21,5 @@
   background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
   background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-}
-
-.sign_in, .sign_up{
-  color: #fff;
-  background-color: rgb(169, 212, 68);
-  margin-bottom: 30px;
-  border: none;
-  align-content: center;
 }
 

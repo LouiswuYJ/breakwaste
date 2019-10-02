@@ -1,47 +1,41 @@
-<div class="container">
+<%= render "devise/shared/error_messages", resource: resource %>
+<div class="container container_sign_up">
+  <div class="row">
+    <div class="col col-lg-6 col-md-12 col-sm-12 col-12 col_form">
 
-  <!---- form for ---->
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <h2>Sign Up</h2>
+        <hr class="colorgraph"> <!---- 我是線 ---->
 
-    <h2>Sign Up</h2>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input_form" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "input_form" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input_form" %>
+        </div>
+      
+        <div class="actions">
+          <%= f.submit "Sign up" , class: 'sign_up'%>
+          <%= render "devise/shared/links" %>
+        </div>
+
+        <div class="form-group">
+          <%= recaptcha_tags site_key: ENV["RECAPTCHA_V2_CHECKBOX_SITE_KEY"] %>
+        </div>
+    <% end %>
+
     <hr class="colorgraph"> <!---- 我是線 ---->
-
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
     </div>
-
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-    </div>
-    
-    <div class="actions">
-      <%= f.submit "Sign up" , class: 'sign_up'%>
-      <%= render "devise/shared/links" %>
-    </div>
-
-    <div class="form-group">
-      <%= recaptcha_tags site_key: ENV["RECAPTCHA_V2_CHECKBOX_SITE_KEY"] %>
-    </div>
-
-  <% end %>
-  <hr class="colorgraph"> <!---- 我是線 ---->
-
-  
+  </div>
 </div>
