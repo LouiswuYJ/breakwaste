@@ -32,3 +32,9 @@
 
 # Ignore application configuration
 /config/application.yml
+
+/.env.*.local
+/.env.local
+/.env.*
+!/.env.sample
+!/.env.*.sample

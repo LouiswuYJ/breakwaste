@@ -21,7 +21,7 @@ def randon_number
   [*1..10].sample
 end
 
-5.times do |i|
+3.times do |i|
   current_user.foods.create(title:Faker::Food.title,
                             address:Faker::Address.street,
                             phone:Faker::Food.formats,
@@ -30,7 +30,7 @@ end
                             discount_price: discount_price,
                             pickup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
                             endup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-                            # picture:Faker::LoremPixel.image(size: "300x300", is_gray: false, category: 'food', number: randon_number),
+                            picture:Faker::LoremPixel.image(size: "300x300", is_gray: false, category: 'food', number: randon_number),
                             description:Faker::Food.tw_description)
 end
 puts "完成!"

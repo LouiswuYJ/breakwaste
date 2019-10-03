@@ -1,10 +1,64 @@
-#food_quantity{
-  width: 50px;
-  /* align-items: center; */
-  /* margin: 40px auto 80px; */
+.list_description{
+  width: 100%;
+  margin: auto;
+  padding: 50px;
+  text-align: center;
+  background-color: rgb(255, 210, 0);
 }
-
-.edit_food{
-  margin: 0;       
-  /* 只是為了方便看先這樣寫，之後負責的人可以再直接刪掉 */
+.row_list{
+  padding-top: 40px;
+  height: 100%;
+  border-radius: 5px;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.2);
 }
+.col_list{
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #eee;
+  background-color: rgb(255,255,255);
+  position: relative;
+}
+.col_list:hover{
+  border: 5px solid  rgb(255, 195, 0);
+}
+.img_list{
+  width: 100%;
+  border-radius: 10px;
+}
+.col_info{
+  margin: 0 30px;
+  margin-bottom: 50px;
+}
+.col_info > h3{
+  color: rgb(196, 0, 0);
+  font-size: 30px;
+}
+@media screen and (min-width: 768px){
+  .col_info > h3{
+    padding: 0px;
+  }
+}
+.col_info > p{
+  font-size: 18px;
+  margin: 3px 0;
+  letter-spacing: 2px;
+  color: #000;
+}
+@media screen and (min-width: 768px){
+  .col_info > p{
+    padding: 0px;
+  }
+}
+.col_btn{
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  text-align: right;
+  align-self: flex-end;
+}
+a.btn_list{
+  width: 100px;
+  border: none;
+  margin: 5px 0;
+} 

@@ -4,6 +4,6 @@ class Food < ApplicationRecord
   has_many :cart_foods,dependent: :destroy
   has_many :carts, through: :cart_foods
 
-  has_many :order_items
+  has_many :order_items, dependent: :delete_all
   has_one_attached :avatar
 end
