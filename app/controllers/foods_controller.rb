@@ -11,17 +11,7 @@ class FoodsController < ApplicationController
     current_cart_food
   end
 
-  # def to_new_hash
-  #    @foods = Food.where(user_id: current_user.id)
-  #   {
-  #     "Food" => @foods.map do |i|
-  #                  {"food_id" => i.food_id, "quantity" => i.quantity }
-  #                end
-  #   }
-  # end
-
   def new
-    #暫時保留，可能會改寫”重新PO文的功能“
     old_food_params = Food.find_by(id: params[:food_id]) &.as_json || {}  
     if user_signed_in?
       @food = Food.new(old_food_params)

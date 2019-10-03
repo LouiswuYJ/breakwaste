@@ -9,8 +9,10 @@ class User < ApplicationRecord
 
   has_one :cart
   has_many :orders
-  
   has_many :cart_foods, through: :cart
+  
+  has_many :giver_orders, class_name: "Order", foreign_key: :giver_id 
+  has_many :rescuer_orders, class_name: "Order", foreign_key: :rescuer_id 
   
 
   # def load_cart

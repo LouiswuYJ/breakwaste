@@ -1,5 +1,5 @@
 class Food < ApplicationRecord
-  validates_presence_of :title, :address
+  validates_presence_of :title, :address, :pickup_time, :endup_time
   belongs_to :user
   has_many :cart_foods,dependent: :destroy
   has_many :carts, through: :cart_foods
@@ -14,8 +14,4 @@ class Food < ApplicationRecord
       all
     end
   end
-
-  # def to_new_hash    #暫時保留，可能會重寫"重新PO文的功能"
-  #   self.
-  # end
 end

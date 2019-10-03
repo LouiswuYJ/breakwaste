@@ -1,7 +1,8 @@
 class Order < ApplicationRecord
   extend FriendlyId
   friendly_id :order_generator, use: :slugged
-  belongs_to :user
+  belongs_to :giver_id, class_name: 'User'
+  belongs_to :rescuer_id, class_name: 'User'
   has_many :order_items, dependent: :delete_all
    
   def total_price
