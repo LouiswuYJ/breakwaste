@@ -10,7 +10,7 @@
       <div class="row row_list">
         <div class="col col-lg-4 col-md-4 col-sm-12 col-12 col_list col_img">
           <img src="<%=food.picture%>" alt="" class="img_list">
-          <%= image_tag food.avatar.variant(resize: '100x100') if food.avatar.attached? %>
+          <%= image_tag food.avatar.variant(resize: '300x300') if food.avatar.attached? %>
         </div>
        <div class="col col-lg-4 col-md-6 col-sm-12 col-12 col_list col_info">
           <h3><%= food.title %></h3>
