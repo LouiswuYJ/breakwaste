@@ -22,10 +22,9 @@ class FoodsController < ApplicationController
 
   def new
     #暫時保留，可能會改寫”重新PO文的功能“
-    # old_food_params = Food.find_by(id: params[:from_id]) &.to_new_hash || {}  
+    old_food_params = Food.find_by(id: params[:food_id]) &.as_json || {}  
     if user_signed_in?
-      # @food = Food.new(old_food_params)
-      @food = Food.new
+      @food = Food.new(old_food_params)
     else
       redirect_to user_session_path   
     end
