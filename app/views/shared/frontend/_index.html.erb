@@ -16,7 +16,7 @@
           <h3><%= food.title %></h3>
           <p>地區：<%= food.address %></p>  <!-- #到時候在修正成只顯示區域 -->
           <p>數量：<%= food.quantity %></p>
-          <p>可領取時間：<%= food.pickup_time %> ～ <%= food.endup_time %></p>
+          <p>可領取時間：<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%=I18n.l(food.endup_time, formats: :default) %></p>
           <p>原始價：<%= food.origin_price %></p>
           <p>救援價：<%= food.discount_price %></p>
         </div>
