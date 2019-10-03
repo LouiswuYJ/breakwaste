@@ -1,3 +1,7 @@
+.row_sign{
+  height: 1080px;
+  background-color: rgba(255,255,255,0.85)
+}
 form > h2{
   font-size: 50px;
   text-align: center;
