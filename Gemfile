@@ -18,6 +18,7 @@ gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 gem 'rails-i18n'
 gem 'aasm', '~> 5.0', '>= 5.0.6'
 gem 'friendly_id', '~> 5.3'
+gem 'faker', '~> 2.4'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
