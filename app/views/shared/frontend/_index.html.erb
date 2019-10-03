@@ -3,32 +3,36 @@
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 </div>
 
-<%= flash[:notice] %>
 <div class="section_list">
-<% @foods.each do |food| %>
-    <div class="container-fluid container_list">
-      <div class="row row_list">
-        <div class="col col-lg-4 col-md-4 col-sm-12 col-12 col_list col_img">
-          <img src="<%=food.picture%>" alt="" class="img_list">
-          <%= image_tag food.avatar.variant(resize: '300x300') if food.avatar.attached? %>
-        </div>
-       <div class="col col-lg-4 col-md-6 col-sm-12 col-12 col_list col_info">
-          <h3><%= food.title %></h3>
-          <p>地區：<%= food.address %></p>  <!-- #到時候在修正成只顯示區域 -->
-          <p>數量：<%= food.quantity %></p>
-          <p>可領取時間：<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%=I18n.l(food.endup_time, formats: :default) %></p>
-          <p>原始價：<%= food.origin_price %></p>
-          <p>救援價：<%= food.discount_price %></p>
-        </div>
-        <div class="col col-lg-4 col-md-12 col-sm-12 col-12 align-self-end justify-content-end col_list col_btn">
-          <%= link_to "MORE+", food_path(food.id), class:'btn btn-dark btn_more btn_list' %>
-          
-          <% if food.user == current_user %>
-            <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning  btn_list' %>
-            <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger  btn_list', data: {confirm: '確定要刪除嗎？'} %> 
-          <% end %>  
-        </div>
-      </div>
+  <div class="container-fluid container_list">
+   <%= flash[:notice] %>
+    <div class="row row_list">
+      <% @foods.each do |food| %>
+        <a href="/foods/<%=food.id %>" class="text-decoration-none">
+          <div class="col-lg-3 col-md-8 col-sm-10 col-10 col_list col_img">
+            <div>
+              <%= image_tag food.avatar.variant(resize: '300x300'), :class => "img_list" if food.avatar.attached?%>
+            </div>
+              <img src="<%=food.picture%>" alt="" class="img_list" style="margin-bottom:30px">
+            <div class="col_info">
+              <h3><%= food.title %></h3>
+              <p><del>原始價：<%= food.origin_price %></del></p>
+              <p>救援價：<%= food.discount_price %></p>
+              <p>數量：<%= food.quantity %></p>
+              <p>地區：<%= food.address %></p>  <!-- #到時候在修正成只顯示區域 -->
+              <p>可領取時間：<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%=I18n.l(food.endup_time, formats: :default) %></p>
+            </div>
+
+            <div class="col_btn">
+              <%= link_to "MORE+", food_path(food.id), class:'btn btn-dark btn_more btn_list' %>
+              <% if food.user == current_user %>
+                <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning  btn_list' %>
+                <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger  btn_list', data: {confirm: '確定要刪除嗎？'} %> 
+              <% end %>
+            </div>
+          </div>
+        </a>
+      <% end %>   
     </div>
-  <% end %>
-  <div>
+  </div>
+<div>
