@@ -1,0 +1,60 @@
+<div class="section_show">
+  <div class="container-fluid container_show px-0 mx-0">
+
+    <div class="row no-gutters row_show">
+      <div class="col col-lg-6 col-md-8 col-sm-10 col-10 col_show">
+        <div class="col col-10 mx-auto">
+          <div class="show_info">
+            <%# <img src="https://picsum.photos/400/400/?random=2" class="img_show"> %>
+            <%= image_tag @food.avatar.variant(resize: '400x400'), :class => 'img_show' if @food.avatar.attached? %> <!-- 圖片大小從這改 -->
+            <h1><%= @food.title %></h1>
+            <p class="show_price">
+              <strong>$<%= @food.discount_price %></strong>
+              <del><samll>原價<%= @food.origin_price %></samll></del>
+            </p><!--
+            <p><del>原始價：<%= @food.origin_price %></del></p>
+            <p>救援價：<%= @food.discount_price %></p>-->
+            <p>數量：<%= @food.quantity %></p>
+            <p>地址：<%= @food.address %></p>   <!-- #到時候在修正成只顯示區域 -->
+            <p>可領取時間：<%= I18n.l(@food.pickup_time, formats: :default) %> ～ <%= I18n.l(@food.pickup_time, formats: :default) %></p>
+            <p>描述：<%= @food.description %></p> 
+          
+            <%= form_for @current_cart_food, url: cart_foods_path(@food.id), :method => :post do |form| %>
+              <%= form.label :quantity, ' 數量：', :style => "font-size:20px"  %>
+              <%= form.select :quantity, options_for_select(["請選擇數量", [*1..(@food.quantity)]].flatten, selected: 1), class: 'genForm_dropBox select_form' %>
+              <%= form.submit '加入購物車', class: 'btn btn-warning show_btn'%>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col col-10 mx-auto">
+          <div id="map"></div>
+          <script>
+            var map, geocoder;
+            function initMap() {
+              geocoder = new google.maps.Geocoder();
+              map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16
+              });
+              var address = "<%= @food.address %>";
+              geocoder.geocode( { 'address': address}, function(results, status) {
+                if (status == 'OK') {
+                  map.setCenter(results[0].geometry.location);
+                  var marker = new google.maps.Marker({
+                      map: map,
+                      position: results[0].geometry.location
+                  });
+                } else {
+                  console.log(status);
+                }
+              });
+            }
+          </script>
+          <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=Figaro.env.GOOGLE_KEY%>&callback=initMap">
+          </script> 
+        <div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/frontend/footer' %>

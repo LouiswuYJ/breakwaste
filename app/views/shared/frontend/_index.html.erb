@@ -1,26 +1,27 @@
 <div class="list_description">
-<h1>首頁清單</h1>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+<!--- <h1>首頁清單</h1> --->
 </div>
 
 <div class="section_list">
   <div class="container-fluid container_list px-0 mx-0">
    <%= flash[:notice] %>
-    <div class="row row_list">
+    <div class="row no-gutters row_list">
       <% @foods.each do |food| %>
         <a href="/foods/<%=food.id %>" class="text-decoration-none">
-          <div class="col-lg-3 col-md-8 col-sm-10 col-10 col_list col_img">
+          <div class="col col-lg-3 col-md-8 col-sm-10 col-10 col_list col_img p-3">
             <div>
               <%= image_tag food.avatar.variant(resize: '300x300'), :class => "img_list" if food.avatar.attached?%>
             </div>
               <img src="<%=food.picture%>" alt="" class="img_list" style="margin-bottom:30px">
             <div class="col_info">
               <h3><%= food.title %></h3>
-              <p><del>原始價：<%= food.origin_price %></del></p>
-              <p>救援價：<%= food.discount_price %></p>
-              <p>數量：<%= food.quantity %></p>
-              <p>地區：<%= food.address %></p>  <!-- #到時候在修正成只顯示區域 -->
-              <p>可領取時間：<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%=I18n.l(food.endup_time, formats: :default) %></p>
+              <p class="list_price">
+                <strong>$<%= food.discount_price %></strong>
+                <del><samll>原價<%= food.origin_price %></samll></del>
+              </p>
+              <!-- <p>數量：<%= food.quantity %></p> -->
+              <p>地點：<%= food.address %></p>  <!-- #到時候在修正成只顯示區域 -->
+              <p>領取時間：<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%=I18n.l(food.endup_time, formats: :default) %></p>
             </div>
 
             <div class="col_btn">
@@ -34,5 +35,6 @@
         </a>
       <% end %>   
     </div>
+    <%= render 'shared/frontend/footer' %>
   </div>
 <div>
