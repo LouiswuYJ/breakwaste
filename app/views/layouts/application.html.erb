@@ -14,8 +14,12 @@
       background-repeat: cover;
       background-attachment: fixed;
       background-position: left top;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       font-size:20px;
+      }
+      a.btn{
+        width: 120px;
+        font-size: 18px;
       }
   </style>
   <body>
@@ -32,6 +36,10 @@
       <% end %>
         <% if params[:controller] == 'foods' && params[:action] == 'show'%>
         <%= stylesheet_link_tag 'foods', media: 'all' %>
+      <% end %>
+
+      <% if params[:controller] == 'carts' && params[:action] == 'show'%>
+        <%= stylesheet_link_tag 'carts', media: 'all' %>
       <% end %>
       
       <%= yield %> 

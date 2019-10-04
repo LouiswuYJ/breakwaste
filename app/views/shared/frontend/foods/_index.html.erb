@@ -8,7 +8,7 @@
     <div class="row no-gutters row_list">
       <% @foods.each do |food| %>
         <a href="/foods/<%=food.id %>" class="text-decoration-none">
-          <div class="col col-lg-3 col-md-8 col-sm-10 col-10 col_list col_img p-3">
+          <div class="col col-lg-3 col-md-4 col-sm-10 col-10 col_list col_img p-3">
             <div>
               <%= image_tag food.avatar.variant(resize: '300x300'), :class => "img_list" if food.avatar.attached?%>
             </div>
@@ -17,14 +17,14 @@
               <h3><%= food.title %></h3>
               <p class="list_price">
                 <strong>$<%= food.discount_price %></strong>
-                <del><samll>原價<%= food.origin_price %></samll></del>
+                <del>原價<%= food.origin_price %></del>
               </p>
               <!-- <p>數量：<%= food.quantity %></p> -->
               <p>地點：<%= food.address %></p>  <!-- #到時候在修正成只顯示區域 -->
               <p>領取時間：<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%=I18n.l(food.endup_time, formats: :default) %></p>
             </div>
 
-            <div class="col_btn">
+            <div class="col_btn text-right text-bottom">
               <%= link_to "MORE+", food_path(food.id), class:'btn btn-dark btn_more btn_list' %>
               <% if food.user == current_user %>
                 <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning  btn_list' %>

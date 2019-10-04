@@ -2,7 +2,7 @@
   <div class="container-fluid container_show px-0 mx-0">
 
     <div class="row no-gutters row_show">
-      <div class="col col-lg-6 col-md-8 col-sm-10 col-10 col_show">
+      <div class="col col-lg-6 col-md-10 col-sm-12 col-12 col_show">
         <div class="col col-10 mx-auto">
           <div class="show_info">
             <%# <img src="https://picsum.photos/400/400/?random=2" class="img_show"> %>
@@ -10,10 +10,8 @@
             <h1><%= @food.title %></h1>
             <p class="show_price">
               <strong>$<%= @food.discount_price %></strong>
-              <del><samll>原價<%= @food.origin_price %></samll></del>
-            </p><!--
-            <p><del>原始價：<%= @food.origin_price %></del></p>
-            <p>救援價：<%= @food.discount_price %></p>-->
+              <del>原價<%= @food.origin_price %></del>
+            </p>
             <p>數量：<%= @food.quantity %></p>
             <p>地址：<%= @food.address %></p>   <!-- #到時候在修正成只顯示區域 -->
             <p>可領取時間：<%= I18n.l(@food.pickup_time, formats: :default) %> ～ <%= I18n.l(@food.pickup_time, formats: :default) %></p>
