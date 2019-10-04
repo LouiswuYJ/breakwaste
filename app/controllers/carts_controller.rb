@@ -2,7 +2,6 @@ class CartsController < ApplicationController
   before_action :find_cart_food, only: [:destroy]
 
   def show
-    # current_cart = Cart.find_by(user_id: current_user.id)    寫在application
     @foods = current_cart.foods
     # @cart_food = CartFood.find_by(food_id: params[:id])
     @cart_foods = CartFood.all
