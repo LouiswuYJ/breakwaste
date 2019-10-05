@@ -1,4 +1,20 @@
-<%= flash[:notice] %>
-<h1>付款金額：<%= @order.total_price %></h1>
+<% flash.each do |key, value| %>
+  <div class="alert alert-warning <%= flash_class(key) %>">
+    <%= value %>
+  </div>
+<% end %>
 
-
+<div class="container-fluid p-0">
+  <div class="row no-gutters row_payment justify-content-center">
+    <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_payment py-5">
+      <h1>付款金額 <%= @order.total_price %> 元</h1>
+      <h4>訂單成立時間 <%= (@order.created_at).to_s.chomp("+0800") %></h4>
+      <h4>盛食找餐BreakWaste</h4>
+    </div>
+    <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_payment_btn py-5">
+      <%= link_to '繼續購物', foods_path, class:'btn btn-success'%>
+      <%= link_to '前往付款', '#', class:'btn btn-danger'%>
+    </div>
+  </div>
+</div>
+<%= render 'shared/frontend/footer' %>

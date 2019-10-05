@@ -1,0 +1,15 @@
+.row_payment{
+  padding: 100px 0;
+  background: rgba(255,255,255,0.7);
+}
+.col_payment,.col_payment_btn{
+  text-align: center;
+  background-color: #fff;
+}
+.col_payment_btn > .btn{
+  margin-bottom: 40px;
+}
+.col_payment > h1{
+  margin-bottom: 0;
+  padding: 40px 0 100px 0;
+}
