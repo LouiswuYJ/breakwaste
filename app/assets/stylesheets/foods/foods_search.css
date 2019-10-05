@@ -1,10 +1,9 @@
 .section_search{
-  background-image: url(/assets/bc.jpg);
+  background-image: url(/assets/bg01.jpg);
   background-repeat: cover;
  }
  .col_header{
    width: 100%;
-   padding: 50px;
    line-height: 15px;
    color: #000;
    background-color:  rgb(255, 210, 0);
@@ -19,6 +18,11 @@
  .row_search_btn{
    margin: 5px 0 50px 0;
  }
+ .btn_search_bar,.btn_create{
+  width: 150px;
+  height: 40px;
+  font-size: 18px;
+}
  input.search{
    width: 90%;
    height: 70px;
@@ -43,11 +47,4 @@
  }
  img{
    width: 100%;
- }
- .row_foot{
-    padding: 25px;
-    justify-content: center;
-    text-align: center;
-    background-color: #000;
-    color: #fff;
  }
