@@ -9,13 +9,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   </head>
   <style>
-  body{
-    background-image: url(/assets/bg3.jpg);
-    background-repeat: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: left top;
-  }
+    body{
+      background-image: url(/assets/bg3.jpg);
+      background-repeat: cover;
+      background-attachment: fixed;
+      background-position: left top;
+      letter-spacing: 1px;
+      font-size:20px;
+      }
+      a.btn{
+        width: 120px;
+        font-size: 18px;
+      }
   </style>
   <body>
       <%= render 'shared/frontend/navbar' %>
@@ -29,6 +34,14 @@
       <% if params[:controller] == 'foods' && params[:action] == 'index'%>
         <%= stylesheet_link_tag 'foods', media: 'all' %>
       <% end %>
+        <% if params[:controller] == 'foods' && params[:action] == 'show'%>
+        <%= stylesheet_link_tag 'foods', media: 'all' %>
+      <% end %>
+
+      <% if params[:controller] == 'carts' && params[:action] == 'show'%>
+        <%= stylesheet_link_tag 'carts', media: 'all' %>
+      <% end %>
+      
       <%= yield %> 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

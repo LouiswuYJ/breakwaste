@@ -1,23 +1,11 @@
-.list_description{
-  width: 100%;
-  margin: auto;
-  padding: 50px;
-  text-align: center;
-  background-color: rgb(255, 210, 0);
-}
 .row_list{
-  padding-top: 40px;
-  height: 100%;
-  border-radius: 5px;
   justify-content: center;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(255,255,255,0.5);
 }
 .col_list{
-  margin: 20px;
-  padding: 20px;
+  margin: 50px 10px;
   border: 1px solid #eee;
   background-color: rgb(255,255,255);
-  position: relative;
 }
 .col_list:hover{
   border: 5px solid  rgb(255, 195, 0);
@@ -26,24 +14,29 @@
   width: 100%;
   border-radius: 10px;
 }
-.col_info{
-  margin: 0 30px;
-  margin-bottom: 50px;
+.col_info > .list_price{
+  margin: 15px 0;
 }
 .col_info > h3{
-  color: rgb(196, 0, 0);
   font-size: 30px;
+  color: rgb(195, 0, 0);
 }
 @media screen and (min-width: 768px){
   .col_info > h3{
-    padding: 0px;
+   padding: 0px;
   }
 }
 .col_info > p{
   font-size: 18px;
+  color: #000;
   margin: 3px 0;
   letter-spacing: 2px;
-  color: #000;
+}
+.col_info > p > strong{
+  font-size: 30px;
+}
+.col_info > p > del{
+  color:#aaa;
 }
 @media screen and (min-width: 768px){
   .col_info > p{
@@ -51,14 +44,8 @@
   }
 }
 .col_btn{
-  position: absolute;
-  bottom: 10px;
-  right: 15px;
-  text-align: right;
-  align-self: flex-end;
+  margin-top:20px;
 }
 a.btn_list{
-  width: 100px;
-  border: none;
   margin: 5px 0;
 } 
