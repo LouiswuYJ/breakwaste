@@ -4,7 +4,12 @@
 
 <div class="section_list">
   <div class="container-fluid container_list px-0 mx-0">
-   <%= flash[:notice] %>
+  <!---<%= flash[:notice] %>--->
+    <% flash.each do |key, value| %>
+      <div class="alert alert-warning <%= flash_class(key) %>">
+            <%= value %>
+      </div>
+    <% end %>
     <div class="row no-gutters row_list">
       <% @foods.each do |food| %>
         <a href="/foods/<%=food.id %>" class="text-decoration-none">
