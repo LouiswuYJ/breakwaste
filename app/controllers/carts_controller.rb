@@ -1,10 +1,10 @@
 class CartsController < ApplicationController
-  before_action :find_cart_food, only: [:destroy]
+  before_action :find_cart_food, only: [:destroy, :show]
 
   def show
     @foods = current_cart.foods
-    # @cart_food = CartFood.find_by(food_id: params[:id])
     @cart_foods = CartFood.all
+    # render html: params
   end
 
   def destroy
@@ -22,9 +22,8 @@ class CartsController < ApplicationController
   end
 
   def checkout
-    @foods = current_cart.foods
-
     @order = current_user.orders.build
+    @cart_foods = CartFood.all
   end
 
   private
@@ -35,5 +34,4 @@ class CartsController < ApplicationController
   def find_cart_food
     @food = current_cart.foods.find_by(id: params[:format])    
   end
-
 end

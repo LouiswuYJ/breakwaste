@@ -8,11 +8,12 @@ class User < ApplicationRecord
   has_many :foods, dependent: :destroy
 
   has_one :cart
-  has_many :orders
   has_many :cart_foods, through: :cart
   
-  has_many :giver_orders, class_name: "Order", foreign_key: :giver_id 
-  has_many :rescuer_orders, class_name: "Order", foreign_key: :rescuer_id 
+  has_many :orders
+
+  # has_many :giver_orders, class_name: "Order", foreign_key: :giver_id  #變更FK名稱為giver_id
+  # has_many :rescuer_orders, class_name: "Order", foreign_key: :rescuer_id  #變更FK名稱為rescuer_id
   
 
   # def load_cart

@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
     #把購物車裡的東西拿出來，一條一條塞入order_items 
     
     if @order.save
-      current_cart.foods.destroy_all #訂單成立後購物車要清空 
+      # current_cart.foods.destroy_all #訂單成立後購物車要清空  => 改成付款成立訂單後再刪除，暫時先關掉 
       redirect_to payment_order_path(@order), notice: '訂單已成立' 
     else
       render 'carts/checkout'

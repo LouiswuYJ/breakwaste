@@ -10,8 +10,8 @@ class CartFoodsController < ApplicationController
         @cart_food = CartFood.new(cart_food_params)
         @cart_food.cart = current_cart
         @cart_food.food = Food.find_by(id: params[:format])
+        @cart_food.giver_id = Food.find_by(id: params[:format]).user_id
       end
-
       if @cart_food.save
         redirect_to foods_path, notice: '已加入購物車！！'
       else
@@ -28,6 +28,6 @@ class CartFoodsController < ApplicationController
   end
 
   def cart_food_params
-    params.require(:cart_food).permit(:quantity)
+    params.require(:cart_food).permit(:quantity, :giver)
   end
 end

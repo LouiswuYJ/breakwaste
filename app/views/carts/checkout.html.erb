@@ -1,15 +1,15 @@
 <h1>結帳</h1>
 
-<% @foods.each do |food| %>
+<% @cart_foods.each do |cart_food| %>
   <ul>
     <li>
-      名稱：<%= food.title%>
-      數量：<%= food.quantity%>
-      可領取時間：<%= food.pickup_time %> ～ <%= food.endup_time %>
-      原價：<%= food.origin_price%>
-      救援價：<%= food.discount_price%>
-      描述：<%= food.description%>
-      <%= link_to "刪除這筆", cart_path(food.id), method: 'delete', class: 'btn btn-danger', data:{confirm: '確定要刪除嗎？'} %>
+      <%= link_to User.find_by(id: cart_food.food.user_id).name, "#" %>
+      名稱：<%= cart_food.food.title%>
+      數量：<%= cart_food.quantity%>
+      可領取時間:<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%= I18n.l(cart_food.food.pickup_time, formats: :default) %>
+      原價：<%= cart_food.food.origin_price%>
+      救援價：<%= cart_food.food.discount_price%>
+      <%= link_to "刪除這筆", cart_path(cart_food.food.id), method: 'delete', class: 'btn btn-danger', data:{confirm: '確定要刪除嗎？'} %>
     </li>
   </ul>
 <%end%>
@@ -17,9 +17,9 @@
 <hr>
   <%= form_for(@order) do |form| %>
     <%= form.label :recipent, '領取人:' %>
-    <%= form.text_field :recipient %>
+    <%= form.text_field :recipient, value: current_user.name %>
     <%= form.label :phone, '聯絡電話:' %>
-    <%= form.text_field :phone %>
+    <%= form.text_field :phone, value: current_user.phone %>
     <%= form.label :note, '備註:' %>
     <%= form.text_field :note %>
 

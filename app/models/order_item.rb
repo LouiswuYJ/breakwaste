@@ -3,6 +3,7 @@ class OrderItem < ApplicationRecord
   belongs_to :order
 
   def total_price
-    food.discount_price * quantity
+    current_cart_food = CartFood.find_by(food_id: food.id)
+    food.discount_price * current_cart_food.quantity
   end
 end

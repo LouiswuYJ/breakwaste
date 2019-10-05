@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_224822) do
+ActiveRecord::Schema.define(version: 2019_10_04_144521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_09_29_224822) do
     t.datetime "updated_at", null: false
     t.bigint "food_id"
     t.integer "quantity", default: 1
+    t.integer "giver_id"
     t.index ["cart_id"], name: "index_cart_foods_on_cart_id"
     t.index ["food_id"], name: "index_cart_foods_on_food_id"
   end
@@ -102,6 +103,8 @@ ActiveRecord::Schema.define(version: 2019_09_29_224822) do
     t.string "status", default: "pending"
     t.string "recipient"
     t.string "slug"
+    t.integer "giver_id"
+    t.integer "rescuer_id"
     t.index ["slug"], name: "index_orders_on_slug", unique: true
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
