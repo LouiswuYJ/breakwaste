@@ -1,36 +1,43 @@
-<h1>結帳</h1>
-
-<% @foods.each do |food| %>
-  <ul>
-    <li>
-      名稱：<%= food.title%>
-      數量：<%= food.quantity%>
-      可領取時間：<%= food.pickup_time %> ～ <%= food.endup_time %>
-      原價：<%= food.origin_price%>
-      救援價：<%= food.discount_price%>
-      描述：<%= food.description%>
-      <%= link_to "刪除這筆", cart_path(food.id), method: 'delete', class: 'btn btn-danger', data:{confirm: '確定要刪除嗎？'} %>
-    </li>
-  </ul>
-<%end%>
-
-<hr>
-  <%= form_for(@order) do |form| %>
-    <%= form.label :recipent, '領取人:' %>
-    <%= form.text_field :recipient %>
-    <%= form.label :phone, '聯絡電話:' %>
-    <%= form.text_field :phone %>
-    <%= form.label :note, '備註:' %>
-    <%= form.text_field :note %>
-
-    <%= form.submit '建立訂單', class: 'btn btn-success btn-lg' %>
-  <% end %>
-
-
-
-
-
-
-
-
-
+<div class="container-fluid p-0">
+  <div class="row no-gutters row_checkout justify-content-center">
+    <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_checkout_title p-5">
+      <h1>結帳</h1>
+    </div>
+    <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_checkout_info px-5">
+      <% @foods.each do |food| %>
+        <ul class="checkout">
+          <li>
+            <div class="carts_show_price">
+              <p><%= food.title%></p>
+              <p>提貨時間：<%= food.pickup_time %> ～ <%= food.endup_time %></p>
+              <span>＄<%= food.discount_price%></span>
+              <del>原價<%= food.origin_price%></del>
+              數量：<%= food.quantity%>
+            </div>
+              <%= link_to "刪除這筆", cart_path(food.id), method: 'delete', class: 'btn btn-danger checkout_del_btn', style: 'float: right', data:{confirm: '確定要刪除嗎？'} %>
+          </li>
+        </ul>
+      <%end%>
+    </div>
+    <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_checkout_recipent px-5">
+      <%= form_for(@order) do |form| %>
+        <div class="form-group checkout mx-auto col-lg-6 col-10">
+          <%= form.label :recipent, '領取人', class:'label_form' %>
+          <%= form.text_field :recipient, class:'input_form' %>
+        </div>
+        <div class="form-group checkout mx-auto col-lg-6 col-10">
+          <%= form.label :phone, '聯絡電話', class:'label_form' %>
+          <%= form.text_field :phone, class:'input_form' %>
+        </div>
+        <div class="form-group checkout mx-auto col-lg-6 col-10">
+          <%= form.label :note, '備註', class:'label_form' %>
+          <%= form.text_field :note, class:'input_form' %>
+        </div>
+      </div> 
+      <div class="col col-lg-8 col-md-10 col-sm-10 col-10 text-center col_checkout_btn">
+        <%= form.submit '建立訂單', class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= render 'shared/frontend/footer' %>

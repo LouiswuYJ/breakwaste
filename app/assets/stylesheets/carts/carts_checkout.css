@@ -1,0 +1,34 @@
+.row_checkout{
+  padding: 100px 0;
+  background-color: rgba(255,255,255,0.5)
+}
+.col_checkout_info,.col_checkout_title,.col_checkout_recipent,.col_checkout_btn{
+  background-color: #fff;
+}
+.col_checkout_title,.col_checkout_recipent{
+  text-align: center;
+}
+.col_checkout_btn{
+  padding: 20px 0 80px 0;
+}
+.col_checkout_title > h1{
+  padding: 20px 0;
+}
+ul.checkout{
+  margin-bottom: 100px;
+  border-bottom: 1px solid #aaa;
+}
+ul.checkout > li{
+  margin-bottom: 50px;
+  list-style-type: none;
+}
+.checkout_del_btn{
+  margin: 10px 0;
+}
+.checkout > .label_form{
+  display: block;
+  text-align: left;
+}
+.checkout > .input_form{
+  border: 1px solid #aaa;
+}

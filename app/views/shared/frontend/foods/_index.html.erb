@@ -32,8 +32,8 @@
             <div class="col_btn text-right text-bottom">
               <%= link_to "MORE+", food_path(food.id), class:'btn btn-dark btn_more btn_list' %>
               <% if food.user == current_user %>
-                <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning  btn_list' %>
-                <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger  btn_list', data: {confirm: '確定要刪除嗎？'} %> 
+                <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning btn_list' %>
+                <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger btn_list', data: {confirm: '確定要刪除嗎？'} %> 
               <% end %>
             </div>
           </div>
