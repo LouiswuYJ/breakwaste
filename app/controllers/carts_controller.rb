@@ -2,9 +2,10 @@ class CartsController < ApplicationController
   before_action :find_cart_food, only: [:destroy, :show]
 
   def show
-    @foods = current_cart.foods
-    @cart_foods = CartFood.where(giver_id: 4)
-    # render html: params
+    @givers = User.joins(:cart_food_givens).where('cart_foods.cart_id = ?', current_cart.id).distinct
+    # @cart_foods = current_cart.cart_foods.where(giver_id: @givers.ids)
+    # Food.join(:cart_foods).where(cart_foods: {id: params[:food_id]})
+    # @cart_foods = CartFood.includes(:food).where(food_id: params[:food_id]).order(:giver_id)
   end
 
   def destroy
@@ -22,8 +23,8 @@ class CartsController < ApplicationController
   end
 
   def checkout
-    @order = current_user.orders.build
-    @cart_foods = CartFood.all
+    @order = current_user.rescuer_orders.build
+    @cart_foods = current_cart.cart_foods.order(:giver_id)
   end
 
   private

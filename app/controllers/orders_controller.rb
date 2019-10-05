@@ -5,19 +5,26 @@ class OrdersController < ApplicationController
   def index
     # @orders = Order.where(user: current_cart)
     #或從使用者角度建立
-    @orders = current_user.orders.order(created_at: :asc)
+    if Order.find_by(user_id: current_user.id).nil?
+      redirect_to foods_path, notice: '訂單現在是空的喔～'
+    else
+      if current_user.id == Order.find_by(user_id: current_user.id).user_id
+          @orders = current_user.orders.order(created_at: :asc)
+      end
+    end
   end
 
   def payment
   end
   
   def create
-    @order = current_user.orders.new(order_params)
+    @cart_foods = current_cart.cart_foods.order(:giver_id)
+    @order = current_user.rescuer_orders.new(order_params)
     current_cart.foods.each do |food|
-      @order.order_items << OrderItem.new(food_id: food.id, quantity: food.quantity)
+      @order.order_items << OrderItem.new(food_id: food.id, quantity: CartFood.find_by(food_id: food.id).quantity, giver_id: food.user_id, rescuer_id: current_user.id)
+      # @order.rescuer_id = current_user.id
     end
     #把購物車裡的東西拿出來，一條一條塞入order_items 
-    
     if @order.save
       # current_cart.foods.destroy_all #訂單成立後購物車要清空  => 改成付款成立訂單後再刪除，暫時先關掉 
       redirect_to payment_order_path(@order), notice: '訂單已成立' 
@@ -48,7 +55,7 @@ class OrdersController < ApplicationController
  
   private
   def find_order
-    @order = current_user.orders.friendly.find(params[:id]) 
+    @order = current_user.rescuer_orders.friendly.find(params[:id]) 
   end
   
   def order_params

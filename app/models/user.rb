@@ -9,17 +9,12 @@ class User < ApplicationRecord
 
   has_one :cart
   has_many :cart_foods, through: :cart
+  has_many :cart_food_givens, through: :foods, source: :cart_foods, foreign_key: :giver_id, class_name: 'CartFood'
   
   has_many :orders
 
-  # has_many :giver_orders, class_name: "Order", foreign_key: :giver_id  #變更FK名稱為giver_id
-  # has_many :rescuer_orders, class_name: "Order", foreign_key: :rescuer_id  #變更FK名稱為rescuer_id
-  
-
-  # def load_cart
-  #   @cart ||= Cart.find_or_create_by(user_id: self.id)
-  #   # @cart || @cart = Cart.find_or_create_by(user_id: self.id)
-  # end 
+  has_many :giver_orders, class_name: "Order", foreign_key: :giver_id  #變更FK名稱為giver_id
+  has_many :rescuer_orders, class_name: "Order", foreign_key: :rescuer_id  #變更FK名稱為rescuer_id
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info

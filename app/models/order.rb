@@ -3,10 +3,9 @@ class Order < ApplicationRecord
   friendly_id :order_generator, use: :slugged
   has_many :order_items, dependent: :delete_all
 
-  # belongs_to :giver, class_name: 'User'
-  # belongs_to :rescuer, class_name: 'User'
+  belongs_to :giver, class_name: 'User', foreign_key: :giver_id 
+  belongs_to :rescuer, class_name: 'User', foreign_key: :rescuer_id 
    
-
    
   def total_price
     order_items.reduce(0) { |sum, item| sum + item.total_price }

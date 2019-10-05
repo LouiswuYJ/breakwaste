@@ -10,22 +10,28 @@
 
       <div class="col col-lg-8 col-md-10 col-ms-10 col-10 col_cart_show">
         <div class="cart_item m-5">
-          <% @cart_foods.each do |cart_food| %>
-            
-            <p><%= cart_food.food.title%></p>
-            <p>提貨時間 <%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～    <%= I18n.l(cart_food.food.pickup_time, formats: :default) %>
+        <% @givers.each do |giver| %>
+          <%= link_to giver.name, "#" %>
+          <% CartFood.where(giver_id: giver.id).each do |giver| %>
+            <p><%= giver.food.title%></p>
+            <p>提貨時間 <%= I18n.l(giver.food.pickup_time, formats: :default) %> ～    <%= I18n.l(giver.food.pickup_time, formats: :default) %>
             </p>
             <div class="carts_show_price">
-              <span>＄<%= cart_food.food.discount_price%></span>
-              <del>原價<%= cart_food.food.origin_price%></del>
-              數量：<%= cart_food.quantity%>
+              <span>＄<%= giver.food.discount_price%></span>
+              <del>原價<%= giver.food.origin_price%></del>
+              數量：<%= giver.quantity%>
             </div>
 
             <div class="text-right">
-              <%= link_to "刪除", cart_path(cart_food.food.id), method: 'delete', class: 'btn btn-danger btn_del mb-6', data:{confirm: '確定要刪除嗎？'} %>
+              <%= link_to "刪除", cart_path(giver.food.id), method: 'delete', class: 'btn btn-danger btn_del mb-6', data:{confirm: '確定要刪除嗎？'} %>
             </div>
-
           <%end%> 
+          <div class="text-right">
+            <%= link_to "結帳", checkout_cart_path("giver_id" => giver.id), method: 'post', class:'btn btn-success' %>
+          </div>
+        <% end %>
+          
+          
         </div>
       </div>
 
@@ -34,7 +40,6 @@
           <%if @current_cart%>
             <%= link_to "清空購物車", destroy_cart_cart_path, method: 'delete', class: 'btn btn-danger', data:{confirm: '確定要清空嗎？'} %>
           <%end%>
-          <%= link_to "結帳", checkout_cart_path, class:'btn btn-success' %>
         </div>
       </div>
       

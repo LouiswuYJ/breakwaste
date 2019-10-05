@@ -24,7 +24,10 @@ Rails.application.routes.draw do
   resource :cart, only: [:show, :destroy] do
     collection do
       delete :destroy_cart
-      get :checkout 
+    end
+
+    member do
+      post :checkout 
     end
   end
 
