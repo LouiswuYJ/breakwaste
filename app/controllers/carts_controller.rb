@@ -3,7 +3,7 @@ class CartsController < ApplicationController
 
   def show
     @foods = current_cart.foods
-    @cart_foods = CartFood.all
+    @cart_foods = CartFood.where(giver_id: 4)
     # render html: params
   end
 
