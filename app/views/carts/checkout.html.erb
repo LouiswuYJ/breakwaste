@@ -9,7 +9,6 @@
       可領取時間:<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%= I18n.l(cart_food.food.pickup_time, formats: :default) %>
       原價：<%= cart_food.food.origin_price%>
       救援價：<%= cart_food.food.discount_price%>
-      <%= link_to "刪除這筆", cart_path(cart_food.food.id), method: 'delete', class: 'btn btn-danger', data:{confirm: '確定要刪除嗎？'} %>
     </li>
   </ul>
 <%end%>

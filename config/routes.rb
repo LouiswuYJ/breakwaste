@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     end
 
     member do
-      post :checkout 
+      get :checkout 
     end
   end
 

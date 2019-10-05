@@ -9,7 +9,7 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    current_cart_foods.where(food_id: @food.id).destroy_all   
+    CartFood.where(id: params[:format]).destroy_all  
     redirect_to cart_path, notice: '已刪除該筆資料'
   end
 
@@ -23,8 +23,8 @@ class CartsController < ApplicationController
   end
 
   def checkout
-    @order = current_user.rescuer_orders.build
-    @cart_foods = current_cart.cart_foods.order(:giver_id)
+    @order = current_user.rescuer_orders.build(giver_id: params[:giver_id])
+    @cart_foods = current_cart.cart_foods.where(giver_id: params[:giver_id]).order(:giver_id)
   end
 
   private
