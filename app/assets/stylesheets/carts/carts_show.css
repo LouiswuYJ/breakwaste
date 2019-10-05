@@ -1,0 +1,28 @@
+.section_my_cart{
+  height: 1080px;
+  background: rgba(255,255,255,0.5);
+}
+.container_my_cart{
+  padding: 100px 0;
+}
+.col_cart_show{
+  background-color: #fff;
+}
+.my_cart{
+  text-align: center;
+}
+.cart_item{
+  margin: 30px 0;
+  border-bottom: 1px solid #aaa;
+}
+.carts_show_price > span{
+  font-size: 30px;
+  color: rgb(195, 0, 0);
+}
+.carts_show_price > del{
+  color: #aaa;
+  margin-right: 20px;
+}
+.btn_del{
+  margin: 10px 0 20px 0;
+}
