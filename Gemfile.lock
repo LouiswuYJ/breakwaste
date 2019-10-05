@@ -66,7 +66,7 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
-    braintree (2.99.0)
+    braintree (2.98.0)
       builder (>= 2.0.0)
     builder (3.2.3)
     byebug (11.0.1)
@@ -289,7 +289,7 @@ DEPENDENCIES
   aasm (~> 5.0, >= 5.0.6)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
-  braintree
+  braintree (~> 2.98.0)
   byebug
   capybara (>= 2.15)
   chromedriver-helper
