@@ -1,5 +1,3 @@
-<h1>我的訂單</h1>
-
 <table class='table'>
 <thead>
   <tr>
@@ -9,7 +7,8 @@
   </tr>
 </thead>
   <tbody>
-    <% @orders.each do |order|%>
+    <h1>我是買家</h1>
+    <% @rescuer_orders.each do |order|%>
     <tr>
       <td><%= order.friendly_id.upcase%></td>
       <td><%= I18n.l(order.created_at, formats: :default) %></td>
@@ -17,6 +16,26 @@
       <td><%= link_to "詳細內容", order_path(order), class:'btn btn-success btn-sm' %><td>
        <%= link_to "付款", payment_order_path(order), class: 'btn btn-danger btn-sm' if order.may_pay? %>
         <%= link_to "取消訂單", order_path(order), method: 'delete', class: 'btn btn-info btn-sm', data:{confirm: '確定要刪除嗎？'} if order.may_cancel? %>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<table class='table'>
+<thead>
+  <tr>
+    <th>訂單編號</th>
+    <th>日期</th>
+    <th>備註</th>
+  </tr>
+<tbody>
+    <h1>我是賣家</h1>
+    <% @giver_orders.each do |order|%>
+    <tr>
+      <td><%= order.friendly_id.upcase%></td>
+      <td><%= I18n.l(order.created_at, formats: :default) %></td>
+      <td><%= order.note%></td>
+      <td><%= link_to "詳細內容", order_path(order), class:'btn btn-success btn-sm' %><td>
     </tr>
     <%end%>
   </tbody>

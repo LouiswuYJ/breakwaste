@@ -5,21 +5,25 @@ class OrdersController < ApplicationController
   def index
     # @orders = Order.where(user: current_cart)
     #或從使用者角度建立
-    if Order.find_by(user_id: current_user.id).nil?
-      redirect_to foods_path, notice: '訂單現在是空的喔～'
-    else
-      if current_user.id == Order.find_by(user_id: current_user.id).user_id
-          @orders = current_user.orders.order(created_at: :asc)
-      end
-    end
+    # if Order.find_by(user_id: current_user.id).nil?
+    #   redirect_to foods_path, notice: '訂單現在是空的喔～'
+    # else
+    #   if current_user.id == Order.find_by(user_id: current_user.id).user_id
+    #       @orders = current_user.rescuer_orders.order(created_at: :asc)
+    #   end
+    # end
+    @rescuer_orders = current_user.rescuer_orders.order(created_at: :asc)
+    @giver_orders = current_user.giver_orders.order(created_at: :asc)
   end
 
   def payment
   end
   
   def create
-    @cart_foods = current_cart.cart_foods.order(:giver_id)
+    @cart_foods = current_cart.cart_foods.find(params[:order][:cart_food_id])
     @order = current_user.rescuer_orders.new(order_params)
+    @order.giver_id = CartFood.find(params[:order][:cart_food_id]).giver_id
+    # @order.user_id = current_user.id
     current_cart.foods.each do |food|
       @order.order_items << OrderItem.new(food_id: food.id, quantity: CartFood.find_by(food_id: food.id).quantity, giver_id: food.user_id, rescuer_id: current_user.id)
       # @order.rescuer_id = current_user.id

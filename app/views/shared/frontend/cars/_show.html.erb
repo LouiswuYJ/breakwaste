@@ -10,9 +10,9 @@
 
       <div class="col col-lg-8 col-md-10 col-ms-10 col-10 col_cart_show">
         <div class="cart_item m-5">
-        <% @givers.each do |giver| %>
-          <%= link_to giver.name, "#" %>
-          <% CartFood.where(giver_id: giver.id).each do |giver| %>
+        <% @givers.each do |giver_info| %>
+          <%= link_to giver_info.name, "#" %>
+          <% CartFood.where(giver_id: giver_info.id).each do |giver| %>
             <p><%= giver.food.title%></p>
             <p>提貨時間 <%= I18n.l(giver.food.pickup_time, formats: :default) %> ～    <%= I18n.l(giver.food.pickup_time, formats: :default) %>
             </p>
@@ -26,7 +26,7 @@
             </div>
           <%end%> 
           <div class="text-right">
-            <%= link_to "結帳", checkout_cart_path("giver_id" => giver.id), class:'btn btn-success' %>
+            <%= link_to "結帳", checkout_cart_path("giver_id" => giver_info.id), class:'btn btn-success' %>
           </div>
         <% end %>
           
