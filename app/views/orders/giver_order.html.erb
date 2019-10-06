@@ -1,0 +1,12 @@
+<%= flash[:notice] %>
+<h1>我的訂單<%= @giver_orders.slug.upcase%></h1>
+
+<% @giver_orders.order_items.each do |order_item| %>
+  <ul>
+    <li>
+      名稱：<%= order_item.food.title%>
+      數量：<%= order_item.quantity%>
+      可領取時間:<%= I18n.l(order_item.food.pickup_time, formats: :default) %> ～ <%= I18n.l(order_item.food.pickup_time, formats: :default) %>
+    </li>
+  </ul>
+<% end %>

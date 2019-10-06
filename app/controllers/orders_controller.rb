@@ -13,10 +13,17 @@ class OrdersController < ApplicationController
     #   end
     # end
     @rescuer_orders = current_user.rescuer_orders.order(created_at: :asc)
-    @giver_orders = current_user.giver_orders.order(created_at: :asc)
+  end
+
+  def giver
+    @giver_orders = current_user.giver_orders.order(created_at: :asc)    
   end
 
   def payment
+  end
+
+  def giver_order
+    @giver_orders = current_user.giver_orders.friendly.find(params[:id]) 
   end
   
   def create
@@ -26,7 +33,6 @@ class OrdersController < ApplicationController
     @order.giver_id = giver_id
     @cart_foods.each do |food|
       @order.order_items << OrderItem.new(food_id: food.food_id, quantity: food.quantity, giver_id: food.giver_id, rescuer_id: current_user.id)
-    byebug
     end
     #把購物車裡的東西拿出來，一條一條塞入order_items 
     if @order.save
@@ -39,7 +45,6 @@ class OrdersController < ApplicationController
 
   def show
   end
-
 
   def payment
   end

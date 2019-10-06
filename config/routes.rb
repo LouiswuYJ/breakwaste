@@ -39,7 +39,12 @@ Rails.application.routes.draw do
     member do
       get :payment
       post :transaction
+      get :giver_order
     end
+
+    collection do
+      get :giver
+    end 
   end
 
   # delete '/cart/:id', to: 'cart#destroy'

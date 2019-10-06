@@ -1,0 +1,21 @@
+<table class='table'>
+<thead>
+  <tr>
+    <th>訂單編號</th>
+    <th>名字</th>
+    <th>日期</th>
+    <th>備註</th>
+  </tr>
+<tbody>
+    <h1>我是賣家</h1>
+    <% @giver_orders.each do |order|%>
+    <tr>
+      <td><%= order.friendly_id.upcase%></td>
+      <td><%= order.recipient %></td>
+      <td><%= I18n.l(order.created_at, formats: :default) %></td>
+      <td><%= order.note%></td>
+      <td><%= link_to "詳細內容", giver_order_order_path(order), class:'btn btn-success btn-sm' %><td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
