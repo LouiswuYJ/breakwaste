@@ -48,6 +48,7 @@ class OrdersController < ApplicationController
     if @order.save
       # current_cart.foods.destroy_all #訂單成立後購物車要清空  => 改成付款成立訂單後再刪除，暫時先關掉 
       redirect_to payment_order_path(@order), notice: '訂單已成立' 
+
     else
       render 'carts/checkout'
     end    
@@ -65,7 +66,6 @@ class OrdersController < ApplicationController
   end
 
   def transaction
-    if @order.may_pay?
       result = braintree_gateway.transaction.sale(
         :amount => "@order.total_price", 
         :payment_method_nonce => params[:payment_method_nonce],
@@ -73,20 +73,7 @@ class OrdersController < ApplicationController
         :submit_for_settlement => true
         }
       )
-      if result.success?
-        @order.pay!
-        redirect_to orders_path, notice: '信用卡結帳完成'
-      else
-        redirect_to orders_path, notice: '付款失敗'
-      end
-    else
-      redirect_to orders_path, notice: '訂單已完成付款'
-    # if @order.may_pay? #may_pay? 是AASM 產生的方法
-    #     @order.pay!       #pay! 是AASM 產生的方法 
-    # else
-    #   redirect_to orders_path, notice: '訂單已完成付款'
-    # end  
-    end
+      redirect_to orders_path, notice: '卡結帳完成'
   end
 
   private

@@ -13,6 +13,7 @@
 <%end%>
 
 
+
 <%= form_for(@order) do |form| %>
   
   <%= form.label :recipent, '領取人:' %>
@@ -25,6 +26,7 @@
   <%= form.hidden_field :cart_food_id, value: @cart_foods.ids %>
   <%= form.submit '付款', class: 'btn btn-success btn-lg'  %>
 <% end %>
+
 
 
 
