@@ -6,7 +6,6 @@ class CartsController < ApplicationController
     # @cart_foods = current_cart.cart_foods.where(giver_id: @givers.ids)
     # Food.join(:cart_foods).where(cart_foods: {id: params[:food_id]})
     # @cart_foods = CartFood.includes(:food).where(food_id: params[:food_id]).order(:giver_id)
-    byebug
   end
 
   def destroy
