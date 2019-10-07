@@ -20,11 +20,7 @@
         <li>
           <%= link_to "PO文紀錄", history_foods_path, class: 'nav-link' %>
         </li>
-        <% if current_user.cart %>
-          <li>
-            <%= link_to "購物車(#{current_cart.foods.count})", cart_path("food_id" => current_cart.foods.ids), class: 'nav-link' if current_cart.present?%>
-          </li>
-          <li class="nav-item">
+         <li class="nav-item">
             <%= link_to "Rescuer訂單", orders_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
@@ -32,6 +28,9 @@
           </li>
           <li class="nav-item">
             <%= link_to "我的小樹", my_tree_path(current_user.id), class: 'nav-link' %>
+        <% if current_user.cart %>
+          <li>
+            <%= link_to "購物車(#{current_cart.foods.count})", cart_path("food_id" => current_cart.foods.ids), class: 'nav-link' if current_cart.present?%>
           </li>
         <%end%>  
         <li class="nav-item">
