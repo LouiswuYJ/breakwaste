@@ -11,7 +11,7 @@
         <% @givers.each do |giver_info| %>
 
           <div class="store p-2">
-            <%= link_to giver_info.name, "#" %>
+            <%= link_to giver_info.name, "#", class: "text-decoration-none" %>
             <% CartFood.where(giver_id: giver_info.id).each do |giver| %>
           </div>
           

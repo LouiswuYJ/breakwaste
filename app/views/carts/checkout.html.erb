@@ -1,20 +1,21 @@
+
 <div class="container-fluid p-0">
   <div class="row no-gutters row_checkout justify-content-center">
-    <div class="col col-lg-12 col-md-10 col-sm-10 col-10 col_checkout_title p-5">
+    <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_checkout_title p-5">
       <h1>訂單詳情</h1>
     </div>
-    <div class="col col-lg-12 col-md-10 col-sm-10 col-10 col_checkout_info px-5">
-      <% @foods.each do |food| %>
+    <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_checkout_info px-5">
+      <% @cart_foods.each do |cart_food| %>
         <ul class="checkout">
           <li>
             <div class="carts_show_price">
-              <p><%= food.title%></p>
-              <p>提貨時間：<%= food.pickup_time %> ～ <%= food.endup_time %></p>
-              <span>＄<%= food.discount_price%></span>
-              <del>原價<%= food.origin_price%></del>
-              數量：<%= food.quantity%>
+              <%= link_to User.find_by(id: cart_food.food.user_id).name, "#" %>
+              <p><%= cart_food.food.title%></p>
+              <p>提貨時間：<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%= I18n.l(cart_food.food.pickup_time, formats: :default) %></p>
+              <span>＄<%= cart_food.food.discount_price%></span>
+              <del>原價<%= cart_food.food.origin_price%></del>
+              數量：<%= cart_food.food.quantity%>
             </div>
-              <%= link_to "刪除這筆", cart_path(food.id), method: 'delete', class: 'btn btn-danger checkout_del_btn', style: 'float: right', data:{confirm: '確定要刪除嗎？'} %>
           </li>
         </ul>
       <%end%>
@@ -37,8 +38,7 @@
       <div class="col col-lg-8 col-md-10 col-sm-10 col-10 text-center col_checkout_btn">
 
         <%= form.hidden_field :cart_food_id, value: @cart_foods.ids %>
-        <%= form.submit '付款', class: 'btn btn-success btn-lg'  %>
-        <%= form.submit '建立訂單', class: 'btn btn-success' %>
+        <%= form.submit '付款', class: 'btn btn-success btn_style' %>
       <% end %>
     </div>
   </div>

@@ -18,6 +18,10 @@
 }
 .store > a{
   color: #fff;
+  text-decoration: none;
+}
+.store > a:hover{
+  color: #fff;
 }
 .items{
   border-bottom: 1px solid #aaa;
