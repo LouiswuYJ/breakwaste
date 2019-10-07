@@ -67,7 +67,7 @@ class OrdersController < ApplicationController
 
   def transaction
       result = braintree_gateway.transaction.sale(
-        :amount => "@order.total_price", 
+        :amount => "@order.total_price",   # total_price 待修 / @order.total_price git為 nil
         :payment_method_nonce => params[:payment_method_nonce],
         :options => {
         :submit_for_settlement => true
