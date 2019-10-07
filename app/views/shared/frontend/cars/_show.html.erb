@@ -26,7 +26,7 @@
             </div>
           <%end%> 
           <div class="text-left">
-            總金額：$<%=  @total_price%>元
+            總價：<%= @total_prices_all[giver_info.id]%>元
           </div>
           <div class="text-right">
             <%= link_to "結帳", checkout_cart_path("giver_id" => giver_info.id), class:'btn btn-success' %>

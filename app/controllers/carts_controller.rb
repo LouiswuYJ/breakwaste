@@ -4,11 +4,22 @@ class CartsController < ApplicationController
   def show
     @givers = User.joins(:cart_food_givens).where('cart_foods.cart_id = ?', current_cart.id).distinct
     @cart_foods = CartFood.where(giver_id: @givers.ids)
-
-    @total_price = @cart_foods.reduce(0) do |sum, cart_food|
-      sum + Food.find(cart_food.food_id).discount_price * cart_food.quantity
+    # @cart_foods_by_giver = cart_foods_by_giver(@cart_foods)
+    @total_prices_all = @cart_foods.reduce({}) do |rs, cf|
+      rs[cf.giver_id] ||= 0
+      rs[cf.giver_id] += cf.total_price
+      rs
     end
+    @giver_food = Food.find(params[:food_id])
   end
+
+  # def cart_foods_by_giver(cart_foods)    #根據giver_id撈出的cart_food資料
+  #   cart_foods.reduce({}) do |rs, cf|
+  #     rs[cf.giver_id] ||= []
+  #     rs[cf.giver_id] << cf
+  #     rs
+  #   end
+  # end
 
   def destroy
     CartFood.where(id: params[:format]).destroy_all  
