@@ -7,7 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "產出5筆PO文資料"
 
-current_user = User.first
+# current_user = User.create(name: Faker::Name.name, password: '111111', phone: '0923111111', email: 'example@gmail.com', role: 'giver')
+
+
+
+
 
 def origin_price
   Faker::Number.between(from: 50, to: 1000)  
@@ -21,8 +25,13 @@ def randon_number
   [*1..10].sample
 end
 
-3.times do |i|
-  current_user.foods.create(title:Faker::Food.title,
+
+10.times do |i|
+  User.create(name: Faker::Name.name, password: 111111, phone: '0923111111', email: Faker::Internet.email, address:Faker::Address.street)
+end
+
+5.times do |i|
+  User.find(rand(1..10)).foods.create(title:Faker::Food.title,
                             address:Faker::Address.street,
                             phone:Faker::Food.formats,
                             quantity:Faker::Number.between(from: 1, to: 10),

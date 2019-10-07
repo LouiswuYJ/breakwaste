@@ -1,15 +1,15 @@
 class CartsController < ApplicationController
-  before_action :find_cart_food, only: [:destroy]
+  before_action :find_cart_food, only: [:destroy, :show]
 
   def show
-    # current_cart = Cart.find_by(user_id: current_user.id)    寫在application
-    @foods = current_cart.foods
-    # @cart_food = CartFood.find_by(food_id: params[:id])
-    @cart_foods = CartFood.all
+    @givers = User.joins(:cart_food_givens).where('cart_foods.cart_id = ?', current_cart.id).distinct
+    # @cart_foods = current_cart.cart_foods.where(giver_id: @givers.ids)
+    # Food.join(:cart_foods).where(cart_foods: {id: params[:food_id]})
+    # @cart_foods = CartFood.includes(:food).where(food_id: params[:food_id]).order(:giver_id)
   end
 
   def destroy
-    current_cart_foods.where(food_id: @food.id).destroy_all   
+    CartFood.where(id: params[:format]).destroy_all  
     redirect_to cart_path, notice: '已刪除該筆資料'
   end
 
@@ -23,9 +23,8 @@ class CartsController < ApplicationController
   end
 
   def checkout
-    @foods = current_cart.foods
-
-    @order = current_user.orders.build
+    @order = current_user.rescuer_orders.build(giver_id: params[:giver_id])
+    @cart_foods = current_cart.cart_foods.where(giver_id: params[:giver_id])
   end
 
   private
@@ -36,5 +35,9 @@ class CartsController < ApplicationController
   def find_cart_food
     @food = current_cart.foods.find_by(id: params[:format])    
   end
-
 end
+
+
+
+
+

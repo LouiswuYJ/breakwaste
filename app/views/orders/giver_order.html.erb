@@ -1,8 +1,7 @@
 <%= flash[:notice] %>
-<h1>我的訂單<%= @order.slug.upcase%></h1>
+<h1>我的訂單<%= @giver_orders.slug.upcase%></h1>
 
-
-<% @order.order_items.each do |order_item| %>
+<% @giver_orders.order_items.each do |order_item| %>
   <ul>
     <li>
       名稱：<%= order_item.food.title%>

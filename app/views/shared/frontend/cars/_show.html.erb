@@ -1,0 +1,50 @@
+<%= flash[:notice] %>
+<div class="section_my_cart">
+  <div class="container-fluid container_my_cart">
+    <div class="row no-gutters justify-content-center row_cart_show">
+      <div class="col col-lg-8 col-md-10 col-ms-10 col-10 col_cart_show">
+         <div class="my_cart m-5">
+          <h1>我的購物車</h1>
+        </div>
+      </div>
+
+      <div class="col col-lg-8 col-md-10 col-ms-10 col-10 col_cart_show">
+        <div class="cart_item m-5">
+        <% @givers.each do |giver_info| %>
+          <%= link_to giver_info.name, "#" %>
+          <% CartFood.where(giver_id: giver_info.id).each do |giver| %>
+            <p><%= giver.food.title%></p>
+            <p>提貨時間 <%= I18n.l(giver.food.pickup_time, formats: :default) %> ～    <%= I18n.l(giver.food.pickup_time, formats: :default) %>
+            </p>
+            <div class="carts_show_price">
+              <span>＄<%= giver.food.discount_price%></span>
+              <del>原價<%= giver.food.origin_price%></del>
+              數量：<%= giver.quantity%>
+            </div>
+            <div class="text-right">
+              <%= link_to "刪除", cart_path(giver.id), method: 'delete', class: 'btn btn-danger btn_del mb-6', data:{confirm: '確定要刪除嗎？'} %>
+            </div>
+          <%end%> 
+          <div class="text-right">
+            <%= link_to "結帳", checkout_cart_path("giver_id" => giver_info.id), class:'btn btn-success' %>
+          </div>
+        <% end %>
+          
+          
+        </div>
+      </div>
+
+      <div class="col col-lg-8 col-md-10 col-ms-10 col-10 col_cart_show">
+        <div class="text-right mb-5 mr-5">
+          <%if @current_cart%>
+            <%= link_to "清空購物車", destroy_cart_cart_path, method: 'delete', class: 'btn btn-danger', data:{confirm: '確定要清空嗎？'} %>
+          <%end%>
+        </div>
+      </div>
+      
+    </div>  
+  </div>
+</div>
+<%= render 'shared/frontend/footer' %>
+
+

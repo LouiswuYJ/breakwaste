@@ -17,10 +17,12 @@
             <p>可領取時間：<%= I18n.l(@food.pickup_time, formats: :default) %> ～ <%= I18n.l(@food.pickup_time, formats: :default) %></p>
             <p>描述：<%= @food.description %></p> 
           
-            <%= form_for @current_cart_food, url: cart_foods_path(@food.id), :method => :post do |form| %>
-              <%= form.label :quantity, ' 數量：', :style => "font-size:20px"  %>
-              <%= form.select :quantity, options_for_select(["請選擇數量", [*1..(@food.quantity)]].flatten, selected: 1), class: 'genForm_dropBox select_form' %>
-              <%= form.submit '加入購物車', class: 'btn btn-warning show_btn'%>
+            <% if current_user.id != @food.user_id %>
+              <%= form_for @current_cart_food, url: cart_foods_path(@food.id), :method => :post do |form| %>
+                <%= form.label :quantity, ' 數量：', :style => "font-size:20px"  %>
+                <%= form.select :quantity, options_for_select(["請選擇數量", [*1..(@food.quantity)]].flatten, selected: 1), class: 'genForm_dropBox select_form' %>
+                <%= form.submit '加入購物車', class: 'btn btn-warning show_btn'%>
+              <% end %>
             <% end %>
           </div>
         </div>

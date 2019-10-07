@@ -51,7 +51,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'recaptcha', git: "https://github.com/ambethia/recaptcha.git"
 gem 'devise-bootstrap-views', '~> 1.0'
-gem 'faker', '~> 2.4'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
 
 group :development, :test do

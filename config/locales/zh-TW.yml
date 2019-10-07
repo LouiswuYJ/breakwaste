@@ -209,7 +209,7 @@ zh-TW:
     formats:
       default: "%Y年%m月%d日 %A %p %H:%M"
       long: "%Y年%m月%d日 %H:%M"
-      short: "%m月%d日 %H:%M"
+      short: "aaaaa"
     pm: 下午
   faker:
     address:

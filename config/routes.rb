@@ -12,13 +12,21 @@ Rails.application.routes.draw do
    member do
      get :search
      put :add_to_cart
+     
    end
+
+   collection do  
+     get :history
+   end  
  end
  root 'foods#search'
 
   resource :cart, only: [:show, :destroy] do
     collection do
       delete :destroy_cart
+    end
+
+    member do
       get :checkout 
     end
   end
@@ -31,7 +39,12 @@ Rails.application.routes.draw do
     member do
       get :payment
       post :transaction
+      get :giver_order
     end
+
+    collection do
+      get :giver
+    end 
   end
 
   # delete '/cart/:id', to: 'cart#destroy'
