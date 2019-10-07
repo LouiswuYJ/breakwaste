@@ -6,18 +6,16 @@
     <th>日期</th>
     <th>備註</th>
   </tr>
-</thead>
-  <tbody>
-    <h1>我是買家</h1>
-    <% @rescuer_orders.each do |order|%>
+<tbody>
+    <h1>我是賣家</h1>
+    <% @giver_orders.each do |order|%>
     <tr>
       <td><%= order.friendly_id.upcase%></td>
       <td><%= order.recipient %></td>
       <td><%= I18n.l(order.created_at, formats: :default) %></td>
       <td><%= order.note%></td>
-      <td><%= link_to "詳細內容", order_path(order), class:'btn btn-success btn-sm' %><td>
+      <td><%= link_to "詳細內容", giver_order_order_path(order), class:'btn btn-success btn-sm' %><td>
     </tr>
     <%end%>
   </tbody>
 </table>
-

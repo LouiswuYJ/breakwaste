@@ -5,7 +5,10 @@
 
     <div class="row no-gutters row_search">
       <div class="col col-lg-12 col-md-12 col-sm-12 col-12 col_search">
-        <input class="search" type="search" placeholder="Search" aria-label="Search">
+          <%= form_tag(foods_path, method: :get) do %>
+            <%= text_field_tag :search, params[:search], placeholder: "食物名稱、食物描述、地點...", class: 'search' %>
+          <%= submit_tag "搜尋", name: nil, class: 'btn btn-dark' %>
+      <% end %>
       </div>
     </div>
     <div class="row no-gutters row_search_btn">
@@ -48,6 +51,12 @@
 
     <%= render 'shared/frontend/footer' %>
 
+      <a href="#" class="search_btn"><i class="fas fa-search"></i></a>
+
+     
+
+      <hr>
+    </div>
   </div>
 </div>
 

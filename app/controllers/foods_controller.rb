@@ -1,11 +1,9 @@
 class FoodsController < ApplicationController
   # require 'net/http'
   before_action :find_food, only: [:edit, :update, :destroy]
-  def search
-  end
 
   def index
-    @foods = Food.order(created_at: :desc)  
+    @foods = Food.search(params[:search]).order(created_at: :desc)
   end
 
   def show
@@ -14,8 +12,9 @@ class FoodsController < ApplicationController
   end
 
   def new
+    old_food_params = Food.find_by(id: params[:food_id]) &.as_json || {}  
     if user_signed_in?
-      @food = Food.new
+      @food = Food.new(old_food_params)
     else
       redirect_to user_session_path   
     end
@@ -45,6 +44,10 @@ class FoodsController < ApplicationController
     if @food.destroy
       redirect_to foods_path, notice: "刪除成功"
     end
+  end
+
+  def history
+    @foods = Food.where(user_id: current_user.id)
   end
 
   # def add_to_cart
