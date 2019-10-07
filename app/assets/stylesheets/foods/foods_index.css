@@ -1,26 +1,28 @@
 .row_list{
-  justify-content: center;
   background-color: rgba(255,255,255,0.5);
-}
+  }
 .col_list{
-  margin: 50px 10px;
-  border: 1px solid #eee;
-  background-color: rgb(255,255,255);
-}
+  border: 5px solid #eee;
+  background-color: #fff;
+  border-radius: 5px;
+  }
 .col_list:hover{
   border: 5px solid  rgb(255, 195, 0);
-}
+  }
+.col_info,.col_btn{
+  background-color: #fff;
+  }
 .img_list{
   width: 100%;
   border-radius: 10px;
-}
+  }
 .col_info > .list_price{
   margin: 15px 0;
-}
+  }
 .col_info > h3{
   font-size: 30px;
   color: rgb(195, 0, 0);
-}
+  } 
 @media screen and (min-width: 768px){
   .col_info > h3{
    padding: 0px;
@@ -31,21 +33,15 @@
   color: #000;
   margin: 3px 0;
   letter-spacing: 2px;
-}
+  }
 .col_info > p > strong{
   font-size: 30px;
-}
+  }
 .col_info > p > del{
   color:#aaa;
-}
+  }
 @media screen and (min-width: 768px){
   .col_info > p{
     padding: 0px;
   }
 }
-.col_btn{
-  margin-top:20px;
-}
-a.btn_list{
-  margin: 5px 0;
-} 
