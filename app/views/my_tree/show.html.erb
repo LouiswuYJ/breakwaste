@@ -1,13 +1,11 @@
   <style>
-    .tree{
+    .tree{ 
       width: 500px;
       height: 500px;
     }
   </style>
 
 <h1>我的小樹</h1>
-<div>
-    <%= image_tag "trees/tree1.jpg", :class => "tree"%>
-    <%= image_tag "trees/tree2.jpg", :class => "tree" %>   
-    <%= image_tag "trees/tree3.jpg", :class => "tree" %>
+<div class="tree">
+  <%= order_count(@order_count) %>
 </div>
