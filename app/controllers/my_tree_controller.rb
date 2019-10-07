@@ -3,11 +3,10 @@ class MyTreeController < ApplicationController
   # before_action :save_money, only: [:show]
   def show
     rescuer_money = current_user.rescuer_orders.each do |order|
-      order.order_items.each do |item|
-        item.food.origin_price
+      order.order_items.map do |item|
+        item.food.origin_price - item.food.discount_price
       end
     end
-    byebug
   end
   private
   def order_count
