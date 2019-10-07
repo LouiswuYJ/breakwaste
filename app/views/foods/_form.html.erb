@@ -9,7 +9,7 @@
 <div class="section_form">
   <%= form_for(food) do |form| %>
     <div class="container-fluid container_form">
-      <div class="row row_form">
+      <div class="row row_form ">
   
       <div class="col col-lg-6 col-md-10 col-sm-10 col-10 col_form">
 
@@ -65,16 +65,20 @@
             <%= form.text_area :description %>
           </div>
       </div>
+      <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_form text-center p-5">
+        <% if params[:controller] == 'foods' && params[:action] == 'new' %>
+          <%= form.submit "新增",class:'btn btn-danger btn_style' %> 
+        <% else %> 
+          <%= form.submit "儲存",class:'btn btn-danger btn_style' %> 
+        <% end %>
+            <%= link_to "取消", foods_path, class: 'btn btn-success btn_style btn_form' %>
+
+      </div>
     </div>
 
-    <% if params[:controller] == 'foods' && params[:action] == 'new' %>
-      <%= form.submit "新增食物",class:'btn btn-danger' %> 
-    <% else %> 
-      <%= form.submit "儲存編輯",class:'btn btn-danger' %> 
-    <% end %>
+
 
       <!-- 再來想怎麼在不同頁面改按鈕名稱 -->
-    <%= link_to "取消", foods_path, class: 'btn btn-success btn_form' %>
 
   <% end %>
 </div>

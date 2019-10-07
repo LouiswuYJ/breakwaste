@@ -1,62 +1,48 @@
-<div class="section_search">
-  <div class="container-fluid px-0 container_search">
-
-    <%= render 'shared/frontend/header' %>
-
-    <div class="row no-gutters row_search">
-      <div class="col col-lg-12 col-md-12 col-sm-12 col-12 col_search">
-          <%= form_tag(foods_path, method: :get) do %>
-            <%= text_field_tag :search, params[:search], placeholder: "食物名稱、食物描述、地點...", class: 'search' %>
-          <%= submit_tag "搜尋", name: nil, class: 'btn btn-dark' %>
+<div class="container-fluid px-0 container_search">
+  <%= render 'shared/frontend/header' %>
+  <div class="row no-gutters row_search">
+    <div class="col col-lg-12 col-md-12 col-sm-12 col-12 col_search p-0">
+      <%= form_tag(foods_path, method: :get) do %>
+        <%= text_field_tag :search, params[:search], placeholder: "食物名稱、食物描述、地點...", class: 'search' %>
+        <%= submit_tag "搜尋", name: nil, class: 'btn btn-dark foods_search_btn' %>
       <% end %>
-      </div>
-    </div>
-    <div class="row no-gutters row_search_btn">
-      <div class="col col-lg-12 col-md-12 col-sm-12 col-12 col_search_btn">
-          <button class="btn btn-success btn_search_bar" type="submit">SEARCH</button>
-          <%= link_to "新增Foods", new_food_path, class:'btn btn-warning btn_create'%>
-      </div>
-    </div>
-
-    <div class="row no-gutters row_about">
-      <div class="col col-lg-6 col-md-6 col-sm-8 col-8 col_search_btn">
-          <h2>盛食找餐 about us</h2>
-          <p style="font-size:18px">糧食浪費已是全球化問題，而臺灣每年所浪費掉的食物量不僅在亞洲國家名列前茅，更與歐、美並列為浪費大國。為了減少食物的浪費，「盛食找餐」提供了一個便捷的即期品銷售平台，讓每個人都能輕鬆透過「盛食找餐」，讓多餘資源流通到更需要的人手中。</p>
-      </div>
-    </div>
-
-      <div class="row no-gutters row_fourimage">
-        <div class="col col-lg-6 col-md-12 col-sm-12 col-12 col_fourimage">
-          <%= image_tag "food.jpg" %>
-        </div>
-        <div class="col col-lg-6 col-md-12 col-sm-12 col-12 col_fourimage">
-          <div class="row no-gutters row_fourimage">
-            <div class="col col-lg-6 col-md-6 col-sm-6 col-6 col_fourimage">
-              <%= image_tag "fruit.jpg" %>
-            </div>
-            <div class="col col-lg-6 col-md-6 col-sm-6 col-6 col_fourimage">
-              <%= image_tag "burger.jpg" %>
-            </div>
-            <div class="row no-gutters row_fourimage">
-              <div class="col col-lg-6 col-md-6 col-sm-6 col-6 col_fourimage">
-                <%= image_tag "coffee.jpg" %>
-              </div>
-              <div class="col col-lg-6 col-md-6 col-sm-6 col-6 col_fourimage">
-                <%= image_tag "dim.jpg" %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <%= render 'shared/frontend/footer' %>
-
-      <a href="#" class="search_btn"><i class="fas fa-search"></i></a>
-
-     
-
-      <hr>
     </div>
   </div>
+
+  <div class="row no-gutters row_about">
+    <div class="col col-lg-6 col-md-6 col-sm-8 col-8 col_foods_about">
+        <h2>盛食找餐 about us</h2>
+        <p style="font-size:18px">糧食浪費已是全球化問題，而臺灣每年所浪費掉的食物量不僅在亞洲國家名列前茅，更與歐、美並列為浪費大國。為了減少食物的浪費，「盛食找餐」提供了一個便捷的即期品銷售平台，讓每個人都能輕鬆透過「盛食找餐」，讓多餘資源流通到更需要的人手中。</p>
+    </div>
+  </div>
+
+  <div class="row no-gutters row_fourimage">
+    <div class="col col-lg-6 col-md-12 col-sm-12 col-12 col_fourimage">
+      <%= image_tag "food.jpg" %>
+    </div>
+
+    <div class="col col-lg-6 col-md-12 col-sm-12 col-12 col_fourimage">
+      <div class="row no-gutters row_fourimage">
+        <div class="col col-lg-6 col-md-6 col-sm-6 col-6 col_fourimage">
+          <%= image_tag "fruit.jpg" %>
+        </div>
+        <div class="col col-lg-6 col-md-6 col-sm-6 col-6 col_fourimage">
+          <%= image_tag "burger.jpg" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters row_fourimage">
+        <div class="col col-lg-6 col-md-6 col-sm-6 col-6 col_fourimage">
+          <%= image_tag "coffee.jpg" %>
+        </div>
+        <div class="col col-lg-6 col-md-6 col-sm-6 col-6 col_fourimage">
+          <%= image_tag "dim.jpg" %>
+        </div>
+      </div>
+    </div>  
+  </div>
+  <%= render 'shared/frontend/footer' %>
 </div>
+
+
 

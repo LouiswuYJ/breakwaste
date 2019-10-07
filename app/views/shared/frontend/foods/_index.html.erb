@@ -26,11 +26,11 @@
             <p>領取時間：<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%=I18n.l(food.endup_time, formats: :default) %></p>
           </div>
           <div class="col col-lg-12 col-md-12 col-sm-12 col-12 col_btn p-2 text-right">
-            <%= link_to "MORE", food_path(food.id), class:'btn btn-dark btn_foods_list' %>
             <% if food.user == current_user %>
               <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning btn_foods_list' %>
               <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger btn_foods_list', data: {confirm: '確定要刪除嗎？'} %> 
             <% end %>
+            <%= link_to "MORE", food_path(food.id), class:'btn btn-dark btn_style' %>
           </div>
         </div>
       </a>

@@ -45,3 +45,8 @@
     padding: 0px;
   }
 }
+.btn_foods_list{
+  height: 40px;
+  font-size: 18px;
+  align-items: flex-start;
+}

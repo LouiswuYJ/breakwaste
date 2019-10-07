@@ -1,50 +1,53 @@
-.section_search{
-  background-image: url(/assets/bg01.jpg);
-  background-repeat: cover;
- }
- .col_header{
-   width: 100%;
-   line-height: 15px;
-   color: #000;
-   background-color:  rgb(255, 210, 0);
-   text-align: center;
- }
- .row_search,.row_search_btn{
-   text-align: center;
- }
- .row_search{
-   margin: 50px 0 5px 0;
- }
- .row_search_btn{
-   margin: 5px 0 50px 0;
- }
- .btn_search_bar,.btn_create{
+.col_header{
+  width: 100%;
+  line-height: 15px;
+  color: #000;
+  background-color:  rgb(255, 210, 0);
+  text-align: center;
+}
+.row_search,.row_search_btn{
+  text-align: center;
+}
+.row_search{
+  margin: 70px 0 5px 0;
+}
+.btn_search_bar,.btn_create{
   width: 150px;
   height: 40px;
   font-size: 18px;
 }
- input.search{
-   width: 90%;
-   height: 70px;
-   margin: 60px 0 10px 0;
-   padding-left: 15px;
-   border-radius: 5px;
-   border: 5px solid #555;
- }
- @media screen and (min-width: 768px){
+input.search{
+  width: 400px;
+  height: 70px;
+  margin: 10px 0;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 5px solid #555;
+}
+@media screen and (min-width: 768px){
   input.search{
     width: 60%;
   }
- }
- .row_about{
-   justify-content: center;
-   text-align: center;
-   margin-bottom: 60px;
- }
- .col_image{
-   margin: 3px;
-   width: 100%;
- }
- img{
-   width: 100%;
- }
+}
+.foods_search_btn{
+  width: 80px;
+  height: 70px;
+  font-size: 18px;
+  margin-left: -15px;
+  margin-top: -6px;
+}
+.row_about{
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.col_foods_about{
+  margin-top: 70px;
+}
+.col_image{
+  margin: 3px;
+  width: 100%;
+}
+img{
+width: 100%;
+}

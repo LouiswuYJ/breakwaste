@@ -1,4 +1,4 @@
-
+/* --- 訊息通知 --- */
 ul.error {
     color: #fff;
     margin-bottom: 0;
@@ -8,13 +8,15 @@ ul.error {
   padding: 20px 5px;
   display: inline-block;
 }
+
+/* --- 內容 --- */
 .create_form{
   padding: 30px;
   text-align: center;
   background-image: url(/assets/header04.jpg);
 }
-.section_form{
-  background-color:rgba(255,255,255,0.9);
+.container_form{
+  background-color: rgb(255,255,255);
 }
 .row_form{
   padding: 80px 0;
@@ -22,6 +24,7 @@ ul.error {
 .col_form{
   width: 100%;
   margin: auto;
+  background-color: #fff;
 }
 .label_form{
   font-size: 24px;
