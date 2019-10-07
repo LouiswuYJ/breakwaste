@@ -57,23 +57,20 @@ class OrdersController < ApplicationController
   def show
   end
 
-  def payment
-  end
-
   def destroy
     @order.destroy
     redirect_to orders_path, notice: '訂單已取消' 
   end
 
   def transaction
-      result = braintree_gateway.transaction.sale(
-        :amount => "@order.total_price",   # total_price 待修 / @order.total_price git為 nil
-        :payment_method_nonce => params[:payment_method_nonce],
-        :options => {
-        :submit_for_settlement => true
-        }
-      )
-      redirect_to orders_path, notice: '卡結帳完成'
+    result = braintree_gateway.transaction.sale(
+      :amount => "@order.total_price",   # total_price 待修 / @order.total_price git為 nil
+      :payment_method_nonce => params[:payment_method_nonce],
+      :options => {
+      :submit_for_settlement => true
+      }
+    )
+    redirect_to order_path, notice: '信用卡結帳完成'
   end
 
   private
