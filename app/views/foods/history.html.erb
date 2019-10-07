@@ -3,7 +3,14 @@
 <% @foods.each do |food| %>
   <ul>
     <li>
-      <%= image_tag food.avatar.variant(resize: '400x400') if food.avatar.attached? %> <!-- 圖片大小從這改 -->
+      <div>
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-3">
+            <%= image_tag food.avatar.variant(resize: '300x300') if food.avatar.attached? %> <!-- 圖片大小從這改 -->
+          </div>
+        </div>
+      </div>
       名稱:<%= food.title %>
       地區:<%= food.address %>   <!-- #到時候在修正成只顯示區域 -->
       數量:<%= food.quantity %>
