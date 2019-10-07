@@ -36,3 +36,8 @@ class CartsController < ApplicationController
     @food = current_cart.foods.find_by(id: params[:format])    
   end
 end
+
+
+
+
+
