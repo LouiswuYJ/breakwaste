@@ -25,6 +25,7 @@ class CartsController < ApplicationController
   def checkout
     @order = current_user.rescuer_orders.build(giver_id: params[:giver_id])
     @cart_foods = current_cart.cart_foods.where(giver_id: params[:giver_id])
+
   end
 
   private
