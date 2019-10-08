@@ -9,6 +9,8 @@
 <div class="tree">
   <%= order_count(@order_count) %>
 </div>
+ <p>為您省下： <%= @rescuer_money %>元</p> 
  
- <p>為您省下： 元</p> 
- <p>降低碳排放：約 公斤</p>
+ <hr>
+ <p>總訂單數： <%= @save_orders %> 筆 </p>
+ <p>降低總碳排放：約 <%= @save_orders * 2 %>公斤</p>
