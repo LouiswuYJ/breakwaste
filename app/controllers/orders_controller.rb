@@ -46,9 +46,7 @@ class OrdersController < ApplicationController
     end
     #把購物車裡的東西拿出來，一條一條塞入order_items 
     if @order.save
-      # current_cart.foods.destroy_all #訂單成立後購物車要清空  => 改成付款成立訂單後再刪除，暫時先關掉 
-      redirect_to payment_order_path(@order), notice: '訂單已成立' 
-
+      redirect_to payment_order_path(@order)
     else
       render 'carts/checkout'
     end    
@@ -63,6 +61,9 @@ class OrdersController < ApplicationController
   end
 
   def transaction
+    giver = Order.friendly.find(params[:id]).giver_id
+    cart_foods = CartFood.where(giver_id: giver)
+
     if @order.may_pay?
       result = braintree_gateway.transaction.sale(
         :amount => @order.total_price.to_f, 
@@ -73,6 +74,7 @@ class OrdersController < ApplicationController
       )
       if result.success?
         @order.pay!
+        cart_foods.destroy_all 
         redirect_to orders_path, notice: '信用卡結帳完成'
       else
         redirect_to orders_path, notice: '付款失敗'

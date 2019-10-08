@@ -1,5 +1,6 @@
 ---
-zh-TW:
+"zh-TW":
+  short: "%H:%M"
   activerecord:
     errors:
       messages:
@@ -209,7 +210,7 @@ zh-TW:
     formats:
       default: "%Y年%m月%d日 %A %p %H:%M"
       long: "%Y年%m月%d日 %H:%M"
-      short: "aaaaa"
+      short: "%H:%M"
     pm: 下午
   faker:
     address:

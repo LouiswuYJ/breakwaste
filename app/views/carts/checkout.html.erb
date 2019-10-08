@@ -5,12 +5,15 @@
       <%= link_to User.find_by(id: cart_food.food.user_id).name, "#" %>
       名稱：<%= cart_food.food.title%>
       數量：<%= cart_food.quantity%>
-      可領取時間:<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%= I18n.l(cart_food.food.pickup_time, formats: :default) %>
+      可領取時間:<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%=cart_food.food.endup_time.strftime("%H:%M") %>
       原價：<%= cart_food.food.origin_price%>
       救援價：<%= cart_food.food.discount_price%>
     </li>
   </ul>
 <%end%>
+
+總價：<%= @order_total_price%>
+
 
 
 

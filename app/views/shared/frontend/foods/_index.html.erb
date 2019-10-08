@@ -10,6 +10,7 @@
         <a href="/foods/<%=food.id %>" class="text-decoration-none">
           <div class="col col-lg-3 col-md-4 col-sm-10 col-10 col_list col_img p-3">
             <div>
+              <%= User.find(food.user_id).name %>
               <%= image_tag food.avatar.variant(resize: '300x300'), :class => "img_list" if food.avatar.attached?%>
             </div>
               <img src="<%=food.picture%>" alt="" class="img_list" style="margin-bottom:30px">
@@ -19,9 +20,9 @@
                 <strong>$<%= food.discount_price %></strong>
                 <del>原價<%= food.origin_price %></del>
               </p>
+              <p><%= food.address %></p>  <!-- #到時候在修正成只顯示區域 -->
               <p>數量：<%= food.quantity %></p>
-              <p>地點：<%= food.address %></p>  <!-- #到時候在修正成只顯示區域 -->
-              <p>領取時間：<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%=I18n.l(food.endup_time, formats: :default) %></p>
+              <p>領取時間：<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%=food.endup_time.strftime("%H:%M") %></p>
             </div>
 
             <div class="col_btn text-right text-bottom">

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-  <a class="navbar-brand" href="https://breakwaste.site/">盛食找餐 Breakwaste</a>  <!-- 只是方便自己作業 -->
+  <a class="navbar-brand" href="http://localhost:3000/">盛食找餐 Breakwaste</a>  <!-- 只是方便自己作業 -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="https://breakwaste.site/foods">食物救援 <span class="sr-only">(current)</span></a>  <!-- 只是方便自己作業 -->
+        <a class="nav-link" href="http://localhost:3000/foods">食物救援 <span class="sr-only">(current)</span></a>  <!-- 只是方便自己作業 -->
       </li>
     </ul>
     
@@ -20,11 +20,7 @@
         <li>
           <%= link_to "PO文紀錄", history_foods_path, class: 'nav-link' %>
         </li>
-        <% if current_user.cart %>
-          <li>
-            <%= link_to "購物車(#{current_cart.foods.count})", cart_path("food_id" => current_cart.foods.ids), class: 'nav-link' if current_cart.present?%>
-          </li>
-          <li class="nav-item">
+         <li class="nav-item">
             <%= link_to "Rescuer訂單", orders_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
@@ -32,6 +28,9 @@
           </li>
           <li class="nav-item">
             <%= link_to "我的小樹", my_tree_path(current_user.id), class: 'nav-link' %>
+        <% if current_user.cart %>
+          <li>
+            <%= link_to "購物車(#{current_cart.foods.count})", cart_path("food_id" => current_cart.foods.ids), class: 'nav-link' if current_cart.present?%>
           </li>
         <%end%>  
         <li class="nav-item">
