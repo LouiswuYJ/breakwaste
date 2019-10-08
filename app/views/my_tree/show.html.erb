@@ -1,0 +1,23 @@
+  <style>
+    .my_tree{ 
+      width: 500px;
+      height: 500px;
+      margin: auto;
+    }
+  </style>
+
+<h1>我的小樹</h1>
+
+<div class="my_tree">
+   <p>「盛食找餐」已為您省下： <%= @rescuer_money %>元</p> 
+  <%= order_count(@order_count) %>
+</div>
+
+ 
+ <hr>
+ <div class ="our_tree" >
+  <p>「盛食找餐」累積總訂單數： <%= @save_orders %> 筆 </p>
+  <p>降低總碳排放：約 <%= @save_orders * 2 %>公斤</p>
+ </div>
+ 
+
