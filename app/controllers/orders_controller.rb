@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_order, only: [:show, :transaction, :destroy, :payment]
+  before_action :find_order, only: [:show, :transaction, :destroy, :payment, :transaction]
   
   def index
     # @orders = Order.where(user: current_cart)

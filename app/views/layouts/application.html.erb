@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FoodProject</title>
+    <%= favicon_link_tag asset_path('logo.jpg') %>
+    <title>盛食找餐BreakWaste</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,16 +11,25 @@
   </head>
   <style>
     body{
-      background-image: url(/assets/bg3.jpg);
+      background-image: url(/assets/bg01.jpg);
       background-repeat: cover;
       background-attachment: fixed;
       background-position: left top;
       letter-spacing: 1px;
       font-size:20px;
       }
-      a.btn{
-        width: 120px;
-        font-size: 18px;
+      a.btn_style,.btn_style{
+        text-align: center;
+        width:150px;
+        font-size: 22px;
+      }
+      .alert{
+        margin-bottom: 0px;
+      }
+      .alert-warning {
+        color: #fff;
+        background-color: rgba(0, 0, 0,.7);
+        border-color: rgba(0, 0, 0,.7);
       }
   </style>
   <body>

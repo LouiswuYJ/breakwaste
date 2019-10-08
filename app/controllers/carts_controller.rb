@@ -40,7 +40,7 @@ class CartsController < ApplicationController
     @cart_foods = current_cart.cart_foods.where(giver_id: params[:giver_id])
 
     @givers = User.joins(:cart_food_givens).where('cart_foods.cart_id = ?', current_cart.id).distinct
-    cart_foods = CartFood.where(giver_id: params[:giver_id])
+    cart_foods = CartFood.where(giver_id:  params[:giver_id])
     # @cart_foods_by_giver = cart_foods_by_giver(@cart_foods)
     @total_prices_all = cart_foods.reduce({}) do |rs, cf|
       rs[cf.giver_id] ||= 0

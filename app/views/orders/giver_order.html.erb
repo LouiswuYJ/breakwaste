@@ -1,12 +1,30 @@
-<%= flash[:notice] %>
-<h1>我的訂單<%= @giver_orders.slug.upcase%></h1>
-
-<% @giver_orders.order_items.each do |order_item| %>
-  <ul>
-    <li>
-      名稱：<%= order_item.food.title%>
-      數量：<%= order_item.quantity%>
-      可領取時間:<%= I18n.l(order_item.food.pickup_time, formats: :default) %> ～ <%= I18n.l(order_item.food.pickup_time, formats: :default) %>
-    </li>
-  </ul>
+<% flash.each do |key, value| %>
+  <div class="alert alert-warning <%= flash_class(key) %>">
+    <%= value %>
+  </div>
 <% end %>
+
+<div class="section_giver_order">
+  <div class="container-fluid container_orders_show justify-content-center p-0">
+    <div class="row no-gutters row_orders_show justify-content-center">
+      <div class="col col-10 col_orders_show orders_show_img text-center">
+        <%= image_tag "dim.jpg" %>
+      </div>
+      <div class="col col-10 col_orders_show order_show_title py-5 text-center">
+        <h1>親愛得 Giver 恭喜你！食物售出囉</h1>
+        <h1>訂單編號為 <span><%= @giver_orders.slug.upcase%></span></h1>
+      </div>   
+      <% @giver_orders.order_items.each do |order_item| %>
+        <div class="col col-lg-8 col-10 col_orders_show order_show_item p-5 m-3">
+          <p>名稱：<%= order_item.food.title%>&nbsp;&nbsp;數量：<%= order_item.quantity%></p>
+          <p>可領取時間:<%= I18n.l(order_item.food.pickup_time, formats: :default) %> ～ <%= order_item.food.endup_time.strftime("%H:%M") %></p>
+        </div>
+      <% end %>
+      <div class="col col-lg-8 col-10 col_orders_show order_show_btn text-center p-5">
+        <%= link_to "繼續購物", foods_path, class:'btn btn-success btn_style' %>
+        <%= link_to "查看訂單", giver_orders_path, class:'btn btn-warning btn_style' %>
+      </div>  
+    </div>
+  </div>
+</div>
+<%= render 'shared/frontend/footer' %>
