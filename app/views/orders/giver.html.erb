@@ -1,20 +1,27 @@
-<table class='table'>
-<thead>
+<style>
+table.table_giver{
+  width:90%;
+  background-color: #eee;
+}
+</style>
+<h1>我是賣家</h1>
+<table class='table text-dark table-md table_giver table-hover'>
+<thead class="thead-dark text-ligth">
   <tr>
-    <th>訂單編號</th>
-    <th>買家姓名</th>
+    <th>訂單</th>
+    <th>買家</th>
     <th>日期</th>
     <th>備註</th>
+    <th>詳情</th>  
   </tr>
 <tbody>
-    <h1>我是賣家</h1>
     <% @giver_orders.each do |order|%>
     <tr>
-      <td><%= order.friendly_id.upcase%></td>
-      <td><%= order.recipient %></td>
-      <td><%= I18n.l(order.created_at, formats: :default) %></td>
-      <td><%= order.note%></td>
-      <td><%= link_to "詳細內容", giver_order_order_path(order), class:'btn btn-success btn-sm' %><td>
+      <th><%= order.friendly_id.upcase%></td>
+      <th><%= order.recipient %></td>
+      <th><%= I18n.l(order.created_at, formats: :default) %></td>
+      <th><%= order.note%></td>
+      <th><%= link_to "詳細內容", giver_order_order_path(order), class:'btn btn-success btn-style' %><td>
     </tr>
     <%end%>
   </tbody>
