@@ -31,7 +31,7 @@ end
 end
 
 10.times do |i|
-  User.find(3).foods.create(title:Faker::Food.title,
+  current_user.foods.create(title:Faker::Food.title,
                             address:Faker::Address.street,
                             phone:Faker::Food.formats,
                             quantity:Faker::Number.between(from: 1, to: 10),
