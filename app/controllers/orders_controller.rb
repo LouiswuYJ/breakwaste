@@ -23,6 +23,15 @@ class OrdersController < ApplicationController
     @token = braintree_gateway.client_token.generate
   end
 
+  def braintree_gateway
+    Braintree::Gateway.new(
+      :environment => :sandbox,
+      :merchant_id => Figaro.env.BRAINTREE_MERCHANT_ID,
+      :public_key => Figaro.env.BRAINTREE_PUBLIC_KEY,
+      :private_key => Figaro.env.BRAINTREE_PRIVATE_KEY,
+    )
+  end
+
   def giver_order
     @giver_orders = current_user.giver_orders.friendly.find(params[:id]) 
   end
@@ -37,8 +46,7 @@ class OrdersController < ApplicationController
     end
     #把購物車裡的東西拿出來，一條一條塞入order_items 
     if @order.save
-      # current_cart.foods.destroy_all #訂單成立後購物車要清空  => 改成付款成立訂單後再刪除，暫時先關掉 
-      redirect_to payment_order_path(@order), notice: '訂單已成立' 
+      redirect_to payment_order_path(@order)
     else
       render 'carts/checkout'
     end    
@@ -53,23 +61,27 @@ class OrdersController < ApplicationController
   end
 
   def transaction
-    result = braintree_gateway.transaction.sale(
-      :amount => "@order.total_price",   # total_price 待修 / @order.total_price git為 nil
-      :payment_method_nonce => params[:payment_method_nonce],
-      :options => {
-      :submit_for_settlement => true
-      }
-    )
-    redirect_to order_path, notice: '信用卡結帳完成'
-  end
+    giver = Order.friendly.find(params[:id]).giver_id
+    cart_foods = CartFood.where(giver_id: giver)
 
-  def braintree_gateway
-  Braintree::Gateway.new(
-    :environment => :sandbox,
-    :merchant_id => Figaro.env.BRAINTREE_MERCHANT_ID,
-    :public_key => Figaro.env.BRAINTREE_PUBLIC_KEY,
-    :private_key => Figaro.env.BRAINTREE_PRIVATE_KEY,
-  )
+    if @order.may_pay?
+      result = braintree_gateway.transaction.sale(
+        :amount => @order.total_price.to_f, 
+        :payment_method_nonce => params[:payment_method_nonce],
+        :options => {
+        :submit_for_settlement => true
+        }
+      )
+      if result.success?
+        @order.pay!
+        cart_foods.destroy_all 
+        redirect_to orders_path, notice: '信用卡結帳完成'
+      else
+        redirect_to orders_path, notice: '付款失敗'
+      end
+    else
+      redirect_to orders_path, notice: '訂單已完成付款'
+    end
   end
 
   private

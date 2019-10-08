@@ -47,6 +47,8 @@ Rails.application.routes.draw do
     end 
   end
 
+  resources :my_tree, only: [:show]
+
   # delete '/cart/:id', to: 'cart#destroy'
   # get '/checkout', to: 'carts#checkout'
 end

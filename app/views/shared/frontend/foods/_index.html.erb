@@ -10,6 +10,7 @@
         <a href="/foods/<%=food.id %>" class="text-decoration-none">
           <div class="col col-lg-3 col-md-8 col-sm-10 col-10 col_list col_img p-4 m-2">
             <div>
+              <%= User.find(food.user_id).name %>
               <%= image_tag food.avatar.variant(resize: '300x300'), :class => "img_list" if food.avatar.attached?%>
             </div>
             <div>

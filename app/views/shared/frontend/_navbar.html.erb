@@ -1,5 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+<<<<<<< HEAD
   <a class="navbar-brand" href="http://localhost:3000">盛食找餐 Breakwaste</a>  <!-- 只是方便自己作業 https://breakwaste.site/ -->
+=======
+  <a class="navbar-brand" href="http://localhost:3000/">盛食找餐 Breakwaste</a>  <!-- 只是方便自己作業 -->
+>>>>>>> 2681173d1016cc5aa3415c09b0fc46105574d758
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,7 +11,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
+<<<<<<< HEAD
         <a class="nav-link" href="http://localhost:3000/foods">食物救援 <span class="sr-only">(current)</span></a>  <!-- 只是方便自己作業 https://breakwaste.site/foods-->
+=======
+        <a class="nav-link" href="http://localhost:3000/foods">食物救援 <span class="sr-only">(current)</span></a>  <!-- 只是方便自己作業 -->
+>>>>>>> 2681173d1016cc5aa3415c09b0fc46105574d758
       </li>
     </ul>
     <ul class="navbar-nav">
@@ -15,6 +23,7 @@
         <li class="nav-item">
           <%= link_to "新增食物", new_food_path, class:'nav-link'%>
         </li>
+
         <% if current_user.cart %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -27,6 +36,10 @@
               <%= link_to "個人資料", user_registration_path, class: 'nav-link dropdown-item', style: 'font-size:20px' %>
             </div>
           </li>
+          <li class="nav-item">
+            <%= link_to "我的小樹", my_tree_path(current_user.id), class: 'nav-link' %>
+          </li>
+        <% if current_user.cart %>
           <li>
             <%= link_to "購物車(#{current_cart.foods.count})", cart_path("food_id" => current_cart.foods.ids), class: 'nav-link' if current_cart.present?%>
           </li>

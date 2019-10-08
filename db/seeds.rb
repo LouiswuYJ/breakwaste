@@ -30,8 +30,13 @@ end
   User.create(name: Faker::Name.name, password: 111111, phone: '0923111111', email: Faker::Internet.email, address:Faker::Address.street)
 end
 
+<<<<<<< HEAD
 5.times do |i|
   User.find(2).foods.create(title:Faker::Food.title,
+=======
+10.times do |i|
+  current_user.foods.create(title:Faker::Food.title,
+>>>>>>> 2681173d1016cc5aa3415c09b0fc46105574d758
                             address:Faker::Address.street,
                             phone:Faker::Food.formats,
                             quantity:Faker::Number.between(from: 1, to: 10),
