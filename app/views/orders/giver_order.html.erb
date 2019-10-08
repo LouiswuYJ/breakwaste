@@ -1,12 +1,22 @@
-<%= flash[:notice] %>
-<h1>我的訂單<%= @giver_orders.slug.upcase%></h1>
-
-<% @giver_orders.order_items.each do |order_item| %>
-  <ul>
-    <li>
-      名稱：<%= order_item.food.title%>
-      數量：<%= order_item.quantity%>
-      可領取時間:<%= I18n.l(order_item.food.pickup_time, formats: :default) %> ～ <%= I18n.l(order_item.food.pickup_time, formats: :default) %>
-    </li>
-  </ul>
+<% flash.each do |key, value| %>
+  <div class="alert alert-warning <%= flash_class(key) %>">
+    <%= value %>
+  </div>
 <% end %>
+
+<h1>我的訂單<%= @giver_orders.slug.upcase%></h1>
+<div class="container-fluid p-0">
+  <div class="row no-gutters justify-content-center">
+    <div class="col col-8">
+      <% @giver_orders.order_items.each do |order_item| %>
+        <ul>
+          <li>
+            名稱：<%= order_item.food.title%>
+            數量：<%= order_item.quantity%>
+            可領取時間:<%= I18n.l(order_item.food.pickup_time, formats: :default) %> ～ <%= I18n.l(order_item.food.pickup_time, formats: :default) %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -20,7 +20,9 @@
           </li>
         </ul>
       <%end%>
-      總價：<%= @order_total_price%>
+      <div class="checkout_total text-right mr-4">
+      總價 <span>＄<%= @order_total_price%></span>
+      </div>
     </div>
     <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_checkout_recipent px-5">
       <%= form_for(@order) do |form| %>

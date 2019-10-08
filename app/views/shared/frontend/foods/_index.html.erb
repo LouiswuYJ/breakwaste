@@ -1,39 +1,46 @@
 <div class="container-fluid container_list p-0">
-<!---<%= flash[:notice] %>--->
+
   <% flash.each do |key, value| %>
     <div class="alert alert-warning <%= flash_class(key) %>">
       <%= value %>
     </div>
   <% end %>
 
-  <div class="row no-gutters justify-content-center row_list d-flex flex-row p-4">
+  <div class="row no-gutters justify-content-center row_list p-4">
     <% @foods.each do |food| %>
       <a href="/foods/<%=food.id %>" class="text-decoration-none">
+
         <div class="col col-lg-3 col-md-8 col-sm-10 col-10 col_list col_img p-4 m-2">
+
           <div>
             <%= image_tag food.avatar.variant(resize: '300x300'), :class => "img_list" if food.avatar.attached?%>
           </div>
           <div>
             <img src="<%=food.picture%>" alt="" class="img_list" style="margin-bottom:30px">
           </div>
+          
           <div class="col col-lg-12 col-md-12 col-sm-12 col-12 col_info p-2">
             <h3><%= food.title %></h3>
-            <p class="list_price">
+            <div class="list_price">
               <strong>$<%= food.discount_price %></strong>
               <del>原價<%= food.origin_price %></del>
-            </p>
+            </div>
             <p>地點：<%= food.address %></p>  <!-- #到時候在修正成只顯示區域 -->
             <p>領取時間：<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%= food.endup_time.strftime("%H:%M") %></p>
           </div>
+
           <div class="col col-lg-12 col-md-12 col-sm-12 col-12 col_btn p-2 text-right">
             <% if food.user == current_user %>
               <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning btn_foods_list' %>
               <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger btn_foods_list', data: {confirm: '確定要刪除嗎？'} %> 
             <% end %>
-            <%= link_to "MORE", food_path(food.id), class:'btn btn-dark btn_style' %>
+            <%= link_to "MORE", food_path(food.id), class:'btn btn-dark' %>
           </div>
+
         </div>
+     
       </a>
-    <% end %>   
+    <% end %>
   </div>
+</div>
   <%= render 'shared/frontend/footer' %>
