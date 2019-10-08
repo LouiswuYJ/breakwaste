@@ -1,0 +1,25 @@
+.container_orders_show{
+  height: 100%;
+}
+.row_orders_show{
+  background-color: #fff;
+  padding: 80px;
+  margin: auto;
+}
+.order_show_title > h1 > span{
+  color: rgb(195, 0, 0);
+}
+.col_orders_show > ul > li{
+  list-style-type: none;
+}
+.orders_show_img > img{
+  width: 300px;
+  border-radius: 50%;
+}
+.order_show_item{
+  background-color: #eee;
+  border-radius: 10px;
+}
+.order_show_item > p {
+  font-size: 26px;
+}

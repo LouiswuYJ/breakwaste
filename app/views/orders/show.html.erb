@@ -1,59 +1,28 @@
-<style>
-.container_orders_show{
-  height: 100%;
-}
-.row_orders_show{
-  background-color: #fff;
-  padding: 80px;
-  margin: auto;
-}
-.order_show_title > h1 > span{
-  color: rgb(195, 0, 0);
-}
-.col_orders_show > ul > li{
-  list-style-type: none;
-}
-.orders_show_img > img{
-  width: 300px;
-  border-radius: 50%;
-}
-.order_show_item{
-  background-color: #eee;
-  border-radius: 10px;
-}
-.order_show_item > p {
-  font-size: 26px;
-}
-</style>
-
 <% flash.each do |key, value| %>
   <div class="alert alert-warning <%= flash_class(key) %>">
     <%= value %>
   </div>
 <% end %>
-
-<div class="container-fluid container_orders_show justify-content-center p-0">
-  <div class="row no-gutters row_orders_show justify-content-center">
-
-    <div class="col col-10 col_orders_show orders_show_img text-center">
-      <%= image_tag "dim.jpg" %>
-    </div>
-
-    <div class="col col-10 col_orders_show order_show_title py-5 text-center">
-      <h1>訂單編號 <span><%= @order.slug.upcase%></span></h1>
-    </div>   
-
-    <% @order.order_items.each do |order_item| %>
-      <div class="col col-lg-8 col-10 col_orders_show order_show_item p-5 m-3">
-        <p>名稱：<%= order_item.food.title%>&nbsp;&nbsp;數量：<%= order_item.quantity%></p>
-        <p>可領取時間:<%= I18n.l(order_item.food.pickup_time, formats: :default) %> ～ <%= order_item.food.endup_time.strftime("%H:%M") %></p>
+<div class="section_orders_show">
+  <div class="container-fluid container_orders_show justify-content-center p-0">
+    <div class="row no-gutters row_orders_show justify-content-center">
+      <div class="col col-10 col_orders_show orders_show_img text-center">
+        <%= image_tag "dim.jpg" %>
       </div>
-    <% end %>
-
-    <div class="col col-lg-8 col-10 col_orders_show order_show_btn text-center p-5">
-      <%= link_to "繼續購物", foods_path, class:'btn btn-success btn_style' %>
-      <%= link_to "查看訂單", '#', class:'btn btn-warning btn_style' %>
-    </div>  
-
+      <div class="col col-10 col_orders_show order_show_title py-5 text-center">
+        <h1>訂單編號 <span><%= @order.slug.upcase%></span></h1>
+      </div>   
+      <% @order.order_items.each do |order_item| %>
+        <div class="col col-lg-8 col-10 col_orders_show order_show_item p-5 m-3">
+          <p>名稱：<%= order_item.food.title%>&nbsp;&nbsp;數量：<%= order_item.quantity%></p>
+          <p>可領取時間:<%= I18n.l(order_item.food.pickup_time, formats: :default) %> ～ <%= order_item.food.endup_time.strftime("%H:%M") %></p>
+        </div>
+      <% end %>
+      <div class="col col-lg-8 col-10 col_orders_show order_show_btn text-center p-5">
+        <%= link_to "繼續購物", foods_path, class:'btn btn-success btn_style' %>
+        <%= link_to "查看訂單", orders_path, class:'btn btn-warning btn_style' %>
+      </div>  
+    </div>
   </div>
 </div>
+<%= render 'shared/frontend/footer' %>
