@@ -43,6 +43,7 @@
           <li class="nav-item">
             <%= link_to "登出", destroy_user_session_path, class: 'nav-link', method: 'delete', data: {confirm: '確定要登出嗎？'} %>
           </li>
+              <% end %>
         <% else %>
           <li class="nav-item">
             <%= link_to "註冊", new_user_registration_path, class: 'nav-link' %>
@@ -50,9 +51,9 @@
           <li class="nav-item">
             <%= link_to "登入", new_user_session_path, class: 'nav-link' %>
           </li>
-        <% end %>
       <% end %>
     </ul>
+
   </div>
 </nav>
     
