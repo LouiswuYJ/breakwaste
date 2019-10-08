@@ -31,7 +31,7 @@ end
 end
 
 5.times do |i|
-  User.find(rand(1..10)).foods.create(title:Faker::Food.title,
+  User.find(2).foods.create(title:Faker::Food.title,
                             address:Faker::Address.street,
                             phone:Faker::Food.formats,
                             quantity:Faker::Number.between(from: 1, to: 10),

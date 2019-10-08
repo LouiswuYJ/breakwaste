@@ -7,30 +7,28 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="https://breakwaste.site/foods">食物救援 <span class="sr-only">(current)</span></a>  <!-- 只是方便自己作業 -->
+        <a class="nav-link" href="http://localhost:3000/foods">食物救援 <span class="sr-only">(current)</span></a>  <!-- 只是方便自己作業 https://breakwaste.site/foods-->
       </li>
     </ul>
-    
     <ul class="navbar-nav">
       <% if user_signed_in? %>
         <li class="nav-item">
-        <%= link_to "新增Foods", new_food_path, class:'nav-link'%>
-        </li>
-        <li class="nav-item">
-          <%= link_to "個人資料", user_registration_path, class: 'nav-link' %>
-        </li>
-        <li>
-          <%= link_to "PO文紀錄", history_foods_path, class: 'nav-link' %>
+          <%= link_to "新增食物", new_food_path, class:'nav-link'%>
         </li>
         <% if current_user.cart %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             會員中心
+            </a>
+            <div class="dropdown-menu p-3" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to "Rescuer訂單", orders_path, class: 'nav-link dropdown-item', style: 'font-size:20px' %>
+              <%= link_to "Giver訂單", giver_orders_path, class: 'nav-link dropdown-item', style: 'font-size:20px' %>
+              <%= link_to "歷史紀錄", history_foods_path, class: 'nav-link dropdown-item', style: 'font-size:20px' %>
+              <%= link_to "個人資料", user_registration_path, class: 'nav-link dropdown-item', style: 'font-size:20px' %>
+            </div>
+          </li>
           <li>
             <%= link_to "購物車(#{current_cart.foods.count})", cart_path("food_id" => current_cart.foods.ids), class: 'nav-link' if current_cart.present?%>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Rescuer訂單", orders_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Giver訂單", giver_orders_path, class: 'nav-link' %>
           </li>
         <%end%>  
         <li class="nav-item">

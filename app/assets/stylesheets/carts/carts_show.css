@@ -1,5 +1,10 @@
+.section_carts_show{
+  background-color: #fff;
+  height: 100%;
+}
 .col_cart_show{
   background-color: #fff;
+  
 }
 .col_show_title{
   text-align: center;
@@ -24,7 +29,7 @@
   color: #fff;
 }
 .items{
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #000;
 }
 div.div{
   background-color: #fff;
@@ -49,4 +54,8 @@ ul.my-cart > li{
 .carts_show_price > del{
   color: #aaa;
   margin-right: 20px;
+}
+.show_checkout_btn{
+  font-size: 30px;
+  color: rgb(195, 0, 0);
 }

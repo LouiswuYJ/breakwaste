@@ -1,5 +1,6 @@
 
 <div class="container-fluid p-0">
+<div class="back">
   <div class="row no-gutters row_checkout justify-content-center">
     <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_checkout_title p-5">
       <h1>訂單詳情</h1>
@@ -11,7 +12,7 @@
             <div class="carts_show_price">
               <%= link_to User.find_by(id: cart_food.food.user_id).name, "#" %>
               <p><%= cart_food.food.title%></p>
-              <p>提貨時間：<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%= I18n.l(cart_food.food.pickup_time, formats: :default) %></p>
+              <p>提貨時間：<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%=cart_food.food.endup_time.strftime("%H:%M") %></p>
               <span>＄<%= cart_food.food.discount_price%></span>
               <del>原價<%= cart_food.food.origin_price%></del>
               數量：<%= cart_food.food.quantity%>
@@ -19,6 +20,7 @@
           </li>
         </ul>
       <%end%>
+      總價：<%= @order_total_price%>
     </div>
     <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_checkout_recipent px-5">
       <%= form_for(@order) do |form| %>
@@ -36,14 +38,13 @@
         </div>
       </div> 
       <div class="col col-lg-8 col-md-10 col-sm-10 col-10 text-center col_checkout_btn">
-
         <%= form.hidden_field :cart_food_id, value: @cart_foods.ids %>
         <%= form.submit '付款', class: 'btn btn-success btn_style' %>
       <% end %>
     </div>
   </div>
+  </div>
 </div>
-<%= render 'shared/frontend/footer' %>
 
 
 

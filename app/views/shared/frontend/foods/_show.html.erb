@@ -14,7 +14,7 @@
             </p>
             <p>數量：<%= @food.quantity %></p>
             <p>地址：<%= @food.address %></p>   <!-- #到時候在修正成只顯示區域 -->
-            <p>可領取時間：<%= I18n.l(@food.pickup_time, formats: :default) %> ～ <%= I18n.l(@food.pickup_time, formats: :default) %></p>
+            <p>可領取時間：<%= I18n.l(@food.pickup_time, formats: :default) %> ～ <%= @food.endup_time.strftime("%H:%M") %></p>
             <p>描述：<%= @food.description %></p> 
           
             <% if current_user.id != @food.user_id %>

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_order, only: [:show, :transaction, :destroy, :payment]
+  before_action :find_order, only: [:show, :transaction, :destroy, :payment, :transaction]
   
   def index
     # @orders = Order.where(user: current_cart)
@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
   end
 
   def payment
+    @token = braintree_gateway.client_token.generate
   end
 
   def giver_order
@@ -46,22 +47,31 @@ class OrdersController < ApplicationController
   def show
   end
 
-  def payment
-  end
-
   def destroy
     @order.destroy
     redirect_to orders_path, notice: '訂單已取消' 
   end
 
   def transaction
-    # if @order.may_pay? #may_pay? 是AASM 產生的方法
-    #     @order.pay!       #pay! 是AASM 產生的方法 
-    # else
-    #   redirect_to orders_path, notice: '訂單已完成付款'
-    # end  
+    result = braintree_gateway.transaction.sale(
+      :amount => "@order.total_price",   # total_price 待修 / @order.total_price git為 nil
+      :payment_method_nonce => params[:payment_method_nonce],
+      :options => {
+      :submit_for_settlement => true
+      }
+    )
+    redirect_to order_path, notice: '信用卡結帳完成'
   end
- 
+
+  def braintree_gateway
+  Braintree::Gateway.new(
+    :environment => :sandbox,
+    :merchant_id => Figaro.env.BRAINTREE_MERCHANT_ID,
+    :public_key => Figaro.env.BRAINTREE_PUBLIC_KEY,
+    :private_key => Figaro.env.BRAINTREE_PRIVATE_KEY,
+  )
+  end
+
   private
   def find_order
     @order = current_user.rescuer_orders.friendly.find(params[:id]) 

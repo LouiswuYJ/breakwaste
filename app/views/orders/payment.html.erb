@@ -7,13 +7,25 @@
 <div class="container-fluid p-0">
   <div class="row no-gutters row_payment justify-content-center">
     <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_payment py-5">
-      <h1>付款金額 <%= @order.total_price %> 元</h1>
-      <h4>訂單成立時間 <%= (@order.created_at).to_s.chomp("+0800") %></h4>
-      <h4>盛食找餐BreakWaste</h4>
-    </div>
-    <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_payment_btn py-5">
-      <%= link_to '繼續購物', foods_path, class:'btn btn-success'%>
-      <%= link_to '前往付款', '#', class:'btn btn-danger'%>
+      <h1 style="font-size:50px">付款金額 <%= @order.total_price %> 元</h1>
+
+      </div>
+        <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_payment_btn py-5 text-center">
+          <div class="col col-6 m-auto">
+            <%= form_with(url: transaction_order_path(@order), local: true) do |form| %>
+              <div id="payment-form"></div>
+              <input type="submit" value="結帳" class="btn btn-danger btn_style mt-5">
+            <% end %>
+            <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
+            <script>
+            var clientToken = "<%= @token %>";
+            braintree.setup(clientToken, "dropin", {
+            container: "payment-form"
+            });
+            </script>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

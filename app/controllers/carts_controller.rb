@@ -3,9 +3,13 @@ class CartsController < ApplicationController
 
   def show
     @givers = User.joins(:cart_food_givens).where('cart_foods.cart_id = ?', current_cart.id).distinct
-    # @cart_foods = current_cart.cart_foods.where(giver_id: @givers.ids)
-    # Food.join(:cart_foods).where(cart_foods: {id: params[:food_id]})
-    # @cart_foods = CartFood.includes(:food).where(food_id: params[:food_id]).order(:giver_id)
+    @cart_foods = current_cart.cart_foods.where(giver_id: @givers.ids)
+    # @cart_foods_by_giver = cart_foods_by_giver(@cart_foods)
+    @total_prices_all = @cart_foods.reduce({}) do |rs, cf|
+      rs[cf.giver_id] ||= 0
+      rs[cf.giver_id] += cf.total_price
+      rs
+    end
   end
 
   def destroy
@@ -25,6 +29,16 @@ class CartsController < ApplicationController
   def checkout
     @order = current_user.rescuer_orders.build(giver_id: params[:giver_id])
     @cart_foods = current_cart.cart_foods.where(giver_id: params[:giver_id])
+
+    @givers = User.joins(:cart_food_givens).where('cart_foods.cart_id = ?', current_cart.id).distinct
+    cart_foods = CartFood.where(giver_id:  params[:giver_id])
+    # @cart_foods_by_giver = cart_foods_by_giver(@cart_foods)
+    @total_prices_all = cart_foods.reduce({}) do |rs, cf|
+      rs[cf.giver_id] ||= 0
+      rs[cf.giver_id] += cf.total_price
+      rs
+    end
+    @order_total_price = @total_prices_all.values.sum
   end
 
   private
