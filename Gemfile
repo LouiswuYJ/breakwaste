@@ -20,6 +20,7 @@ gem 'aasm', '~> 5.0', '>= 5.0.6'
 gem 'friendly_id', '~> 5.3'
 gem 'faker', '~> 2.4'
 gem "braintree", "~> 2.98.0"
+gem 'rails_12factor', group: :production
 
 
 # Use Puma as the app server
@@ -54,7 +55,6 @@ gem 'jquery-rails'
 gem 'recaptcha', git: "https://github.com/ambethia/recaptcha.git"
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
-gem "braintree", "~> 2.98.0"
 
 
 group :development, :test do

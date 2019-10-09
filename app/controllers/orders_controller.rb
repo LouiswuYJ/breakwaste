@@ -75,9 +75,9 @@ class OrdersController < ApplicationController
       if result.success?
         @order.pay!
         cart_foods.destroy_all 
-        redirect_to orders_path, notice: '信用卡結帳完成'
+        redirect_to order_path, notice: '信用卡結帳完成'
       else
-        redirect_to orders_path, notice: '付款失敗'
+        redirect_to payment_order_path, notice: '付款失敗'
       end
     else
       redirect_to orders_path, notice: '訂單已完成付款'
