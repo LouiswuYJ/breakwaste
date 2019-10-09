@@ -7,16 +7,19 @@
     <th>名字</th>
     <th>日期</th>
     <th>備註</th>
+    <th>付款狀態</th>
   </tr>
 </thead>
   <tbody>
     <h1>我是買家</h1>
+  
     <% @rescuer_orders.each do |order|%>
     <tr>
       <td><%= order.friendly_id.upcase%></td>
       <td><%= User.find(order.giver_id).name %></td>
       <td><%= I18n.l(order.created_at, formats: :default) %></td>
       <td><%= order.note%></td>
+      <td><%= order.aasm.human_state%></td>
       <td><%= link_to "詳細內容", order_path(order), class:'btn btn-success btn-sm' %><td>
     </tr>
     <%end%>
