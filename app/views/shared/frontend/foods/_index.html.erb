@@ -1,11 +1,13 @@
 <div class="section_foods_index">
   <div class="container-fluid container_list p-0">
+
     <% flash.each do |key, value| %>
-      <div class="alert alert-warning <%= flash_class(key) %>">
-        <%= value %>
-      </div>
+        <div class="alert alert-warning <%= key %>">
+          <%= value %>
+        </div>
     <% end %>
-    <div class="row no-gutters justify-content-center row_list p-4">
+
+    <div class="row no-gutters justify-content-center row_list py-5">
       <% @foods.each do |food| %>
         <a href="/foods/<%=food.id %>" class="text-decoration-none">
           <div class="col col-lg-3 col-md-8 col-sm-10 col-10 col_list col_img p-4 m-2">
