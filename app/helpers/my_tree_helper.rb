@@ -1,11 +1,20 @@
 module MyTreeHelper
   def order_count(order_count)    
-    if order_count <= 6
+    case order_count 
+    when order_count == 0
+      image_tag "trees/bud1.png"
+    when 1..5
+      image_tag "trees/bud2.png"
+    when 6..10
       image_tag "trees/tree1.png"
-    elsif order_count > 6 && order_count <= 30
+    when 11..15
       image_tag "trees/tree2.png"
-    else order_count >30
+    when 16..20
       image_tag "trees/tree3.png"
-    end 
+    when 21..25
+      image_tag "trees/tree4.png"
+    else  
+      image_tag "trees/tree5.png"
+    end
   end
 end
