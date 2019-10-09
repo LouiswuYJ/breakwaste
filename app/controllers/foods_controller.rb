@@ -7,8 +7,12 @@ class FoodsController < ApplicationController
   end
 
   def show
-    @food = Food.find_by(id: params[:id])
-    current_cart_food
+    if user_signed_in?
+      @food = Food.find_by(id: params[:id])
+      current_cart_food
+    else 
+      redirect_to user_session_path, notice: '請先登入會員！'  
+    end
   end
 
   def new

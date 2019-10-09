@@ -1,7 +1,15 @@
+<% if @order.errors.any? %>
+  <ul class="error">
+    <% @order.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <div class="container-fluid p-0">
 <div class="back">
   <div class="row no-gutters row_checkout justify-content-center">
     <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_checkout_title p-5">
+
       <h1>訂單詳情</h1>
     </div>
     <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_checkout_info px-5">
@@ -14,7 +22,7 @@
               <p>提貨時間：<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%=cart_food.food.endup_time.strftime("%H:%M") %></p>
               <span>＄<%= cart_food.food.discount_price%></span>
               <del>原價<%= cart_food.food.origin_price%></del>
-              數量：<%= cart_food.food.quantity%>
+              數量：<%= cart_food.quantity%>
             </div>
           </li>
         </ul>

@@ -23,6 +23,13 @@
           <%= form.text_field :title, class:'input_form col-12' %>
         </div>
 
+        <div class="form-group">
+          <%= form.label :quantity, ' 數量：', class:'label_form' %>
+          <div class="select_form">
+            <%= form.select :quantity, options_for_select(["請選擇數量", [*1..30]].flatten, selected: form.object.quantity), class: 'genForm_dropBox' %>
+          </div>
+       </div>
+
           <% if params[:controller] == 'foods' && params[:action] == 'new' %>
             <div class="form-group">
               <%= form.label :address, '地址：', class:'label_form' %>
@@ -30,7 +37,7 @@
             </div>
             <div class="form-group">
               <%= form.label :phone, '電話：', class:'label_form' %>
-              <%= form.text_field :phone , value: current_user.phone, class:'input_form' %>
+              <%= form.telephone_field :phone , value: current_user.phone, class:'input_form' %>
             </div>
           <% else %> 
             <div class="form-group">
@@ -60,7 +67,7 @@
 
         <div class="form-group">
           <%= form.label :endup_time, '結束時間：', class:'label_form' %>
-          <%= form.datetime_field :endup_time, default: form.object.endup_time, class:'input_form' %>
+          <%= form.time_field :endup_time, default: form.object.endup_time, class:'input_form' %>
         </div>
 
           <div class="form-group">

@@ -14,7 +14,7 @@
       名稱:<%= food.title %>
       地區:<%= food.address %>   <!-- #到時候在修正成只顯示區域 -->
       數量:<%= food.quantity %>
-      可領取時間:<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%= I18n.l(food.pickup_time, formats: :default) %>
+      可領取時間:<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%=food.endup_time.strftime("%H:%M") %>
       原始價:<%= food.origin_price %>
       救援價:<%= food.discount_price %>
       <%= link_to "重新PO文", new_food_path("food_id" => food.id), class: 'btn btn-xs btn-warning' %>

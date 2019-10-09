@@ -20,7 +20,7 @@
             <div class="items p-3 my-2">                                     
             <p><%= link_to "刪除", cart_path(giver.id), method: 'delete', class: 'btn-sm btn-danger btn_del', data:{confirm: '確定要刪除嗎？'} %>
               <%= giver.food.title%><p>
-              <p>提貨時間 <%= I18n.l(giver.food.pickup_time, formats: :default) %> ～ <%= I18n.l(giver.food.pickup_time, formats: :default) %></p>
+              <p>提貨時間 <%= I18n.l(giver.food.pickup_time, formats: :default) %> ～ <%=giver.food.endup_time.strftime("%H:%M") %></p>
               <div class="carts_show_price">
                 <span>＄<%= giver.food.discount_price%></span>
                 <del>原價<%= giver.food.origin_price%></del>

@@ -13,6 +13,6 @@ class Users::OmniauthCallbacksController < ApplicationController
   end
 
   def failure
-    redirect_to root_path, alert: "無法獲得驗證！"
+    redirect_to foods_path
   end  
 end

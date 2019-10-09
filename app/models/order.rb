@@ -3,6 +3,8 @@ class Order < ApplicationRecord
   friendly_id :order_generator, use: :slugged
   has_many :order_items, dependent: :delete_all
 
+  validates_presence_of :recipient  
+
   belongs_to :giver, class_name: 'User', foreign_key: :giver_id 
   belongs_to :rescuer, class_name: 'User', foreign_key: :rescuer_id 
    

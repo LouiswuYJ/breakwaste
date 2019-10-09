@@ -22,6 +22,7 @@
                 <strong>$<%= food.discount_price %></strong>
                 <del>原價<%= food.origin_price %></del>
               </div>
+              <p>數量：<%= food.quantity %></p>
               <p>地點：<%= food.address %></p>  <!-- #到時候在修正成只顯示區域 -->
               <p>領取時間：<%= I18n.l(food.pickup_time, formats: :default) %> ～ <%= food.endup_time.strftime("%H:%M") %></p>
             </div>
