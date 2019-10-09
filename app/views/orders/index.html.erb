@@ -1,28 +1,43 @@
-<%= flash[:notice] %>
+<% flash.each do |key, value| %>
+    <div class="alert alert-warning <%= key %>">
+      <%= value %>
+    </div>
+<% end %>
 
-<table class='table'>
-<thead>
-  <tr>
-    <th>訂單編號</th>
-    <th>名字</th>
-    <th>日期</th>
-    <th>備註</th>
-    <th>付款狀態</th>
-  </tr>
-</thead>
-  <tbody>
-    <h1>我是買家</h1>
-  
-    <% @rescuer_orders.each do |order|%>
-    <tr>
-      <td><%= order.friendly_id.upcase%></td>
-      <td><%= User.find(order.giver_id).name %></td>
-      <td><%= I18n.l(order.created_at, formats: :default) %></td>
-      <td><%= order.note%></td>
-      <td><%= order.aasm.human_state%></td>
-      <td><%= link_to "詳細內容", order_path(order), class:'btn btn-success btn-sm' %><td>
-    </tr>
-    <%end%>
-  </tbody>
-</table>
 
+<div class="section_orders_index">
+  <div class="row no-gutters row_orders_index justify-content-center">
+    <div class="col-10">
+      <div class="orders_index_header text-center pb-4">
+        <%= image_tag "dim.jpg" %>
+        <%= link_to "我的小樹", my_tree_path(current_user.id), class: 'nav-link' %>
+        <h1>RESCUER購買清單</h1>
+      </div>
+      <table class='table table-hover table-lg'>
+        <thead class="bg-dark text-light p-2">
+          <tr>
+            <th class="text-nowrap text-center">訂單編號</th>
+            <th class="text-nowrap text-center">商店名稱</th>
+            <th class="text-nowrap text-center">日期</th>
+            <th class="text-nowrap text-center">備註</th>
+            <th class="text-nowrap text-center">付款狀態</th>
+            <th class="text-nowrap text-center">詳細</th>
+          </tr>
+        </thead>
+        <tbody class="bg-light">
+          <% @rescuer_orders.each do |order|%>
+          <tr>
+            <td class="text-center"><%= order.friendly_id.upcase%></td>
+            <td class="text-center"><%= User.find(order.giver_id).name %></td>
+            <td class="text-center"><%= I18n.l(order.created_at, formats: :default) %></td>
+            <td class="text-center"><%= order.note%></td>
+            <td><%= order.aasm.human_state%></td>
+            <td class="text-center"><%= link_to "詳細內容", order_path(order), class:'btn btn-success btn-sm' %></td>
+          </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= render 'shared/frontend/footer' %>
