@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   </head>
   <style>
+    /* --- 網站通用背景 --- */
     body{
       /* background-image: url(/assets/bg01.jpg); -------更改成下方格式*/
       background-image: url(<%= asset_path 'bg01.jpg' %>);
@@ -20,10 +21,21 @@
       letter-spacing: 1px;
       font-size:20px;
       }
+
+    /* --- 訊息通知 --- */
       a.btn_style,.btn_style{
         text-align: center;
         width:150px;
         font-size: 22px;
+      }
+      ul.error {
+        color: #fff;
+        margin-bottom: 0;
+        background-color: rgba(0,0,0,.7);
+      }
+        .error > li{
+        padding: 20px 5px;
+        display: inline-block;
       }
       .alert{
         margin-bottom: 0px;
