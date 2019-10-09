@@ -1,28 +1,39 @@
-<style>
-table.table_giver{
-  width:90%;
-  background-color: #eee;
-}
-</style>
-<h1>我是賣家</h1>
-<table class='table text-dark table-md table_giver table-hover'>
-<thead class="thead-dark text-ligth">
-  <tr>
-    <th>訂單</th>
-    <th>買家</th>
-    <th>日期</th>
-    <th>備註</th>
-    <th>詳情</th>  
-  </tr>
-<tbody>
-    <% @giver_orders.each do |order|%>
-    <tr>
-      <th><%= order.friendly_id.upcase%></td>
-      <th><%= User.find(order.rescuer_id).name %></td>
-      <th><%= I18n.l(order.created_at, formats: :default) %></td>
-      <th><%= order.note%></td>
-      <th><%= link_to "詳細內容", giver_order_order_path(order), class:'btn btn-success btn-style' %><td>
-    </tr>
-    <%end%>
-  </tbody>
-</table>
+<% flash.each do |key, value| %>
+    <div class="alert alert-warning <%= key %>">
+      <%= value %>
+    </div>
+<% end %>
+
+<div class="section_orders_giver">
+  <div class="row no-gutters row_orders_giver justify-content-center">
+    <div class="col-10">
+      <div class="orders_giver_header text-center pb-4">
+        <%= image_tag "dim.jpg" %>
+        <h1>GIVER商店</h1>
+      </div>
+      <table class='table table-hover table-lg'>
+        <thead class="bg-dark text-light p-2">
+          <tr>
+            <th class="text-nowrap text-center">訂單編號</th>
+            <th class="text-nowrap text-center">買家名稱</th>
+            <th class="text-nowrap text-center">日期</th>
+            <th class="text-nowrap text-center">備註</th>
+            <th class="text-nowrap text-center">詳細</th>
+          </tr>
+        </thead>
+        <tbody class="bg-light">
+          <% @giver_orders.each do |order|%>
+          <tr>
+            <td class="text-center"><%= order.friendly_id.upcase%></td>
+            <td class="text-center"><%= order.recipient %></td>
+            <td class="text-center"><%= I18n.l(order.created_at, formats: :default) %></td>
+            <td class="text-center"><%= order.note%></td>
+            <td class="text-center"><%= link_to "詳細內容", giver_order_order_path(order), class:'btn btn-success btn-style' %></td>
+          </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= render 'shared/frontend/footer' %>
