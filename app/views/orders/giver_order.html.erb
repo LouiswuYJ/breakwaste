@@ -1,5 +1,5 @@
 <% flash.each do |key, value| %>
-  <div class="alert alert-warning <%= flash_class(key) %>">
+  <div class="alert alert-warning <%= key %>">
     <%= value %>
   </div>
 <% end %>
@@ -22,7 +22,7 @@
       <% end %>
       <div class="col col-lg-8 col-10 col_orders_show order_show_btn text-center p-5">
         <%= link_to "繼續購物", foods_path, class:'btn btn-success btn_style' %>
-        <%= link_to "查看訂單", giver_orders_path, class:'btn btn-warning btn_style' %>
+        <%= link_to "全部訂單", giver_orders_path, class:'btn btn-warning btn_style' %>
       </div>  
     </div>
   </div>
