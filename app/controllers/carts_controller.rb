@@ -6,11 +6,7 @@ class CartsController < ApplicationController
     @givers_id = @givers.ids
     @cart_foods = current_cart.cart_foods.where(giver_id: @givers.ids)
     @cart_foods_by_giver = cart_foods_by_giver(@cart_foods)
-    @total_prices_all = @cart_foods.reduce({}) do |rs, cf|
-      rs[cf.giver_id] ||= 0
-      rs[cf.giver_id] += cf.total_price
-      rs
-    end
+    hash_total_prices_all(@cart_foods)
   end
 
   def cart_foods_by_giver(cart_foods)    #根據giver_id撈出的cart_food資料
@@ -38,16 +34,11 @@ class CartsController < ApplicationController
   def checkout
     @order = current_user.rescuer_orders.build(giver_id: params[:giver_id])
     @cart_foods = current_cart.cart_foods.where(giver_id: params[:giver_id])
-    
+    redirect_to '/404.html' if @cart_foods.blank?
+
     @givers = User.joins(:cart_food_givens).where('cart_foods.cart_id = ?', current_cart.id).distinct
     cart_foods = CartFood.where(giver_id: params[:giver_id])
-    # @cart_foods_by_giver = cart_foods_by_giver(@cart_foods)
-    @total_prices_all = cart_foods.reduce({}) do |rs, cf|
-      rs[cf.giver_id] ||= 0
-      rs[cf.giver_id] += cf.total_price
-      rs
-    end
-    @order_total_price = @total_prices_all.values.sum
+    calc_total_prices_all(cart_foods)
   end
 
   private
@@ -57,6 +48,18 @@ class CartsController < ApplicationController
 
   def find_cart_food
     @food = current_cart.foods.find_by(id: params[:format])    
+  end
+
+  def hash_total_prices_all(cart_foods)
+    @total_prices_all = cart_foods.reduce({}) do |rs, cf|
+      rs[cf.giver_id] ||= 0
+      rs[cf.giver_id] += cf.total_price
+      rs
+    end
+  end
+
+  def calc_total_prices_all(cart_foods)
+    @order_total_price = hash_total_prices_all(cart_foods).values.sum
   end
 end
 

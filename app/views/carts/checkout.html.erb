@@ -5,7 +5,7 @@
       <li><%= message %></li>
     <% end %>
   </ul>
-<% end %>
+<% end %> 
 
 <div class="section_checkout">
   <div class="container-fluid p-0">
@@ -22,7 +22,7 @@
             <ul class="checkout">
               <li>
                 <div class="carts_show_price">
-                  <%= link_to User.find_by(id: cart_food.food.user_id).name, "#" %>
+                  <%= link_to User.find_by(id: cart_food.food.user_id).name, store_food_path(cart_food.giver_id) %>
                   <p><%= cart_food.food.title%></p>
                   <p>提貨時間：<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%=cart_food.food.endup_time.strftime("%H:%M") %></p>
                   <span>＄<%= cart_food.food.discount_price%></span>
