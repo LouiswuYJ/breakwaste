@@ -1,23 +1,22 @@
-  <style>
-    .my_tree{ 
-      width: 500px;
-      height: 500px;
-      margin: auto;
-    }
-  </style>
-
-<h1>我的小樹</h1>
-
-<div class="my_tree">
-   <p>「盛食找餐」已為您省下： <%= @rescuer_money %>元</p> 
-  <%= order_count(@order_count) %>
+<div class="container-fluid p-0 my_little_tree">
+  <div class="row no-gutters justify-content-center p-5 ">
+       
+    <div class="col col-lg-4 col-md-10 col-sm-10 col-10">
+      <div class="little_tree">
+        <%= order_count(@order_count) %>
+      </div> 
+    </div>
+          
+    <div class="col col-lg-4 col-md-10 col-sm-10 col-10 little_tree_info text-center p-5 align-items-center">
+      <h1 class="pb-5">我的小樹</h1>
+      <p>「盛食找餐」累積總訂單數為 <%= @save_orders %> 筆 </p>
+      <p>「盛食找餐」已為您成功省下 <%= @rescuer_money %> 元</p> 
+      <p>降低總碳排放量 約 <%= @save_orders * 2 %>公斤</p>
+      <%= link_to '繼續拯救地球', foods_path, class: 'btn btn-warning my_tree_btn p-3 mt-5' %>
+    </div>
+  </div>
 </div>
 
- 
- <hr>
- <div class ="our_tree" >
-  <p>「盛食找餐」累積總訂單數： <%= @save_orders %> 筆 </p>
-  <p>降低總碳排放：約 <%= @save_orders * 2 %>公斤</p>
- </div>
+
  
 
