@@ -16,7 +16,11 @@ class MyTreeController < ApplicationController
   def recuser_money #計算省下的錢
     rescuer_items = current_user.rescuer_orders.map do |order|
       order.order_items.map do |item| 
-        item.food.origin_price - item.food.discount_price
+        if item.food.origin_price >= item.food.discount_price
+          item.food.origin_price - item.food.discount_price
+        else
+          0
+        end
       end
     end
     #把登入者的rescuer_orders一項一項抽出來，分項計算，order_item中每一項食物原價減去折扣價
