@@ -20,7 +20,7 @@ end
   User.create(name: Faker::Name.name, password: 111111, phone: '0923111111', email: "giver#{i+1}@breakwaste", address:Faker::Address.street)
 end
 
-20.times do |i|
+10.times do |i|
   User.find(rand(1..5)).foods.create(title:Faker::Food.title,
                             address:Faker::Address.street,
                             phone:Faker::Food.formats,
@@ -29,7 +29,7 @@ end
                             discount_price: discount_price,
                             pickup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
                             endup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-                            picture:Faker::LoremPixel.image(size: "300x300", is_gray: false, category: 'food', number: rand(1..10)),
+                            picture:Faker::LoremPixel.image(size: "300x300", is_gray: false, category:  'food', number: rand(1..10)),
                             description:Faker::Food.tw_description)
 end
 

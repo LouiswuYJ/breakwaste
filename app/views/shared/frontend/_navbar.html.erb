@@ -21,27 +21,24 @@
         <li class="nav-item">
           <%= link_to "我的小樹", my_tree_path(current_user.id), class: 'nav-link' %>
         </li>
-
-        <% if current_user.cart %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            會員中心
-            </a>
-            <div class="dropdown-menu p-3" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to "Rescuer訂單", orders_path, class: 'nav-link dropdown-item', style: 'font-size:20px' %>
-              <%= link_to "Giver訂單", giver_orders_path, class: 'nav-link dropdown-item', style: 'font-size:20px' %>
-              <%= link_to "歷史紀錄", history_foods_path, class: 'nav-link dropdown-item', style: 'font-size:20px' %>
-              <%= link_to "個人資料", user_registration_path, class: 'nav-link dropdown-item', style: 'font-size:20px' %>
-            </div>
-          </li>
-        <% end %>
           <% if current_user.cart %>
-            <li>
-              <%= link_to "購物車(#{current_cart.foods.count})", cart_path("food_id" => current_cart.foods.ids), class: 'nav-link' if current_cart.present?%>
-            </li> 
-            <li class="nav-item">
-              <%= link_to "登出", destroy_user_session_path, class: 'nav-link', method: 'delete', data: {confirm: '確定要登出嗎？'} %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              會員中心
+              </a>
+              <div class="dropdown-menu p-3" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to "Rescuer訂單", orders_path, class: 'nav-link dropdown-item', style: 'font-size:20px' %>
+                <%= link_to "Giver訂單", giver_orders_path, class: 'nav-link dropdown-item', style: 'font-size:20px' %>
+                <%= link_to "歷史紀錄", history_foods_path, class: 'nav-link dropdown-item', style: 'font-size:20px' %>
+                <%= link_to "個人資料", user_registration_path, class: 'nav-link dropdown-item', style: 'font-size:20px' %>
+              </div>
             </li>
+              <li>
+                <%= link_to "購物車(#{current_cart.foods.count})", cart_path("food_id" => current_cart.foods.ids), class: 'nav-link' if current_cart.present?%>
+              </li> 
+              <li class="nav-item">
+                <%= link_to "登出", destroy_user_session_path, class: 'nav-link', method: 'delete', data: {confirm: '確定要登出嗎？'} %>
+              </li>
           <% end %>
         <% else %>
           <li class="nav-item">
