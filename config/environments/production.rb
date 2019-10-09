@@ -92,4 +92,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.force_ssl = true
+  # 解決 heroku 背景消失問題
+  config.serve_static_assets = true
+  config.assets.compile = true
 end
