@@ -5,7 +5,7 @@
       <div class="col col-lg-6 col-md-10 col-sm-10 col-10 col_show">
         <div class="col col-10 mx-auto">
           <div class="show_info">
-            <%# <img src="https://picsum.photos/400/400/?random=2" class="img_show"> %>
+            <%= link_to User.find(@food.user_id).name, store_food_path(@food.user_id) %>
             <%= image_tag @food.avatar.variant(resize: '400x400'), :class => 'img_show' if @food.avatar.attached? %> <!-- 圖片大小從這改 -->
             <h1><%= @food.title %></h1>
             <p class="show_price">

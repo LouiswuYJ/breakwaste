@@ -18,7 +18,7 @@ table.table_giver{
     <% @giver_orders.each do |order|%>
     <tr>
       <th><%= order.friendly_id.upcase%></td>
-      <th><%= User.find(order.rescuer).name %></td>
+      <th><%= User.find(order.rescuer_id).name %></td>
       <th><%= I18n.l(order.created_at, formats: :default) %></td>
       <th><%= order.note%></td>
       <th><%= link_to "詳細內容", giver_order_order_path(order), class:'btn btn-success btn-style' %><td>

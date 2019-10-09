@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   # require 'net/http'
-  before_action :find_food, only: [:edit, :update, :destroy]
+  before_action :find_food, only: [:edit, :update, :destroy, :store]
 
   def index
     @foods = Food.search(params[:search]).order(created_at: :desc)
@@ -63,6 +63,11 @@ class FoodsController < ApplicationController
   #     redirect_to new_user_session_path
   #   end
   # end
+
+  def store
+    @foods = current_user.foods
+    @giver_store = Food.where(user_id: params[:id])
+  end
 
   private
   def clean_params
