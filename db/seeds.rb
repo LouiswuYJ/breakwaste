@@ -5,33 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "產出5筆PO文資料"
+puts "產出10筆PO文資料"
 
 # current_user = User.create(name: Faker::Name.name, password: '111111', phone: '0923111111', email: 'example@gmail.com', role: 'giver')
-
-
-
-
-
 def origin_price
   Faker::Number.between(from: 50, to: 1000)  
 end
 
 def discount_price
-  origin_price * Faker::Number.between(from: 0.3, to:0.8 ) 
+  origin_price * 0.6
 end
-
-def randon_number
-  [*1..10].sample
-end
-
 
 10.times do |i|
-  User.create(name: Faker::Name.name, password: 111111, phone: '0923111111', email: Faker::Internet.email, address:Faker::Address.street)
+  User.create(name: Faker::Name.name, password: 111111, phone: '0923111111', email: "giver#{i+1}@breakwaste", address:Faker::Address.street)
 end
 
-5.times do |i|
-  User.find(10).foods.create(title:Faker::Food.title,
+10.times do |i|
+  User.find(rand(1..5)).foods.create(title:Faker::Food.title,
                             address:Faker::Address.street,
                             phone:Faker::Food.formats,
                             quantity:Faker::Number.between(from: 1, to: 10),
@@ -39,8 +29,10 @@ end
                             discount_price: discount_price,
                             pickup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
                             endup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-                            picture:Faker::LoremPixel.image(size: "300x300", is_gray: false, category: 'food', number: randon_number),
+                            picture:Faker::LoremPixel.image(size: "300x300", is_gray: false, category:  'food', number: rand(1..10)),
                             description:Faker::Food.tw_description)
 end
+
+
 puts "完成!"
 

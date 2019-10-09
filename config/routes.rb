@@ -12,7 +12,7 @@ Rails.application.routes.draw do
    member do
      get :search
      put :add_to_cart
-     
+     get :store
    end
 
    collection do  
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     end
 
     member do
-      get :checkout 
+      get :checkout
     end
   end
 

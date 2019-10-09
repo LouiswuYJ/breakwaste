@@ -12,15 +12,14 @@
         <% @givers.each do |giver_info| %>
 
           <div class="store p-2">
-            <%= link_to giver_info.name, "#", class: "text-decoration-none" %>
+            <%= link_to User.find(giver_info.id).name, store_food_path(giver_info.id), class: "text-decoration-none" %>
             <% @cart_foods.where(giver_id: giver_info.id).each do |giver| %>
           </div>
-          
           <div class="carts_info">
             <div class="items p-3 my-2">                                     
             <p><%= link_to "刪除", cart_path(giver.id), method: 'delete', class: 'btn-sm btn-danger btn_del', data:{confirm: '確定要刪除嗎？'} %>
               <%= giver.food.title%><p>
-              <p>提貨時間 <%= I18n.l(giver.food.pickup_time, formats: :default) %> ～ <%= I18n.l(giver.food.pickup_time, formats: :default) %></p>
+              <p>提貨時間 <%= I18n.l(giver.food.pickup_time, formats: :default) %> ～ <%=giver.food.endup_time.strftime("%H:%M") %></p>
               <div class="carts_show_price">
                 <span>＄<%= giver.food.discount_price%></span>
                 <del>原價<%= giver.food.origin_price%></del>

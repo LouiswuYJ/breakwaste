@@ -1,14 +1,18 @@
 class FoodsController < ApplicationController
   # require 'net/http'
-  before_action :find_food, only: [:edit, :update, :destroy]
+  before_action :find_food, only: [:edit, :update, :destroy, :store]
 
   def index
     @foods = Food.search(params[:search]).order(created_at: :desc)
   end
 
   def show
-    @food = Food.find_by(id: params[:id])
-    current_cart_food
+    if user_signed_in?
+      @food = Food.find_by(id: params[:id])
+      current_cart_food
+    else 
+      redirect_to user_session_path, notice: '請先登入會員！'  
+    end
   end
 
   def new
@@ -59,6 +63,11 @@ class FoodsController < ApplicationController
   #     redirect_to new_user_session_path
   #   end
   # end
+
+  def store
+    @foods = current_user.foods
+    @giver_store = Food.where(user_id: params[:id])
+  end
 
   private
   def clean_params
