@@ -55,7 +55,6 @@ gem 'jquery-rails'
 gem 'recaptcha', git: "https://github.com/ambethia/recaptcha.git"
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
-gem "braintree", "~> 2.98.0"
 
 
 group :development, :test do
