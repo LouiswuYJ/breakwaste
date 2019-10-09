@@ -1,4 +1,4 @@
-/* --- 訊息通知 --- */
+<%# 訊息通知 %>  
 ul.error {
     color: #fff;
     margin-bottom: 0;
@@ -9,11 +9,12 @@ ul.error {
   display: inline-block;
 }
 
-/* --- 內容 --- */
+<%# 內容 %> 
 .create_form{
   padding: 30px;
   text-align: center;
-  background-image: url(/assets/header04.jpg);
+  <%# background-image: url(/assets/header04.jpg); -------更改成下方格式 %> 
+  background-image: url(<%= asset_path 'header04.jpg' %>);
 }
 .container_form{
   background-color: rgb(255,255,255);
