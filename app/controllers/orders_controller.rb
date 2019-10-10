@@ -53,6 +53,11 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order.order_items.reduce(0) do |sum, order_item|
+      food_id = order_item.food_id
+      order_item_price = Food.find(food_id).discount_price
+      @total_price = sum + order_item_price * order_item.quantity
+    end
   end
 
   def destroy
