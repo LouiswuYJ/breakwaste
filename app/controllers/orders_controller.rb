@@ -34,6 +34,11 @@ class OrdersController < ApplicationController
 
   def giver_order
     @giver_orders = current_user.giver_orders.friendly.find(params[:id]) 
+    @giver_orders.order_items.reduce(0) do |sum, order_item|
+      food_id = order_item.food_id
+      order_item_price = Food.find(food_id).discount_price
+      @total_price = sum + order_item_price * order_item.quantity
+    end
   end
   
   def create
