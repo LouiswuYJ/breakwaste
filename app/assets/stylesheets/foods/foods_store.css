@@ -1,18 +1,31 @@
 .section_foods_store{
-  height: 300%;
-  background-color: rgba(255,255,255,0.5);
+  background-color: #fff;
+  height: 100px;
+  padding-top: 10px;
 }
 .store_title{
   padding: 50px;
-  margin: 100px;
+  background-color: rgb(255, 185, 50);
 }
-.store_title > img{
-  width: 200px;
+div.foods_store_logo{
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background-color: #fff;
 }
-.store_title > h1{
-  padding-top: 20px;
+.foods_store_logo > img{
+  margin-top: 0px;
+  width: 300px;
 }
-/* --- 與foods-index共用 --- */
+.store_item{
+  margin-top: 100px;
+}
+
+.row_stor_list{
+  margin: 80px 0 150px 0;
+}
+/* --- 商品cards與foods-index共用 --- */
+
 .col_list{
   border: 5px solid #eee;
   background-color: #fff;

@@ -11,10 +11,10 @@
 
       </div>
         <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_payment_btn py-5 text-center">
-          <div class="col col-6 m-auto">
+          <div class="col col-10 m-auto">
             <%= form_with(url: transaction_order_path(@order), local: true) do |form| %>
               <div id="payment-form"></div>
-              <input type="submit" value="結帳" class="btn btn-danger btn_style mt-5">
+              <input type="submit" value="結帳" class="btn btn-danger btn_style mt-5 payment-btn">
             <% end %>
             <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
             <script>

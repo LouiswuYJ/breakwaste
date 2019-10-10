@@ -1,6 +1,7 @@
 .section_orders_index{
+  height: 110%;
   background-color: #fff;
-  padding: 80px 0 300px;
+  padding-top: 80px;
 }
 .row_orders_index {
   background-color: #fff;
