@@ -1,4 +1,4 @@
-<div class="section_foods_index">
+<div class="section_foods_store">
   <div class="container-fluid container_list p-0">
 
     <% flash.each do |key, value| %>
@@ -7,11 +7,12 @@
         </div>
     <% end %>
     
-    
-    <div class="row no-gutters justify-content-center row_list py-5">
-      <div class="col-12 text-center p-3">
-        <h1>我的店家</h1>
+    <div class="row no-gutters justify-content-center row_list">
+      <div class=" col-12 store_title text-center m-auto">
+        <%= image_tag "icons/store.svg" %>
+        <h1>商店</h1>
       </div>
+ 
       <% @giver_store.each do |food| %>
         <a href="/foods/<%=food.id %>" class="text-decoration-none">
           <div class="col col-lg-3 col-md-8 col-sm-10 col-10 col_list col_img p-4 m-2">

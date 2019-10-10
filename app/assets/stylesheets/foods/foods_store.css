@@ -1,0 +1,66 @@
+.section_foods_store{
+  height: 300%;
+  background-color: rgba(255,255,255,0.5);
+}
+.store_title{
+  padding: 50px;
+  margin: 100px;
+}
+.store_title > img{
+  width: 200px;
+}
+.store_title > h1{
+  padding-top: 20px;
+}
+/* --- 與foods-index共用 --- */
+.col_list{
+  border: 5px solid #eee;
+  background-color: #fff;
+  border-radius: 5px;
+  }
+.col_list:hover{
+  border: 5px solid  rgb(255, 195, 0);
+  }
+.col_info,.col_btn{
+  background-color: #fff;
+  margin: 0 0 10px 0;
+  }
+.img_list{
+  width: 100%;
+  border-radius: 25px;
+  }
+.col_info > h3{
+  font-size: 30px;
+  color: rgb(195, 0, 0);
+  } 
+@media screen and (min-width: 768px){
+  .col_info > h3{
+   padding: 0px;
+  }
+}
+.col_info > p{
+  font-size: 20px;
+  color: #000;
+  margin: 3px 0;
+  letter-spacing: 2px;
+  }
+@media screen and (min-width: 768px){
+  .col_info > p{
+    padding: 0px;
+  }
+}
+.col_info > .list_price{
+  margin: 15px 0;
+  }
+.col_info > .list_price > strong{
+  font-size: 30px;
+  color: #000;
+  }
+.col_info > .list_price > del{
+  color: #aaa;
+  }
+.btn_foods_list{
+  height: 40px;
+  font-size: 18px;
+  align-items: flex-start;
+}
