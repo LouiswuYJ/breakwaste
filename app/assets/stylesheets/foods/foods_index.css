@@ -1,6 +1,8 @@
-.row_list{
+.section_foods_index{
+  height: 300%;
   background-color: rgba(255,255,255,0.5);
-  }
+  
+}
 .col_list{
   border: 5px solid #eee;
   background-color: #fff;
