@@ -84,6 +84,14 @@ class OrdersController < ApplicationController
       )
       if result.success?
         @order.pay!
+        cart_foods.each do |cart_food|
+          food_id = cart_food.food_id
+          @food = Food.find(food_id)          
+          origin_post_quantity = @food.quantity 
+          rescuer_buy_quantity = cart_food.quantity
+          @food.quantity = origin_post_quantity - rescuer_buy_quantity
+          @food.save
+        end
         cart_foods.destroy_all 
         redirect_to order_path, notice: '信用卡結帳完成'
       else
