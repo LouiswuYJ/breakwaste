@@ -8,6 +8,7 @@
 }
 table{
   border: none;
+  margin-bottom: 100px;
 }
 .orders_index_header > img{
   width: 200px;
