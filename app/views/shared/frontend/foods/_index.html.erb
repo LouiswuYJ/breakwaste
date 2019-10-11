@@ -7,17 +7,7 @@
         </div>
     <% end %>
 
-<style type="text/css">
-.row_list{margin:auto; width:85%;padding:20px 0 100px 0;}
-.row_list .col_list{ margin-top: 20px;margin-left: 20px; width: calc((100% - 40px) / 3); }
-.row_list .col_list:nth-child(3n+1){ margin-left: 0; }
-@media (max-width: 1023px) {
-  .row_list{width: 80%;}
-  .row_list .col_list{margin-left:0;width: 100%;}
-}
-</style>
-
-    <div class="row no-gutters justify-content-start row_list">
+    <div class="row no-gutters justify-content-start row_list py-5">
       <% @foods.each do |food| %>
         <div class="col_list col_img p-4 <%= 'food' if food.quantity == 0 %>">
           <div>
