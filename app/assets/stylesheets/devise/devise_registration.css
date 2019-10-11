@@ -1,23 +1,23 @@
 .row_sign{
-  height: 1080px;
-  background-color: rgba(255,255,255,0.85)
+  background-color: #fff;
+  padding: 30px 0 100px 0;
 }
 form > h2{
-  font-size: 50px;
+  font-size: 30px;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 .label_form{
-  font-size: 28px;
+  font-size: 20px;
 }
 .sign_in, .sign_up, .btn_send{
-  width: 300px;
+  width: 100%;
   height: 50px;
   color: #fff;
   border: none;
-  margin-bottom: 30px;
   align-content: center;
   border-radius: 5px;
+  margin-bottom: 30px;
   background-color: #fa0;
 }
 .colorgraph {
