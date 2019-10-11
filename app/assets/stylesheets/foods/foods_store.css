@@ -1,4 +1,4 @@
-.section_foods_store{
+/* .section_foods_store{
   background-color: #fff;
   height: 100px;
   padding-top: 10px;
@@ -26,7 +26,7 @@ div.foods_store_logo{
 }
 /* --- 商品cards與foods-index共用 --- */
 
-.col_list{
+/* .col_list{
   border: 5px solid #eee;
   background-color: #fff;
   border-radius: 5px;
@@ -76,4 +76,4 @@ div.foods_store_logo{
   height: 40px;
   font-size: 18px;
   align-items: flex-start;
-}
+} */

@@ -1,61 +1,98 @@
+.container_foods_list{
+  padding: 30px 0 100px 0;
+}
+.row_foods_list{
+  padding: 30px 0;
+}
+@media screen and (min-width: 768px){
+  .row_foods_list{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 8.5%;
+  }
+}
 .col_list{
-  border: 5px solid #eee;
+  border: 3px solid #eee;
   background-color: #fff;
+  width: calc((100% - 10px) / 1);
   border-radius: 5px;
+  margin: 10px;
+  position: relative;
+  }
+  @media screen and (min-width: 768px){
+    .col_list{
+      /* width: calc((100% - 10px) / 4); */
+      width: 300px;
+    }
   }
 .col_list:hover{
-  border: 5px solid  rgb(255, 195, 0);
-  }
-.col_info,.col_btn{
-  background-color: #fff;
-  margin: 0 0 10px 0;
+  border: 3px solid  rgb(255, 195, 0);
   }
 .img_list{
   width: 100%;
+  object-fit: cover;
   border-radius: 25px;
   position: relative;   /* 打折數 */
   } 
-
-.col_info > .list_price{
+  @media screen and (min-width: 768px){
+    .img_list{
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      } 
+  }
+.col_foods_info{
+  margin: 15px 0;
+  padding-bottom: 60px;
+  }
+.col_foods_info > .list_price{
   margin: 15px 0;
   }
-
-.col_info > h3{
-  font-size: 30px;
+.col_foods_info > h3{
+  font-size: 22px;
   color: rgb(195, 0, 0);
   } 
 @media screen and (min-width: 768px){
-  .col_info > h3{
+  .col_foods_info > h3{
    padding: 0px;
   }
 }
-.col_info > p{
-  font-size: 20px;
+.col_foods_info > p{
+  font-size: 14px;
   color: #000;
   margin: 3px 0;
   letter-spacing: 2px;
   }
 @media screen and (min-width: 768px){
-  .col_info > p{
+  .col_foods_info > p{
     padding: 0px;
   }
 }
-.col_info > .list_price{
+.col_foods_info > .list_price{
   margin: 15px 0;
   }
-.col_info > .list_price > strong{
-  font-size: 30px;
+.col_foods_info > .list_price > strong{
+  font-size: 22px;
   color: #000;
   }
-.col_info > .list_price > del{
+.col_foods_info > .list_price > del{
+  font-size: 14px;
   color: #aaa;
   }
 .btn_foods_list{
   height: 40px;
   font-size: 18px;
-  align-items: flex-start;
 }
-
+.col_foods_btn{
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  padding: 10px 0;
+}
+p.list_store_name{
+  margin: 20px;
+  font-size: 14px;
+}
 /* 如果數量為0時不給選取 */
 
 .food{   
@@ -63,7 +100,6 @@
   opacity: 0.5;  
   pointer-events: none;
 }
-
 .food::after{
   content: "已售完"
 }
