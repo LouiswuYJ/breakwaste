@@ -1,0 +1,25 @@
+.my_little_tree{
+  height: 100%;
+  background-color: rgba(255,255,255,0.7);
+}
+.little_tree{ 
+  width: 100%;
+  margin: auto;
+}
+.little_tree_info{
+  background-color: #eee;
+  border-radius: 20px;
+  box-shadow:5px 5px 10px gray;
+}
+.little_tree_info > p {
+  font-size: 24px;
+}
+a.my_tree_btn{
+  width: 200px;
+  font-size: 24px;
+  border-radius: 10px;
+}
+.my_tree_btn:hover{
+  background: rgb(255, 210, 80);
+  border: 1px solid rgb(255, 210, 80);
+}

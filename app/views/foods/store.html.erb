@@ -1,13 +1,24 @@
-<h1>我的店家</h1>
-
-<div class="section_foods_index">
+<div class="section_foods_store">
   <div class="container-fluid container_list p-0">
+
     <% flash.each do |key, value| %>
-      <div class="alert alert-warning <%= flash_class(key) %>">
-        <%= value %>
-      </div>
+        <div class="alert alert-warning <%= key %>">
+          <%= value %>
+        </div>
     <% end %>
-    <div class="row no-gutters justify-content-center row_list p-4">
+  
+    <div class="col-12 store_title text-center m-auto">
+      <div class="foods_store_logo text-center m-auto">
+        <%= image_tag "icons/store.svg" %> 
+        <h3>S T O R E</h3>
+        <h1>我的商店</h1>
+      </div>   
+    </div>
+  </div>
+
+  <div class="container-fluid container_list p-0">
+    <div class="row no-gutters justify-content-center row_stor_list">
+  
       <% @giver_store.each do |food| %>
         <a href="/foods/<%=food.id %>" class="text-decoration-none">
           <div class="col col-lg-3 col-md-8 col-sm-10 col-10 col_list col_img p-4 m-2">
@@ -37,7 +48,8 @@
           </div>   
         </a>
       <% end %>
-    </div>
-  </div>
-</div>
+    
+    </div><!--- row_stor_list --->
+  </div><!--- container_list --->
+</div><!--- section_foods_store --->
 <%= render 'shared/frontend/footer' %>

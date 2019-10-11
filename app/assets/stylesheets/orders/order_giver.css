@@ -1,0 +1,16 @@
+.section_orders_giver{
+  height: 110%;
+  background-color: #fff;
+  padding-top: 80px;
+}
+.row_orders_givers {
+  background-color: #fff;
+}
+table{
+  border: none;
+}
+.orders_giver_header > img{
+  width: 200px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}

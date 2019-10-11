@@ -1,5 +1,10 @@
+.section_orders_show{
+  height: 110%;
+  background-color: #fff;
+}
 .container_orders_show{
   height: 100%;
+  background-color: #fff;
 }
 .row_orders_show{
   background-color: #fff;
@@ -21,5 +26,5 @@
   border-radius: 10px;
 }
 .order_show_item > p {
-  font-size: 26px;
+  font-size: 30px;
 }

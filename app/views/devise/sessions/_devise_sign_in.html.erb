@@ -1,5 +1,9 @@
 <div class="container">
-<%= flash[:notice] %>
+    <% flash.each do |key, value| %>
+        <div class="alert alert-warning <%= key %>">
+          <%= value %>
+        </div>
+    <% end %>
   <!---- form for ---->
  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 

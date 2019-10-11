@@ -1,0 +1,35 @@
+.section_profile{
+  background-color: #fff;
+  height: 100%;
+  padding-top: 10px;
+}
+.container_profile{
+  background-color: #fff;
+  padding:70px 0 120px 0;
+}
+.profile_title{
+  padding: 50px;
+  background-color: rgb(255, 185, 50);
+}
+div.profile_logo{
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.profile_logo > img{
+  margin-top: 0px;
+  width: 200px;
+}
+form.form_profile{
+  padding: 50px;
+  margin: auto;
+  width: 90%;
+  background-color: #eee;
+  border-radius: 15px;
+}
+@media screen and (min-width: 992px){
+  form.form_profile{
+    width: 60%;
+  }
+}
