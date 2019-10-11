@@ -50,3 +50,14 @@
   align-items: flex-start;
 }
 
+/* 如果數量為0時不給選取 */
+
+.food{   
+  background-color: #000;
+  opacity: 0.5;  
+  pointer-events: none;
+}
+
+.food::after{
+  content: "已售完"
+}
