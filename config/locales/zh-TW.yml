@@ -18,6 +18,9 @@
     registrations:
       user:
         updated: "您的個人資料已更新成功！" 
+    failure:
+      already_authenticated: "你已經登入了！"
+      signed_up: "您已註冊成功！"
   short: "%H:%M"
   activerecord:
     errors:
