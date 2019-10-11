@@ -3,7 +3,7 @@ class MyTreeController < ApplicationController
   before_action :recuser_money, only: [:show]
 
   def show
-    @save_orders = Order.all.count #網站總訂單數
+    @save_orders = (Order.all.count)*2 #網站總訂單數
   end
 
   private
