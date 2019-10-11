@@ -13,7 +13,13 @@
 .img_list{
   width: 100%;
   border-radius: 25px;
+  position: relative;   /* 打折數 */
+  } 
+
+.col_info > .list_price{
+  margin: 15px 0;
   }
+
 .col_info > h3{
   font-size: 30px;
   color: rgb(195, 0, 0);
@@ -48,4 +54,16 @@
   height: 40px;
   font-size: 18px;
   align-items: flex-start;
+}
+
+/* 如果數量為0時不給選取 */
+
+.food{   
+  background-color: #000;
+  opacity: 0.5;  
+  pointer-events: none;
+}
+
+.food::after{
+  content: "已售完"
 }

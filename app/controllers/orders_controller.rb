@@ -34,6 +34,11 @@ class OrdersController < ApplicationController
 
   def giver_order
     @giver_orders = current_user.giver_orders.friendly.find(params[:id]) 
+    @giver_orders.order_items.reduce(0) do |sum, order_item|
+      food_id = order_item.food_id
+      order_item_price = Food.find(food_id).discount_price
+      @total_price = sum + order_item_price * order_item.quantity
+    end
   end
   
   def create
@@ -53,6 +58,11 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order.order_items.reduce(0) do |sum, order_item|
+      food_id = order_item.food_id
+      order_item_price = Food.find(food_id).discount_price
+      @total_price = sum + order_item_price * order_item.quantity
+    end
   end
 
   def destroy
@@ -74,6 +84,14 @@ class OrdersController < ApplicationController
       )
       if result.success?
         @order.pay!
+        cart_foods.each do |cart_food|
+          food_id = cart_food.food_id
+          @food = Food.find(food_id)          
+          origin_post_quantity = @food.quantity 
+          rescuer_buy_quantity = cart_food.quantity
+          @food.quantity = origin_post_quantity - rescuer_buy_quantity
+          @food.save
+        end
         cart_foods.destroy_all 
         redirect_to order_path, notice: '信用卡結帳完成'
       else

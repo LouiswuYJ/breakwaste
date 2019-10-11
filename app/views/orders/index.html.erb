@@ -4,7 +4,6 @@
     </div>
 <% end %>
 
-
 <div class="section_orders_index">
   <div class="row no-gutters row_orders_index justify-content-center">
     <div class="col-10">
@@ -22,6 +21,8 @@
             <th>備註</th>
             <th>付款狀態</th>
             <th>詳細</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody class="bg-light">
@@ -33,6 +34,9 @@
             <td><%= order.note%></td>
             <td><%= order.aasm.human_state%></td>
             <td><%= link_to "詳細內容", order_path(order), class:'btn btn-success btn-sm' %></td>
+            <td><%= link_to "付款", payment_order_path(order), class: 'btn btn-danger btn-sm' if order.may_pay? %>
+            </td>
+            <td><%= link_to "取消", order_path(order), method: 'delete', class: 'btn btn-secondary btn-sm', data: {confirm: '確定要取消訂單嗎？'} if order.may_pay?%></td>
           </tr>
           <%end%>
         </tbody>

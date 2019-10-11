@@ -18,6 +18,7 @@
             <th>買家名稱</th>
             <th>日期</th>
             <th>備註</th>
+            <th>付款狀態</th>
             <th>詳細</th>
           </tr>
         </thead>
@@ -28,6 +29,7 @@
             <td><%= order.recipient %></td>
             <td><%= I18n.l(order.created_at, formats: :default) %></td>
             <td><%= order.note%></td>
+            <td><%= order.aasm.human_state%></td>
             <td><%= link_to "詳細內容", giver_order_order_path(order), class:'btn btn-success btn-style' %></td>
           </tr>
           <%end%>

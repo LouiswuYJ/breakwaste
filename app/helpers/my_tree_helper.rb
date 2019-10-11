@@ -1,7 +1,7 @@
 module MyTreeHelper
   def order_count(order_count)    
     case order_count 
-    when order_count == 0
+    when 0
       image_tag "trees/bud1.png"
     when 1..5
       image_tag "trees/bud2.png"

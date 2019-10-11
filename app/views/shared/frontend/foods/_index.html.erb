@@ -10,10 +10,11 @@
     <div class="row no-gutters justify-content-center row_list py-5">
       <% @foods.each do |food| %>
         <a href="/foods/<%=food.id %>" class="text-decoration-none">
-          <div class="col col-lg-3 col-md-8 col-sm-10 col-10 col_list col_img p-4 m-2">
+          <div class="col col-lg-3 col-md-8 col-sm-10 col-10 col_list col_img p-4 m-2 <%= 'food' if food.quantity == 0 %>">
             <div>
               <%= link_to User.find(food.user_id).name, store_food_path(food.user_id) %>
-              <%= image_tag food.avatar.variant(resize: '300x300'), :class => "img_list" if food.avatar.attached?%>
+              <%= image_tag food.avatar.variant(resize: '300x300!'), :class => "img_list" if food.avatar.attached?%>
+              <span class="off"><%= (food.origin_price - food.discount_price)*100/(food.origin_price) %>% off</span>
             </div>
             <div>
               <img src="<%=food.picture%>" alt="" class="img_list" style="margin-bottom:30px">
@@ -42,3 +43,4 @@
   </div>
 </div>
 <%= render 'shared/frontend/footer' %>
+
