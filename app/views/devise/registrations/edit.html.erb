@@ -9,13 +9,10 @@
 
   <div class="container-fluid container_profile justify-content-center">
     <div class="row no-gutters row_profile p-0">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form_profile"}) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="col col-lg-12">
-
-
-
           <div class="input-group-lg mb-3 mx-auto">
             <%= f.label :name, '姓名:' %>
             <%= f.text_field :name, class:'form-control', placeholder:'username' %>
@@ -48,16 +45,15 @@
             <%= f.text_field :password_confirmation, class:'form-control mb-3 col-6' %>
 
             <div class="input-group mt-3">
-            <div class="actions">
-              <%= f.submit "確認", class: 'btn btn-info btn-lg mr-3' %>
+              <div class="actions">
+                <%= f.submit "確認", class: 'btn btn-info btn-lg mr-3' %>
+              </div>
+              <div class="input-group-prepend">
+                <%= link_to "取消", :back, class:'btn btn-dark btn-lg' %>
+              </div>
             </div>
-            <div class="input-group-prepend">
-              <%= link_to "取消", :back, class:'btn btn-dark btn-lg' %>
-            </div>
-            </div>
+
           </div>
-
-
         </div>
       <% end %>
     </div>

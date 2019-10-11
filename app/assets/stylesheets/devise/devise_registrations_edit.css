@@ -21,7 +21,7 @@ div.profile_logo{
   margin-top: 0px;
   width: 200px;
 }
-form{
+form.form_profile{
   padding: 50px;
   margin: auto;
   width: 90%;
@@ -29,7 +29,7 @@ form{
   border-radius: 15px;
 }
 @media screen and (min-width: 992px){
-  form{
+  form.form_profile{
     width: 60%;
   }
 }
