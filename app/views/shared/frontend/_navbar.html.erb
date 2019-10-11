@@ -18,8 +18,8 @@
   background-color: rgb(255, 225, 130);
 }
 </style>
-<nav class="navbar navbar-expand-lg navbar-light bg-warning navbar_foods p-0">
 
+<nav class="navbar navbar-expand-lg navbar-light bg-warning navbar_foods p-0">
   <a class="navbar-brand px-3" href="http://localhost:3000">盛食找餐 BreakWaste</a>
   <!-- 只是方便自己作業 https://breakwaste.site/ -->
 
@@ -28,49 +28,55 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-    
-        <a class="nav-link px-3" href="http://localhost:3000/foods">食物救援 <span class="sr-only">(current)</span></a>  <!-- 只是方便自己作業 https://breakwaste.site/foods-->
+        <a class="nav-link" href="http://localhost:3000/foods">食物救援 <span class="sr-only">(current)</span></a>
+        <!-- 只是方便自己作業 https://breakwaste.site/foods-->
       </li>
     </ul>
+
     <ul class="navbar-nav">
       <% if user_signed_in? %>
+
         <li class="nav-item">
-          <%= link_to "新增食物", new_food_path, class:'nav-link px-3'%>
+          <%= link_to "新增食物", new_food_path, class:'nav-link px-2'%>
         </li>
         <li class="nav-item">
-          <%= link_to "我的小樹", my_tree_path(current_user.id), class: 'nav-link px-3' %>
+          <%= link_to "我的小樹", my_tree_path(current_user.id), class: 'nav-link px-2' %>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          會員中心
-          </a>
-          <div class="dropdown-menu p-3" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Rescuer訂單", orders_path, class: 'nav-link dropdown-item px-3' %>
-            <%= link_to "Giver訂單", giver_orders_path, class: 'nav-link dropdown-item px-3' %>
-            <%= link_to "我的店家", store_food_path(current_user.id), class: 'nav-link dropdown-item px-3' %>
-            <%= link_to "歷史紀錄", history_foods_path, class: 'nav-link dropdown-item px-3' %>
-            <%= link_to "個人資料", user_registration_path, class: 'nav-link dropdown-item px-3' %>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">會員中心</a>
+
+          <div class="dropdown-menu p-3" aria-labelledby="navbarDropdown">
+            <%= link_to "Rescuer訂單", orders_path, class: 'dropdown-item px-2' %>
+            <%= link_to "Giver訂單", giver_orders_path, class: 'dropdown-item px-2' %>
+            <%= link_to "我的店家", store_food_path(current_user.id), class: 'dropdown-item px-2' %>
+            <%= link_to "歷史紀錄", history_foods_path, class: 'dropdown-item px-2' %>
+            <%= link_to "個人資料", user_registration_path, class: 'dropdown-item px-2' %>
           </div>
         </li>
 
-          <li>
-            <%= link_to "購物車(#{current_cart.foods.count})", cart_path("food_id" => current_cart.foods.ids), class: 'nav-link px-3' if current_cart.present?%>
-          </li> 
-          <li class="nav-item">
-            <%= link_to "登出", destroy_user_session_path, class: 'nav-link px-3', method: 'delete', data: {confirm: '確定要登出嗎？'} %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "註冊", new_user_registration_path, class: 'nav-link px-3' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "登入", new_user_session_path, class: 'nav-link px-3' %>
-          </li>
-        <% end %>
+        <li class="nav-item">
+          <%= link_to "購物車(#{current_cart.foods.count})", cart_path("food_id" => current_cart.foods.ids), class: 'nav-link px-2' if current_cart.present?%>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "登出", destroy_user_session_path, class: 'nav-link px-2', method: 'delete', data: {confirm: '確定要登出嗎？'} %>
+        </li>
+
+      <% else %>
+
+        <li class="nav-item">
+          <%= link_to "註冊", new_user_registration_path, class: 'nav-link px-2' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "登入", new_user_session_path, class: 'nav-link px-2' %>
+        </li>
+        
+      <% end %>
     </ul>
+
   </div>
 </nav>
-    
