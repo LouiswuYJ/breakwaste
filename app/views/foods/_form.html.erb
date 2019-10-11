@@ -49,12 +49,6 @@
               <%= form.text_field :phone, class:'input_form' %>
             </div>
           <% end %>
-          <div class="form-group">
-              <%= form.label :quantity, ' 數量：', class:'label_form' %>
-          <div class="select_form">
-              <%= form.select :quantity, options_for_select(["請選擇數量", [*1..30]].flatten, selected: form.object.quantity), class: 'genForm_dropBox' %>
-          </div>
-      </div>
           
         <div class="form-group">
           <%= form.label :origin_price, '原價：', class:'label_form' %>

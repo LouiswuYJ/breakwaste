@@ -13,7 +13,13 @@
 .img_list{
   width: 100%;
   border-radius: 25px;
+  position: relative;   /* 打折數 */
+  } 
+
+.col_info > .list_price{
+  margin: 15px 0;
   }
+
 .col_info > h3{
   font-size: 30px;
   color: rgb(195, 0, 0);
