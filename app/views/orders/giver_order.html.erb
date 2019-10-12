@@ -4,26 +4,26 @@
   </div>
 <% end %>
 
+<!--- 與orders-show頁面同CSS --->
 <div class="section_giver_order">
   <div class="container-fluid container_orders_show justify-content-center p-0">
     <div class="row no-gutters row_orders_show justify-content-center">
-      <div class="col col-10 col_orders_show orders_show_img text-center">
-        <%= image_tag "dim.jpg" %>
-      </div>
-      <div class="col col-10 col_orders_show order_show_title py-5 text-center">
-        <h1>親愛得 Giver 恭喜你！食物售出囉</h1>
+
+     <div class="ccol-11 col_orders_show order_show_title text-center mb-4">
+        <h1>親愛得 Giver</h1>
+        <h1>恭喜食物售出囉！</h1>
         <h1>訂單編號為 <span><%= @giver_orders.slug.upcase%></span></h1>
       </div>   
       <% @giver_orders.order_items.each do |order_item| %>
-        <div class="col col-lg-8 col-10 col_orders_show order_show_item p-5 m-3">
+        <div class="col-12 col_orders_show order_show_item p-4 my-2">
           <p>名稱：<%= order_item.food.title%>&nbsp;&nbsp;數量：<%= order_item.quantity%></p>
           <p>可領取時間:<%= I18n.l(order_item.food.pickup_time, formats: :default) %> ～ <%= order_item.food.endup_time.strftime("%H:%M") %></p>
         </div>
       <% end %>
-      <div class="col col-lg-8 col-10 col_orders_show order_show_btn text-center p-5">
-        總金額: <span class="mr-5 show_checkout_btn">＄<%= @total_price %></span> 
-        <%= link_to "繼續購物", foods_path, class:'btn btn-success btn_style' %>
-        <%= link_to "全部訂單", giver_orders_path, class:'btn btn-warning btn_style' %>
+      <div class="col-11 order_show_btn text-center">
+        <p>總金額 <span class="show_checkout_btn"><%= @total_price %></span> 元<p>
+        <%= link_to "繼續購物", foods_path, class:'btn btn-success btn-lg ml-1' %>
+        <%= link_to "全部訂單", giver_orders_path, class:'btn btn-warning btn-lg ml-1' %>
       </div>  
     </div>
   </div>

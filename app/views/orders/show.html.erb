@@ -3,14 +3,13 @@
     <%= value %>
   </div>
 <% end %>
+
 <div class="section_orders_show">
   <div class="container-fluid container_orders_show justify-content-center p-0">
     <div class="row no-gutters row_orders_show justify-content-center">
 
-      <div class="col-11 col_orders_show orders_show_img text-center">
-        <%= image_tag "dim.jpg" %>
-      </div>
-      <div class="ccol-11 col_orders_show order_show_title text-center">
+   
+      <div class="ccol-11 col_orders_show order_show_title text-center  mb-4">
         <h1>訂單編號 <span><%= @order.slug.upcase%></span></h1>
       </div>   
       <% @order.order_items.each do |order_item| %>
