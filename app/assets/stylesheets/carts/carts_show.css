@@ -1,5 +1,6 @@
 .section_carts_show{
   background-color: #fff;
+  height: 100%;
 }
 @media screen and (min-width: 768px){
   .row_carts_show{
