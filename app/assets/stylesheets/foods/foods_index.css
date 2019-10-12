@@ -1,27 +1,25 @@
-.container_foods_list{
-  padding: 30px 0 100px 0;
-}
 .row_foods_list{
-  padding: 30px 0;
+  padding: 20px 0;
 }
 @media screen and (min-width: 768px){
   .row_foods_list{
     display: flex;
     flex-wrap: wrap;
-    padding: 30px 8.5%;
+    padding: 20px 10%;
   }
 }
 .col_list{
-  border: 3px solid #eee;
-  background-color: #fff;
-  width: calc((100% - 10px) / 1);
-  border-radius: 5px;
+  width: calc((100% - 20px) / 1);
   margin: 10px;
   position: relative;
+  border-radius: 5px;
+  border: 3px solid #eee;
+  background-color: #fff;
+  
   }
   @media screen and (min-width: 768px){
     .col_list{
-      width: 300px;
+      width: 310px;
     }
   }
 .col_list:hover{
@@ -30,16 +28,44 @@
 .img_list{
   width: 100%;
   object-fit: cover;
-  border-radius: 25px;
+  border-radius: 10px;
+  padding: 10px;
   position: relative;   /* 打折數 */
   } 
   @media screen and (min-width: 768px){
-    .img_list{
-      width: 300px;
-      height: 300px;
-      padding: 20px;
-      object-fit: cover;
-      } 
+  .img_list{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    } 
+  }
+span.off{
+    width: 80px;
+    height: 80px;
+    right: 10px;
+    bottom: 309px;
+    position: relative;
+    position: absolute;
+    text-align: center;
+    overflow: visible;
+    line-height: 0px;
+    color: rgb(255, 29, 29);
+    border-top:80px solid transparent;
+    border-right:80px solid rgb(255, 238, 160);
+    
+  }
+  span.off > p {
+    top: -20px;
+    right: -70px;
+    position: absolute;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: visible;
+    font-weight: bold;
+    text-shadow: 2px 2px 0px white;
+  }
+  span.off > p > span{
+    font-size: 30px;
   }
 .col_foods_info{
   margin: 15px 0;
@@ -58,7 +84,7 @@
   }
 }
 .col_foods_info > p{
-  font-size: 14px;
+  font-size: 16px;
   color: #000;
   margin: 3px 0;
   letter-spacing: 2px;
@@ -90,8 +116,10 @@
   padding: 10px 0;
 }
 p.list_store_name{
-  margin: 20px 20px 0;
+  padding: 5px 20px;
   font-size: 16px;
+  background-color: #eee;
+  margin-bottom: 0;
 }
 /* 如果數量為0時不給選取 */
 
