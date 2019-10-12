@@ -11,6 +11,7 @@ class Food < ApplicationRecord
 
   has_many :order_items, dependent: :delete_all
   has_one_attached :avatar
+  
 
   def self.search(search)
     if search
