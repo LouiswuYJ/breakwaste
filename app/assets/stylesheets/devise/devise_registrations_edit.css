@@ -1,28 +1,40 @@
 .section_profile{
   background-color: #fff;
   height: 100%;
-  padding-top: 10px;
+  padding-top: 1px;
+}
+.row_profile{
+  padding: 20px 0 100px 0;
+}
+@media screen and (min-width: 768px){
+  .row_profile{
+    padding: 50px 0 100px 0;
+  }
+}
+.profile_logo > img{
+  margin-top: 15px;
+  width: 100px;
+}
+.profile_logo > h1{
+  font-size: 26px;
 }
 .container_profile{
   background-color: #fff;
   padding:70px 0 120px 0;
 }
 .profile_title{
-  padding: 50px;
+  padding: 25px;
   background-color: rgb(255, 185, 50);
 }
 div.profile_logo{
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background-color: #fff;
 }
-.profile_logo > img{
-  margin-top: 0px;
-  width: 200px;
-}
+
 form.form_profile{
-  padding: 50px;
+  padding: 20px 0;
   margin: auto;
   width: 90%;
   background-color: #eee;
@@ -31,5 +43,6 @@ form.form_profile{
 @media screen and (min-width: 992px){
   form.form_profile{
     width: 60%;
+    padding: 5%;
   }
 }

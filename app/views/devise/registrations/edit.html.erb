@@ -2,17 +2,16 @@
   <div class="col-12 profile_title text-center m-auto">
     <div class="profile_logo text-center m-auto">
       <%= image_tag "icons/user-edit.svg" %> 
-      <h3>E D I T</h3>
       <h1>編輯資料</h1>
     </div>   
   </div>
 
-  <div class="container-fluid container_profile justify-content-center">
-    <div class="row no-gutters row_profile p-0">
+  <div class="container-fluid container_profile justify-content-center p-0">
+    <div class="row no-gutters row_profile">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form_profile"}) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
-        <div class="col col-lg-12">
+        <div class="col-lg-12">
           <div class="input-group-lg mb-3 mx-auto">
             <%= f.label :name, '姓名:' %>
             <%= f.text_field :name, class:'form-control', placeholder:'username' %>
@@ -38,18 +37,18 @@
                         # hint: "leave it blank if you don't want to change it",
                         required: false,
                         input_html: { autocomplete: "new-password" } %>
-            <%= f.text_field :password, class:'form-control mb-3 col-6' %>
+            <%= f.text_field :password, class:'form-control mb-3 col-12' %>
                     <%= f.label :password_confirmation, '修改密碼確認',
                         required: false,
                         input_html: { autocomplete: "new-password" } %>
-            <%= f.text_field :password_confirmation, class:'form-control mb-3 col-6' %>
+            <%= f.text_field :password_confirmation, class:'form-control mb-3' %>
 
-            <div class="input-group mt-3">
-              <div class="actions">
-                <%= f.submit "確認", class: 'btn btn-info btn-lg mr-3' %>
+            <div class="input-group">
+              <div class="actions ml-auto">
+                <%= f.submit "確認修改", class: 'btn btn-info btn-lg mr-3' %>
               </div>
-              <div class="input-group-prepend">
-                <%= link_to "取消", :back, class:'btn btn-dark btn-lg' %>
+              <div class="mr-auto">
+                <%= link_to "取消編輯", :back, class:'btn btn-dark btn-lg' %>
               </div>
             </div>
 
