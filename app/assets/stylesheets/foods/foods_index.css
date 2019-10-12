@@ -21,7 +21,6 @@
   }
   @media screen and (min-width: 768px){
     .col_list{
-      /* width: calc((100% - 10px) / 4); */
       width: 300px;
     }
   }
