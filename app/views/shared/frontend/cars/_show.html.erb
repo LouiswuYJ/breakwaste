@@ -22,7 +22,8 @@
             <!-- 商品資訊 -->          
             <% @cart_foods.where(giver_id: giver_info.id).each do |giver| %>
               <div class="carts_show_info">             
-                <p><%= link_to "刪除", cart_path(giver.id), method: 'delete', class: 'btn-sm btn-danger btn_del', data:{confirm: '確定要刪除嗎？'} %><%= giver.food.title%><p>
+                <p><%= link_to "刪除", cart_path(giver.id), method: 'delete', class: 'btn-sm btn-danger btn_del', data:{confirm: '確定要刪除嗎？'} %>
+                <h5><%= giver.food.title %></h5>
                 <p>提貨時間 <%= I18n.l(giver.food.pickup_time, formats: :default) %> ～ <%=giver.food.endup_time.strftime("%H:%M") %></p>
                 <div class="carts_show_price">
                   <span>＄<%= giver.food.discount_price%></span>

@@ -32,6 +32,15 @@
 .carts_show_info:hover{
   background-color: rgb(245, 245, 245);
 }
+.carts_show_info > h5{
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+.btn_del{
+  position: absolute;
+  top: 20px;
+  right: 15px;
+}
 
 
 .carts_show_price > span{
@@ -67,10 +76,7 @@
 .items{
   border-bottom: 1px solid #000;
 }
-.btn_del{
-  position: absolute;
-  right: 15px;
-}
+
 
 
 ul.my-cart > li{
