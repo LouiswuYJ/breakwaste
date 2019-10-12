@@ -1,12 +1,11 @@
+<% flash.each do |key, value| %>
+    <div class="alert alert-warning <%= key %>">
+      <%= value %>
+    </div>
+<% end %>
+
 <div class="section_foods_index">
   <div class="container-fluid container_foods_list ">
-
-    <% flash.each do |key, value| %>
-        <div class="alert alert-warning <%= key %>">
-          <%= value %>
-        </div>
-    <% end %>
-
     <div class="row_foods_list">
       <% @foods.each do |food| %>
 <<<<<<< HEAD
