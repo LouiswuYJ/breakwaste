@@ -37,6 +37,7 @@
     .img_list{
       width: 300px;
       height: 300px;
+      padding: 20px;
       object-fit: cover;
       } 
   }
@@ -89,8 +90,8 @@
   padding: 10px 0;
 }
 p.list_store_name{
-  margin: 20px;
-  font-size: 14px;
+  margin: 20px 20px 0;
+  font-size: 16px;
 }
 /* 如果數量為0時不給選取 */
 

@@ -3,19 +3,22 @@
   height: 100px;
   padding-top: 1px;
 }
+.foods_store_logo > h1{
+  font-size: 26px;
+}
 .store_title{
-  padding: 50px;
+  padding: 20px;
   background-color: rgb(255, 185, 50);
 }
 div.foods_store_logo{
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background-color: #fff;
 }
 .foods_store_logo > img{
-  margin-top: 0px;
-  width: 200px;
+  margin-top: 15px;
+  width: 100px;
 }
 .store_item{
   margin-top: 100px;

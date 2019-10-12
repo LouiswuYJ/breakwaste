@@ -38,13 +38,14 @@
         </div>   
 =======
         <a href="/foods/<%=food.id %>" class="text-decoration-none">
-          <div class=" col_list col_img<%= 'food' if food.quantity == 0 %>">
+
+          <div class=" col_list col_img <%= 'food' if food.quantity == 0 %>">
             <div>
               <p class="list_store_name"><%= link_to User.find(food.user_id).name, store_food_path(food.user_id) %>的商店</p>
-
-              <div>
-                <img src="<%=food.picture%>" alt="" class="img_list" style="margin-top:30px">
-              </div> 
+             
+              <!---<div>
+                <img src="<%= food.picture %>" alt="" class="img_list">
+              </div> --->
 
               <%= image_tag food.avatar.variant(resize: '300x300!'), :class => "img_list" if food.avatar.attached?%>
               <span class="off"><%= (food.origin_price - food.discount_price)*100/(food.origin_price) %>% off</span>

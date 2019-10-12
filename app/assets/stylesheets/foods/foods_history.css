@@ -5,7 +5,10 @@
 }
 .history_info > td > img{
   width: 30px;
-} 
+}
+.foods_history_title > h1{
+  font-size: 26px;
+}
 
 /* --- table rwd --- */ 
 @media screen and (max-width: 768px) {
