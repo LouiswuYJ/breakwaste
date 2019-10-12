@@ -17,6 +17,7 @@
       success: "已成功登入囉！"
     registrations:
       user:
+        signed_up: "歡迎來到「盛食找餐」！"
         updated: "您的個人資料已更新成功！" 
     failure:
       already_authenticated: "你已經登入了！"

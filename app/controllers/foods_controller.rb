@@ -65,8 +65,12 @@ class FoodsController < ApplicationController
   # end
 
   def store
-    @foods = current_user.foods
-    @giver_store = Food.where(user_id: params[:id])
+    if user_signed_in?
+      @foods = current_user.foods
+      @giver_store = Food.where(user_id: params[:id])
+    else
+      redirect_to user_session_path, notice: '請先登入會員！'  
+    end
   end
 
   private
