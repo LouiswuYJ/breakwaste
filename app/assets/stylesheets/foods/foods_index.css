@@ -1,5 +1,5 @@
 .row_foods_list{
-  padding: 20px 0;
+  padding: 20px 0 100px;
 }
 @media screen and (min-width: 768px){
   .row_foods_list{
