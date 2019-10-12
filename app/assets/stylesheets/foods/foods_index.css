@@ -5,7 +5,7 @@
   .row_foods_list{
     display: flex;
     flex-wrap: wrap;
-    padding: 20px 10%;
+    padding: 20px 10% 100px;
   }
 }
 .col_list{
@@ -15,13 +15,19 @@
   border-radius: 5px;
   border: 3px solid #eee;
   background-color: #fff;
-  
   }
   @media screen and (min-width: 768px){
     .col_list{
       width: 310px;
     }
   }
+
+.list_store_name > a{
+  color: #000 !important;
+}
+.list_store_name > a:hover{
+  text-decoration-line: none !important;
+}
 .col_list:hover{
   border: 3px solid  rgb(255, 195, 0);
   }
@@ -46,16 +52,13 @@ span.off{
     bottom: 309px;
     position: relative;
     position: absolute;
-    text-align: center;
     overflow: visible;
-    line-height: 0px;
     color: rgb(255, 29, 29);
     border-top:80px solid transparent;
     border-right:80px solid rgb(255, 238, 160);
-    
   }
   span.off > p {
-    top: -20px;
+    top: -50px;
     right: -70px;
     position: absolute;
     font-size: 20px;

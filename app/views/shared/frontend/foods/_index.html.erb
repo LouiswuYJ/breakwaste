@@ -49,9 +49,13 @@
               <!---<div>
                 <img src="<%= food.picture %>" alt="" class="img_list">
               </div> --->
+
               <div>
                 <%= image_tag food.avatar.variant(resize: '300x300!'), :class => "img_list" if food.avatar.attached?%>
-                <span class="off"><p><span><%= (food.origin_price - food.discount_price)*100/(food.origin_price) %></span>%off</p></span>
+                <span class="off">
+                <p><span>
+                  <%= (food.origin_price - food.discount_price)*100/(food.origin_price) %></span>%off
+                </p></span>
               </div>
             </div>   
 
