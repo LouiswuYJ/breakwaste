@@ -28,7 +28,7 @@
         food:
           attributes:
             avatar:
-              content_type_invalid: "請上傳png.或jpg檔！"      
+              content_type_invalid: "請上傳png或jpg檔！"      
     attributes:
       order:
         status/pending: '等待付款'

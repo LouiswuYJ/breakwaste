@@ -19,6 +19,10 @@ class FoodsController < ApplicationController
     old_food_params = Food.find_by(id: params[:food_id]) &.as_json || {}  
     if user_signed_in?
       @food = Food.new(old_food_params)
+      if @food.avatar.attached?
+        avatar_id = @food.avatar.id
+        @food.avatar = ActiveStorage::Blob.find(avatar_id)
+      end
     else
       redirect_to user_session_path   
     end
