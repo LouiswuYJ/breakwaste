@@ -14,15 +14,16 @@
 .btn_search_bar,.btn_create{
   width: 150px;
   height: 40px;
-  font-size: 20px;
+  font-size: 18px;
+  
 }
 input.search{
-  width: 400px;
-  height: 70px;
+  width: 100%;
+  height: 50px;
   margin: 10px 0;
   padding-left: 15px;
   border-radius: 5px;
-  border: 5px solid #555;
+  border: 5px solid #000;
 }
 @media screen and (min-width: 768px){
   input.search{
@@ -31,18 +32,16 @@ input.search{
 }
 .foods_search_btn{
   width: 80px;
-  height: 70px;
+  height: 50px;
   font-size: 18px;
   margin-left: -15px;
   margin-top: -6px;
 }
 .row_about{
-  justify-content: center;
-  text-align: center;
-  margin-bottom: 60px;
+  margin: 60px 0;
 }
 .col_foods_about{
-  margin-top: 70px;
+  margin: 70px auto;
 }
 .col_image{
   margin: 3px;

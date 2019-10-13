@@ -7,11 +7,10 @@
 <div class="section_orders_giver">
   <div class="row no-gutters row_orders_giver justify-content-center">
     <div class="col-10">
-      <div class="orders_giver_header text-center pb-4">
-        <%= image_tag "dim.jpg" %>
-        <h1>GIVER商店</h1>
+      <div class="orders_giver_header text-center pb-2">
+        <h1>GIVER商品訂單</h1>
       </div>
-      <table class='table table-hover table-lg'>
+      <table class='table rwd-table table-hover table-lg'>
         <thead class="bg-dark text-light p-2">
           <tr class="text-nowrap text-center">
             <th>訂單編號</th>
@@ -25,12 +24,12 @@
         <tbody class="bg-light">
           <% @giver_orders.each do |order|%>
           <tr class="text-center">
-            <td><%= order.friendly_id.upcase%></td>
-            <td><%= order.recipient %></td>
-            <td><%= I18n.l(order.created_at, formats: :default) %></td>
-            <td><%= order.note%></td>
-            <td><%= order.aasm.human_state%></td>
-            <td><%= link_to "詳細內容", giver_order_order_path(order), class:'btn btn-success btn-style' %></td>
+            <td data-th="訂單編號"><%= order.friendly_id.upcase%></td>
+            <td data-th="買家名稱"><%= order.recipient %></td>
+            <td data-th="日期"><%= I18n.l(order.created_at, formats: :default) %></td>
+            <td data-th="備註"><%= order.note%></td>
+            <td data-th="付款狀態"><%= order.aasm.human_state%></td>
+            <td data-th="詳細"><%= link_to "詳細內容", giver_order_order_path(order), class:'btn btn-success btn-style' %></td>
           </tr>
           <%end%>
         </tbody>

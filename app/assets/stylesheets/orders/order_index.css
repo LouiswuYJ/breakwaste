@@ -1,17 +1,62 @@
-.section_orders_index{
-  height: 110%;
+/* --- GIVER商品訂單 & RESCUER購買清單 --- */
+.section_orders_index,.section_orders_giver{
+  height: 100%;
   background-color: #fff;
-  padding-top: 80px;
 }
-.row_orders_index {
+.row_orders_index,.row_orders_giver{
   background-color: #fff;
+  padding: 40px 0 150px;
 }
 table{
   border: none;
   margin-bottom: 100px;
 }
-.orders_index_header > img{
-  width: 200px;
-  border-radius: 50%;
-  margin-bottom: 30px;
+.orders_index_header > h1{
+  font-size: 34px;
+}
+.orders_giver_header > h1{
+  font-size: 34px;
+}
+/* --- table rwd --- */ 
+@media screen and (max-width: 768px) {
+  .rwd-table {
+    border: 3px solid #aaa;
+    border-collapse: collapse;
+  }
+  .rwd-table tr {
+    border: 3px solid #aaa;
+  }
+  .rwd-table td {
+    color: rgb(195, 0, 0);
+    padding: 2px 4px;
+    text-align: right;
+    display: block;
+    border: none;
+  }
+  .rwd-table td:before {
+    color: black;
+    content: attr(data-label);
+    content: attr(data-th) " ";
+    font-weight: bold;
+    float: left;
+  }
+  .rwd-table th {
+    border: 3px solid #aaa;
+    padding: 2px 4px;
+    text-align: left;
+    display: none;
+  } 
+  .table th, .table td {
+    padding: 15px 10px !important;
+    border-top: none !important;
+  }
+  .orders_index_header > h1{
+    font-size: 30px;
+  }
+  .orders_index_header > a{
+    font-size: 16px;
+  }
+  .orders_giver_header > h1{
+    font-size: 30px;
+  }
 }

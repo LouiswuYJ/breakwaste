@@ -1,8 +1,50 @@
 .section_foods_history{
   height: 110%;
   background-color: #fff;
-  padding-top: 80px;
+  padding-top: 40px;
 }
 .history_info > td > img{
   width: 30px;
-} 
+}
+.foods_history_title > h1{
+  font-size: 34px;
+}
+
+/* --- table rwd --- */ 
+@media screen and (max-width: 768px) {
+  .rwd-table {
+    border: 3px solid #aaa;
+    border-collapse: collapse;
+    background: #fff;
+  }
+  .rwd-table tr {
+    border: 3px solid #aaa;
+  }
+  .rwd-table td {
+    color: rgb(195, 0, 0);
+    padding: 2px 4px;
+    text-align: right;
+    display: block;
+    border: none;
+  }
+  .rwd-table td:before {
+    color: black;
+    content: attr(data-label);
+    content: attr(data-th) " ";
+    font-weight: bold;
+    float: left;
+  }
+  .rwd-table th {
+    border: 3px solid #aaa;
+    padding: 2px 4px;
+    text-align: left;
+    display: none;
+  } 
+  .table th, .table td {
+    padding: 15px 10px !important;
+    border-top: none !important;
+  }
+  .foods_history_title > h1{
+    font-size: 30px;
+  }
+}

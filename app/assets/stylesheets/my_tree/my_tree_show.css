@@ -1,6 +1,19 @@
 .my_little_tree{
-  height: 100%;
+  height: 130%;
   background-color: rgba(255,255,255,0.7);
+}
+@media screen and (min-width: 768px){
+  .my_little_tree{
+    height: 100%;
+  }
+}
+.row_my_tree{
+  padding: 20px 0 100px 0;
+}
+@media screen and (min-width: 768px){
+  .row_my_tree{
+    padding: 50px 10% 30px;
+  }
 }
 .little_tree{ 
   width: 100%;
@@ -12,7 +25,7 @@
   box-shadow:5px 5px 10px gray;
 }
 .little_tree_info > p {
-  font-size: 24px;
+  font-size: 20px;
 }
 a.my_tree_btn{
   width: 200px;

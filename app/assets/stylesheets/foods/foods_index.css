@@ -1,69 +1,159 @@
+.row_foods_list{
+  padding: 20px 0 100px;
+}
+@media screen and (min-width: 768px){
+  .row_foods_list{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 10% 100px;
+  }
+}
 .col_list{
-  border: 5px solid #eee;
-  background-color: #fff;
+  width: calc((100% - 20px) / 1);
+  margin: 10px;
+  position: relative;
   border-radius: 5px;
-  }
-.col_list:hover{
-  border: 5px solid  rgb(255, 195, 0);
-  }
-.col_info,.col_btn{
+  border: 3px solid #eee;
   background-color: #fff;
-  margin: 0 0 10px 0;
   }
-.img_list{
-  width: 100%;
-  border-radius: 25px;
-  position: relative;   /* 打折數 */
-  } 
+  @media screen and (min-width: 768px){
+    .col_list{
+      width: 310px;
+    }
+  }
 
-.col_info > .list_price{
+.list_store_name > a{
+  color: #000 !important;
+}
+.list_store_name > a:hover{
+  text-decoration-line: none !important;
+}
+.col_list:hover{
+  border: 3px solid  rgb(255, 195, 0);
+  }
+
+.img_list_sold_out{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  padding: 10px;
+  opacity: 0.5;
+  position: relative;   /* 打折數 */
+} 
+@media screen and (min-width: 768px){
+.img_list_sold_out{
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  } 
+}
+
+span.off{
+    width: 80px;
+    height: 80px;
+    right: 10px;
+    bottom: 309px;
+    position: relative;
+    position: absolute;
+    overflow: visible;
+    color: rgb(255, 30, 30);
+    border-top:80px solid transparent;
+    border-right:80px solid rgb(255, 240, 160);
+  }
+  span.off > p {
+    top: -50px;
+    right: -70px;
+    position: absolute;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: visible;
+    font-weight: bold;
+    text-shadow: 2px 2px 0px white;
+  }
+  span.off > p > span{
+    font-size: 30px;
+  }
+.col_foods_info{
+  margin: 15px 0;
+  padding-bottom: 60px;
+  }
+.col_foods_info > .list_price{
   margin: 15px 0;
   }
-
-.col_info > h3{
-  font-size: 30px;
+.col_foods_info > h3{
+  font-size: 22px;
   color: rgb(195, 0, 0);
   } 
 @media screen and (min-width: 768px){
-  .col_info > h3{
+  .col_foods_info > h3{
    padding: 0px;
   }
 }
-.col_info > p{
-  font-size: 20px;
+.col_foods_info > p{
+  font-size: 16px;
   color: #000;
   margin: 3px 0;
   letter-spacing: 2px;
   }
 @media screen and (min-width: 768px){
-  .col_info > p{
+  .col_foods_info > p{
     padding: 0px;
   }
 }
-.col_info > .list_price{
+.col_foods_info > .list_price{
   margin: 15px 0;
   }
-.col_info > .list_price > strong{
-  font-size: 30px;
+.col_foods_info > .list_price > strong{
+  font-size: 22px;
   color: #000;
   }
-.col_info > .list_price > del{
+.col_foods_info > .list_price > del{
+  font-size: 14px;
   color: #aaa;
   }
 .btn_foods_list{
   height: 40px;
   font-size: 18px;
-  align-items: flex-start;
+}
+.col_foods_btn{
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  padding: 10px 0;
+}
+p.list_store_name{
+  padding: 5px 20px;
+  font-size: 16px;
+  background-color: #eee;
+  margin-bottom: 0;
 }
 
-/* 如果數量為0時不給選取 */
-
-.food{   
-  background-color: #000;
-  opacity: 0.5;  
+/* ======== Sold Out 畫面 ======== */
+.col_img_sold_out{
   pointer-events: none;
+  position: relative;
 }
+.col_img_sold_out::after{
+  content: "Sold Out";
+  font-size: 35px;
+  text-align: center;
+  padding: 160px 0;
+  letter-spacing: 10px;
+  color: rgba(255,255,255, .8);
+  
+  width: 97%;
+  border-radius: 10px;
+  background-color: rgba(150, 150, 150, 0.8);
 
-.food::after{
-  content: "已售完"
+  top: 47px;
+  left: 7px;
+  position: absolute;
+}
+@media screen and (min-width: 768px){
+  .col_img_sold_out::after{
+    content: "Sold Out";
+    padding-top: 120px;
+    width: 290px;
+    height: 290px;
+  }
 }
