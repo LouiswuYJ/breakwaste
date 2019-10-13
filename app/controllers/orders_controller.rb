@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
       @cart_foods.destroy_all
       redirect_to payment_order_path(@order)
     else
-      redirect_to orders_path, notice: "慢了一步！您要的食物庫存數量不足喔！"
+      redirect_to orders_path, notice: "慢了一步！目前數量不足喔！"
     end
   end
 
