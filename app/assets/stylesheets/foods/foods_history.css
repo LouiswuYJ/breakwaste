@@ -7,7 +7,7 @@
   width: 30px;
 }
 .foods_history_title > h1{
-  font-size: 26px;
+  font-size: 34px;
 }
 
 /* --- table rwd --- */ 
@@ -45,6 +45,6 @@
     border-top: none !important;
   }
   .foods_history_title > h1{
-    font-size: 24px;
+    font-size: 30px;
   }
 }

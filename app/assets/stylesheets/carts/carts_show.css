@@ -7,10 +7,17 @@
     padding: 0 10%;
   }
 }
-.row_carts_show > h1{
-  margin: 20px 0;
+.row_carts_show{
+  padding: 40px 0 150px;
 }
-
+.row_carts_show > h1{
+  font-size: 34px;
+}
+@media screen and (min-width: 768px){
+  .ow_carts_show > h1{
+    font-size: 30px;
+  }
+}
 
 .carts_show_store{
   padding: 10px;

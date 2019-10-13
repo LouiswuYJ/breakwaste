@@ -12,10 +12,10 @@ table{
   margin-bottom: 100px;
 }
 .orders_index_header > h1{
-  font-size: 26px;
+  font-size: 34px;
 }
 .orders_giver_header > h1{
-  font-size: 26px;
+  font-size: 34px;
 }
 /* --- table rwd --- */ 
 @media screen and (max-width: 768px) {
@@ -51,12 +51,12 @@ table{
     border-top: none !important;
   }
   .orders_index_header > h1{
-    font-size: 24px;
+    font-size: 30px;
   }
   .orders_index_header > a{
     font-size: 16px;
   }
   .orders_giver_header > h1{
-    font-size: 24px;
+    font-size: 30px;
   }
 }
