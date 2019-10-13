@@ -17,7 +17,7 @@ def discount_price
 end
 
 10.times do |i|
-  User.create(name: Faker::Name.name, password: 111111, phone: '0923111111', email: "giver#{i+1}@breakwaste", address:Faker::Address.street)
+  User.create(name: Faker::Name.name, password: 111111, phone: '0923111111', email: "giver#{i+1}@breakwaste.com", address:Faker::Address.street)
 end
 
 50.times do |i|

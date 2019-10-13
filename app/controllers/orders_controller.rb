@@ -51,6 +51,7 @@ class OrdersController < ApplicationController
     end
     #把購物車裡的東西拿出來，一條一條塞入order_items 
     if @order.save
+      @cart_foods.destroy_all
       redirect_to payment_order_path(@order)
     else
       render 'carts/checkout'
@@ -73,6 +74,7 @@ class OrdersController < ApplicationController
   def transaction
     giver = Order.friendly.find(params[:id]).giver_id
     cart_foods = CartFood.where(giver_id: giver)
+    order_items = OrderItem.where(giver_id: giver)
 
     if @order.may_pay?
       result = braintree_gateway.transaction.sale(
@@ -84,11 +86,11 @@ class OrdersController < ApplicationController
       )
       if result.success?
         @order.pay!
-        cart_foods.each do |cart_food|
-          food_id = cart_food.food_id
+        order_items.each do |order_item|
+          food_id = order_item.food_id
           @food = Food.find(food_id)          
           origin_post_quantity = @food.quantity 
-          rescuer_buy_quantity = cart_food.quantity
+          rescuer_buy_quantity = order_item.quantity
           @food.quantity = origin_post_quantity - rescuer_buy_quantity
           @food.save
         end

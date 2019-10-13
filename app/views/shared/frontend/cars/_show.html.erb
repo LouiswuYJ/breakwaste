@@ -30,10 +30,9 @@
                 </div> 
               </div>
             <%end%><!-- 商品資訊 -->
-
             <div class="carts_show_count text-right p-3">
             總金額 <span class="show_checkout_btn mr-4">＄<%= @total_prices_all[giver_info.id]%></span> 
-            <%= link_to "結帳", checkout_cart_path("giver_id" => giver_info.id), class:'btn btn-success btn_style' %>
+              <%= link_to "結帳", checkout_cart_path("giver_id" => giver_info.id), class:'btn btn-success btn_style' %>
           </div>
           </div><!-- carts_show_item-->
         <% end %>
