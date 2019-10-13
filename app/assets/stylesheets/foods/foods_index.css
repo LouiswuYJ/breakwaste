@@ -31,20 +31,23 @@
 .col_list:hover{
   border: 3px solid  rgb(255, 195, 0);
   }
-.img_list{
+
+.img_list_sold_out{
   width: 100%;
   object-fit: cover;
   border-radius: 10px;
   padding: 10px;
+  opacity: 0.5;
   position: relative;   /* 打折數 */
+} 
+@media screen and (min-width: 768px){
+.img_list_sold_out{
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
   } 
-  @media screen and (min-width: 768px){
-  .img_list{
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    } 
-  }
+}
+
 span.off{
     width: 80px;
     height: 80px;
@@ -53,9 +56,9 @@ span.off{
     position: relative;
     position: absolute;
     overflow: visible;
-    color: rgb(255, 29, 29);
+    color: rgb(255, 30, 30);
     border-top:80px solid transparent;
-    border-right:80px solid rgb(255, 238, 160);
+    border-right:80px solid rgb(255, 240, 160);
   }
   span.off > p {
     top: -50px;
@@ -124,13 +127,26 @@ p.list_store_name{
   background-color: #eee;
   margin-bottom: 0;
 }
-/* 如果數量為0時不給選取 */
 
-.food{   
-  background-color: #000;
-  opacity: 0.5;  
+/* ======== Sold Out 畫面 ======== */
+.col_img_sold_out{
   pointer-events: none;
+  position: relative;
 }
-.food::after{
-  content: "已售完"
+.col_img_sold_out::after{
+  content: "Sold Out";
+  font-size: 35px;
+  text-align: center;
+  padding-top: 120px;
+  letter-spacing: 10px;
+  color: rgba(255,255,255, .8);
+  
+  width: 290px;
+  height: 290px;
+  border-radius: 10px;
+  background-color: rgba(150, 150, 150, 0.8);
+
+  top: 47px;
+  left: 7px;
+  position: absolute;
 }
