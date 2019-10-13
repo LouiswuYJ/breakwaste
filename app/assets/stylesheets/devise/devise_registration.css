@@ -1,6 +1,12 @@
 .row_sign{
   background-color: #fff;
-  padding: 30px 0 100px 0;
+  padding: 30px 0 250px 0;
+}
+@media screen and (min-width: 768px){
+  .row_sign{
+    background-color: #fff;
+    padding: 30px 0 150px 0;
+  }
 }
 form > h2{
   font-size: 30px;
