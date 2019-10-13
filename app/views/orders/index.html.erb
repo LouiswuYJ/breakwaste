@@ -16,7 +16,7 @@
           <tr class="text-nowrap text-center">
             <th>訂單編號</th>
             <th>商店名稱</th>
-            <th>日期</th>
+            <th>訂單建立</th>
             <th>備註</th>
             <th>付款狀態</th>
             <th>付款</th>
@@ -29,7 +29,7 @@
           <tr class="text-center">
             <td data-th="訂單編號"><%= order.friendly_id.upcase%></td>
             <td data-th="商店名稱"><%= User.find(order.giver_id).name %></td>
-            <td data-th="日期"><%= I18n.l(order.created_at, formats: :default) %></td>
+            <td data-th="訂單建立"><%= I18n.l(order.created_at, formats: :default) %></td>
             <td data-th="備註"><%= order.note %></td>
             <td data-th="付款狀態"><%= order.aasm.human_state%></td>
             <td data-th="付款"><%= link_to "前往付款", payment_order_path(order), class: 'btn btn-danger btn-sm' if order.may_pay? %>
