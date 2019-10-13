@@ -11,7 +11,6 @@ gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 gem 'rails', '~> 5.2.3'
 gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'bootstrap', '~> 4.3.1'
-gem "font-awesome-rails"
 gem 'omniauth', '~> 1.9'
 gem 'omniauth-google-oauth2'
 gem 'figaro', '~> 1.0'

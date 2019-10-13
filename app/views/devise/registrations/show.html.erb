@@ -1,38 +1,17 @@
 <style>
-.section_profile_show{
-  height: 100%;
-  background-color: #fff;
-  padding-top: 1px;
-}
 .row_profile_show{
   background-color: #fff;
-  padding: 20px 15px;
+  padding: 70px 0 150px 0;
 }
-@media screen and (min-width: 768px){
-  .row_profile_show{
-  padding: 40px 0 100px 0;
-  }
-}
-.col_profile_show > .input-group{
-  padding: 15px 15% 0 15%;
-}
-@media screen and (min-width: 768px){
-  .col_profile_show > .input-group{
-  padding: 0 22%;
-  }
-}
-.col_profile_show > .input-group > p {
-  font-size: 20px;
+.section_profile_show{
+  height: 110%;
+  background-color: #fff;
+  padding-top: 10px;
 }
 .orders_index_header > img{
   width: 200px;
   border-radius: 50%;
   margin-bottom: 30px;
-}
-.col_profile_show{
-  background-color: #eee;
-  border-radius: 10px;
-  padding: 5%;
 }
 </style>
 <div class="section_profile_show">
@@ -40,6 +19,7 @@
   <div class="col-12 profile_title text-center m-auto">
     <div class="profile_logo text-center m-auto">
       <%= image_tag "icons/user-check.svg" %> 
+      <h3>P R O F I L E</h3>
       <h1>會員資料</h1>
     </div>   
   </div>
@@ -47,24 +27,22 @@
   <div class="container-fluid container_profile_show p-0">
     <div class="row no-gutters row_profile_show justify-content-center">
 
-      <div class="col-lg-5 col-md-8 col_profile_show">
-        <div class="input-group">
+      <div class="col col-lg-5 col-md-8 col_profile_show px-5">
+        <div class="input-group mb-3">
           <p>名字：<%= @user.name %></p>
         </div>
-        <div class="input-group">
+        <div class="input-group mb-3">
           <p>電話：<%= @user.phone %></p>
         </div>
-        <div class="input-group">
+        <div class="input-group mb-3">
           <p>地址：<%= @user.address %></p>
         </div>
-        <div class="input-group">
+        <div class="input-group mb-3">
           <p>信箱：<%= @user.email %></p>
         </div>
-        <div class="col_profile_btn">
-          <div class="input-group mt-4">
-            <%= link_to "編輯資料", edit_user_registration_path, class: 'btn btn-info btn-lg ml-auto mr-3' %>
-            <%= link_to "回上一頁", foods_path, class:'btn btn-dark btn-lg mr-auto' %>
-          </div>
+        <div class="input-group mt-3">
+          <%= link_to "編輯資料", edit_user_registration_path, class: 'btn btn-info btn-lg mr-3' %>
+          <%= link_to "回上一頁", foods_path, class:'btn btn-dark btn-lg' %>
         </div>
       </div>
 

@@ -1,24 +1,21 @@
 .section_foods_store{
   background-color: #fff;
   height: 100px;
-  padding-top: 1px;
-}
-.foods_store_logo > h1{
-  font-size: 26px;
+  padding-top: 10px;
 }
 .store_title{
-  padding: 20px;
+  padding: 50px;
   background-color: rgb(255, 185, 50);
 }
 div.foods_store_logo{
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background-color: #fff;
 }
 .foods_store_logo > img{
-  margin-top: 15px;
-  width: 100px;
+  margin-top: 0px;
+  width: 200px;
 }
 .store_item{
   margin-top: 100px;
@@ -28,3 +25,55 @@ div.foods_store_logo{
   margin: 80px 0 150px 0;
 }
 /* --- 商品cards與foods-index共用 --- */
+
+.col_list{
+  border: 5px solid #eee;
+  background-color: #fff;
+  border-radius: 5px;
+  }
+.col_list:hover{
+  border: 5px solid  rgb(255, 195, 0);
+  }
+.col_info,.col_btn{
+  background-color: #fff;
+  margin: 0 0 10px 0;
+  }
+.img_list{
+  width: 100%;
+  border-radius: 25px;
+  }
+.col_info > h3{
+  font-size: 30px;
+  color: rgb(195, 0, 0);
+  } 
+@media screen and (min-width: 768px){
+  .col_info > h3{
+   padding: 0px;
+  }
+}
+.col_info > p{
+  font-size: 20px;
+  color: #000;
+  margin: 3px 0;
+  letter-spacing: 2px;
+  }
+@media screen and (min-width: 768px){
+  .col_info > p{
+    padding: 0px;
+  }
+}
+.col_info > .list_price{
+  margin: 15px 0;
+  }
+.col_info > .list_price > strong{
+  font-size: 30px;
+  color: #000;
+  }
+.col_info > .list_price > del{
+  color: #aaa;
+  }
+.btn_foods_list{
+  height: 40px;
+  font-size: 18px;
+  align-items: flex-start;
+}

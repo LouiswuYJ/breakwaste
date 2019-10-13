@@ -1,25 +1,5 @@
-.container_orders_payment{
-  height: 100%;
-  background-color: #fff;
-}
-@media screen and (min-width: 768px){
-  .container_orders_payment{
-    height: 0;
-  }
-}
-@media screen and (min-width: 768px){
-  .row_payment{
-    padding: 50px 0 100px;
-  }
-}
-.col_payment{
-  padding-top: 20px;
-}
-.col_payment_btn{
-  padding: 20px 0 100px;
-}
-#payment-form{
-  padding-bottom: 30px;
+.row_payment{
+  padding: 100px 0;
 }
 .col_payment,.col_payment_btn{
   text-align: center;
@@ -28,6 +8,7 @@
 .col_payment_btn > .btn{
   margin-bottom: 60px;
 }
+
 .col_payment > h1{
   margin-bottom: 0;
   padding: 40px 0;

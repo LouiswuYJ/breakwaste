@@ -1,7 +1,7 @@
-<div class="container-fluid container_search justify-content-center px-0">
+<div class="container-fluid px-0 container_search">
   <%= render 'shared/frontend/header' %>
-  <div class="row no-gutters row_search text-center">
-    <div class="col-10 m-auto col_search">
+  <div class="row no-gutters row_search">
+    <div class="col col-lg-12 col-md-12 col-sm-12 col-12 col_search p-0">
       <%= form_tag(foods_path, method: :get) do %>
         <%= text_field_tag :search, params[:search], placeholder: "食物名稱、食物描述、地點...", class: 'search' %>
         <%= submit_tag "搜尋", name: nil, class: 'btn btn-dark foods_search_btn' %>
@@ -9,8 +9,8 @@
     </div>
   </div>
 
-  <div class="row no-gutters row_about text-center">
-    <div class="col-lg-6 col-10 col_foods_about m-auto">
+  <div class="row no-gutters row_about">
+    <div class="col col-lg-6 col-md-6 col-sm-8 col-8 col_foods_about">
         <h2>盛食找餐 about us</h2>
         <p style="font-size:18px">糧食浪費已是全球化問題，而臺灣每年所浪費掉的食物量不僅在亞洲國家名列前茅，更與歐、美並列為浪費大國。為了減少食物的浪費，「盛食找餐」提供了一個便捷的即期品銷售平台，讓每個人都能輕鬆透過「盛食找餐」，讓多餘資源流通到更需要的人手中。</p>
     </div>

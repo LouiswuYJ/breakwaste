@@ -2,14 +2,15 @@
   <div class="container-fluid container_foods_history p-0">
     <div class="row no-gutters row_foods_history justify-content-center">
 
-      <div class="col-lg-10 col-11 pb-2">
-        <div class="foods_history_title text-center">
+      <div class="col col-lg-10 col-11">
+        <div class="text-center ">
+          <%# <%= image_tag "dim.jpg" %>
           <h1>貼文歷史紀錄</h1>
         </div>
       </div>
 
-      <div class="col-lg-10 col-11">      
-        <table class='table rwd-table  table-hover table-lg'>
+      <div class="col  col-lg-10 col-11">      
+        <table class='table table-hover table-lg'>
           <thead class="bg-dark text-light">
             <tr class="text-nowrap text-center">
               <th>名稱</th>
@@ -19,22 +20,22 @@
               <th>提取時間</th>
               <th>原始價</th>
               <th>救援價</th>
-              <th>上架</th>
-              <th>刪除</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <% @foods.each do |food| %>
             <tbody class="bg-light">
               <tr class="text-center history_info">
-                <td  data-th="名稱"><%= food.title %></td>
-                <td  data-th="圖片"><%= image_tag food.avatar.variant(resize: '300x300') if food.avatar.attached? %></td><!-- 圖片大小從這改 -->
-                <td  data-th="地區"><%= food.address %></td><!-- #到時候在修正成只顯示區域 -->
-                <td  data-th="數量"><%= food.quantity %></td>
-                <td  data-th="提貨時間"><%= I18n.l(food.pickup_time, formats: :default) %> ～ <%=food.endup_time.strftime("%H:%M") %></td>
-                <td  data-th="原始價"><%= food.origin_price %></td>
-                <td  data-th="救援價"><%= food.discount_price %></td>
-                <td  data-th="上架"><%= link_to "重新上架", new_food_path("food_id" => food.id), class: 'btn btn-sm btn-warning' %></td>
-                <td  data-th="刪除"><%= link_to "刪除紀錄", food_path(food.id), method:'delete', class:'btn btn-sm btn-danger', data: {confirm: '確定要刪除嗎？'} %></td>
+                <td><%= food.title %></td>
+                <td><%= image_tag food.avatar.variant(resize: '300x300') if food.avatar.attached? %></td><!-- 圖片大小從這改 -->
+                <td><%= food.address %></td><!-- #到時候在修正成只顯示區域 -->
+                <td><%= food.quantity %></td>
+                <td><%= I18n.l(food.pickup_time, formats: :default) %> ～ <%=food.endup_time.strftime("%H:%M") %></td>
+                <td><%= food.origin_price %></td>
+                <td><%= food.discount_price %></td>
+                <td><%= link_to "重新上架", new_food_path("food_id" => food.id), class: 'btn btn-sm btn-warning' %></td>
+                <td><%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-sm btn-danger', data: {confirm: '確定要刪除嗎？'} %></td>
               </tr>
             </tbody>
           <% end %>

@@ -4,13 +4,13 @@
   </div>
 <% end %>
 
-<div class="container-fluid container_orders_payment p-0">
+<div class="container-fluid p-0">
   <div class="row no-gutters row_payment justify-content-center">
-    <div class="col-lg-8 col-12 col_payment">
-      <h1 style="font-size:40px">付款金額 <%= @order.total_price %> 元</h1>
+    <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_payment py-5">
+      <h1 style="font-size:50px">付款金額 <%= @order.total_price %> 元</h1>
 
       </div>
-        <div class="col col-lg-8 col-12 col_payment_btn text-center">
+        <div class="col col-lg-8 col-md-10 col-sm-10 col-10 col_payment_btn py-5 text-center">
           <div class="col col-10 m-auto">
             <%= form_with(url: transaction_order_path(@order), local: true) do |form| %>
               <div id="payment-form"></div>

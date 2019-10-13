@@ -4,7 +4,6 @@
           <%= value %>
         </div>
     <% end %>
-
   <!---- form for ---->
  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -33,7 +32,7 @@
     <hr class="colorgraph"> <!---- 我是線 ---->
 
     <div class="actions">
-      <%= f.submit "會員登入", class: 'sign_in' %>
+      <%= f.submit "Log in", class: 'sign_in' %>
     </div>
     <%= render "devise/shared/links" %>
   <% end %> 
