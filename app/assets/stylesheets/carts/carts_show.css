@@ -2,13 +2,13 @@
   background-color: #fff;
   height: 100%;
 }
-@media screen and (min-width: 768px){
-  .row_carts_show{
-    padding: 0 10%;
-  }
-}
 .row_carts_show{
   padding: 40px 0 150px;
+}
+@media screen and (min-width: 768px){
+  .row_carts_show{
+    padding: 40px 5% 150px;
+  }
 }
 .row_carts_show > h1{
   font-size: 34px;
