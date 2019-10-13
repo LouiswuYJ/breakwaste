@@ -32,9 +32,9 @@
             <td data-th="日期"><%= I18n.l(order.created_at, formats: :default) %></td>
             <td data-th="備註"><%= order.note %></td>
             <td data-th="付款狀態"><%= order.aasm.human_state%></td>
-            <td data-th="付款"><%= link_to "付款", payment_order_path(order), class: 'btn btn-danger btn-sm' if order.may_pay? %>
+            <td data-th="付款"><%= link_to "前往付款", payment_order_path(order), class: 'btn btn-danger btn-sm' if order.may_pay? %>
             </td>
-            <td data-th="取消"><%= link_to "取消", order_path(order), method: 'delete', class: 'btn btn-secondary btn-sm', data: {confirm: '確定要取消訂單嗎？'} if order.may_pay? %></td>
+            <td data-th="取消"><%= link_to "取消訂單", order_path(order), method: 'delete', class: 'btn btn-secondary btn-sm', data: {confirm: '確定要取消訂單嗎？'} if order.may_pay? %></td>
             <td data-th="詳細"><%= link_to "詳細內容", order_path(order), class:'btn btn-success btn-sm' %></td>
           </tr>
           <%end%>
