@@ -21,58 +21,57 @@
   
       <% @giver_store.each do |food| %>
         <a href="/foods/<%=food.id %>" class="text-decoration-none">
+
           <div class=" col_list col_img <%= 'food' if food.quantity == 0 %>">
 
-          <div>
-            <p class="list_store_name">
-            <span style="font-size: 20px; color: #000;">
-            <i class="fa fa-home" aria-hidden="true"></i>
-            <%= link_to User.find(food.user_id).name, store_food_path(food.user_id) %></p><span>
-
-            <!---<div>
-              <img src="<%= food.picture %>" alt="" class="img_list">
-            </div> --->
-
             <div>
-              <%= image_tag food.avatar.variant(resize: '300x300!'), :class => "img_list" if food.avatar.attached?%>
-              <span class="off">
-              <p><span>
-                <%= (food.origin_price - food.discount_price)*100/(food.origin_price) %></span>%off
-              </p></span>
-            <div>
-          <div>
-        
-          <div class="col-12 col_foods_info">
-            <h3><%= food.title %></h3>
-            <div class="list_price">
-              <strong>$<%= food.discount_price %></strong>
-              <del>原價<%= food.origin_price %></del>
+              <p class="list_store_name">
+              <span style="font-size: 20px; color: #000;">
+              <i class="fa fa-home" aria-hidden="true"></i>
+              <%= link_to User.find(food.user_id).name, store_food_path(food.user_id) %></p><span>
+
+              <div>
+                <%= image_tag food.avatar.variant(resize: '300x300!'), :class => "img_list" if food.avatar.attached?%>
+                <span class="off">
+                <p><span>
+                  <%= (food.origin_price - food.discount_price)*100/(food.origin_price) %></span>%off
+                </p></span>
+              </div>
             </div>
-              
-            <p><span style="font-size: 16px; margin-right:5px">
-              <i class="fa fa-shopping-basket" aria-hidden="true"></i></span>
-                庫存 <%= food.quantity %> 件
-            </p>
+          
+            <div class="col-12 col_foods_info">
+              <h3><%= food.title %></h3>
+              <div class="list_price">
+                <strong>$<%= food.discount_price %></strong>
+                <del>原價<%= food.origin_price %></del>
+              </div>
+                
+              <p><span style="font-size: 16px; margin-right:5px">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i></span>
+                  庫存 <%= food.quantity %> 件
+              </p>
 
-            <!-- #到時候在修正成只顯示區域 -->
-            <p><span style="font-size: 22px; margin-right:5px">
-              <i class="fa fa-street-view" aria-hidden="true"></i></span>
-              <%= food.address %>
-            </p>
+              <!-- #到時候在修正成只顯示區域 -->
+              <p><span style="font-size: 22px; margin-right:5px">
+                <i class="fa fa-street-view" aria-hidden="true"></i></span>
+                <%= food.address %>
+              </p>
 
-            <p><span style="font-size: 20px; margin-right:5px">
-              <i class="fa fa-clock-o" aria-hidden="true"></i></span>
-              <%= I18n.l(food.pickup_time, formats: :default) %> ～ <%= food.endup_time.strftime("%H:%M") %>
-            </p>
-          </div>
-          <div class="col_foods_btn">
-            <% if food.user == current_user %>
-              <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning btn_foods_list' %>
-              <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger btn_foods_list', data: {confirm: '確定要刪除嗎？'} %> 
-            <% end %>
-            <%= link_to "MORE", food_path(food.id), class:'btn btn-dark' %>
-          </div>
-          </div>   
+              <p><span style="font-size: 20px; margin-right:5px">
+                <i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                <%= I18n.l(food.pickup_time, formats: :default) %> ～ <%= food.endup_time.strftime("%H:%M") %>
+              </p>
+            </div>
+
+            <div class="col_foods_btn">
+              <% if food.user == current_user %>
+                <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning btn_foods_list' %>
+                <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger btn_foods_list', data: {confirm: '確定要刪除嗎？'} %> 
+              <% end %>
+              <%= link_to "MORE", food_path(food.id), class:'btn btn-dark' %>
+            </div>
+          </div>  
+
         </a>
       <% end %>
     </div><!--- row_stor_list --->
