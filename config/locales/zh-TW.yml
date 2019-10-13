@@ -1,11 +1,5 @@
 ---
 "zh-TW":
-  activerecord:
-    errors:
-      models:
-        order:
-          attribute:
-            recipient: "領取人"
   devise:
     sessions:
       user:
@@ -17,7 +11,11 @@
       success: "已成功登入囉！"
     registrations:
       user:
+        signed_up: "歡迎來到「盛食找餐」！"
         updated: "您的個人資料已更新成功！" 
+    failure:
+      already_authenticated: "你已經登入了！"
+      signed_up: "您已註冊成功！"
   short: "%H:%M"
   activerecord:
     errors:
@@ -26,10 +24,15 @@
         restrict_dependent_destroy:
           has_one: 由於 %{record} 需要此記錄，所以無法移除記錄
           has_many: 由於 %{record} 需要此記錄，所以無法移除記錄
+      models:
+        food:
+          attributes:
+            avatar:
+              content_type_invalid: "請上傳png或jpg檔！"      
     attributes:
       order:
         status/pending: '等待付款'
-        status/paid: '已付款'
+        status/paid: '已付款'  
   date:
     abbr_day_names:
     - 周日

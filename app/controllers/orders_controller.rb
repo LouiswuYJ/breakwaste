@@ -3,15 +3,6 @@ class OrdersController < ApplicationController
   before_action :find_order, only: [:show, :transaction, :destroy, :payment, :transaction]
   
   def index
-    # @orders = Order.where(user: current_cart)
-    #或從使用者角度建立
-    # if Order.find_by(user_id: current_user.id).nil?
-    #   redirect_to foods_path, notice: '訂單現在是空的喔～'
-    # else
-    #   if current_user.id == Order.find_by(user_id: current_user.id).user_id
-    #       @orders = current_user.rescuer_orders.order(created_at: :asc)
-    #   end
-    # end
     @rescuer_orders = current_user.rescuer_orders.order(created_at: :asc)
   end
 
@@ -20,7 +11,12 @@ class OrdersController < ApplicationController
   end
 
   def payment
-    @token = braintree_gateway.client_token.generate
+    @order = Order.friendly.find(params[:id])
+    if @order.order_items.map {|order_item| order_item.quantity <= Food.find(order_item.food_id).quantity}.any?(false) #只要陣列有flase就notice數量不足
+      redirect_to orders_path, notice: "慢了一步！您要的食物庫存數量不足喔！"
+    else
+      @token = braintree_gateway.client_token.generate
+    end
   end
 
   def braintree_gateway
@@ -46,15 +42,18 @@ class OrdersController < ApplicationController
     @cart_foods = current_cart.cart_foods.where(giver_id: giver_id)
     @order = current_user.rescuer_orders.new(order_params)
     @order.giver_id = giver_id
+    @order.user_id = current_user.id
     @cart_foods.each do |food|
       @order.order_items << OrderItem.new(food_id: food.food_id, quantity: food.quantity, giver_id: food.giver_id, rescuer_id: current_user.id)
     end
     #把購物車裡的東西拿出來，一條一條塞入order_items 
-    if @order.save
+    if @cart_foods.each {|cart_food| cart_food.quantity <= Food.find(cart_food.food_id).quantity}  #若選購的食物數量不足庫存就notice
+      @order.save
+      @cart_foods.destroy_all
       redirect_to payment_order_path(@order)
     else
-      render 'carts/checkout'
-    end    
+      redirect_to orders_path, notice: "慢了一步！您要的食物庫存數量不足喔！"
+    end
   end
 
   def show
@@ -73,33 +72,38 @@ class OrdersController < ApplicationController
   def transaction
     giver = Order.friendly.find(params[:id]).giver_id
     cart_foods = CartFood.where(giver_id: giver)
+    order_items = current_user.rescuer_orders.find_by(slug: params[:id]).order_items
 
-    if @order.may_pay?
-      result = braintree_gateway.transaction.sale(
-        :amount => @order.total_price.to_f, 
-        :payment_method_nonce => params[:payment_method_nonce],
-        :options => {
-        :submit_for_settlement => true
-        }
-      )
-      if result.success?
-        @order.pay!
-        cart_foods.each do |cart_food|
-          food_id = cart_food.food_id
-          @food = Food.find(food_id)          
-          origin_post_quantity = @food.quantity 
-          rescuer_buy_quantity = cart_food.quantity
-          @food.quantity = origin_post_quantity - rescuer_buy_quantity
-          @food.save
+    if order_items.map {|order_item| order_item.quantity <= Food.find(order_item.food_id).quantity}.any?(false)
+      redirect_to orders_path, notice: "慢了一步！您要的食物庫存數量不足喔！"
+    else  
+      if @order.may_pay?
+        result = braintree_gateway.transaction.sale(
+          :amount => @order.total_price.to_f, 
+          :payment_method_nonce => params[:payment_method_nonce],
+          :options => {
+          :submit_for_settlement => true
+          }
+        )
+        if result.success?
+          @order.pay!
+          order_items.each do |order_item|
+            food_id = order_item.food_id
+            @food = Food.find(food_id)          
+            origin_post_quantity = @food.quantity 
+            rescuer_buy_quantity = order_item.quantity
+            @food.quantity = origin_post_quantity - rescuer_buy_quantity
+            @food.save
+          end
+          cart_foods.destroy_all 
+          redirect_to order_path, notice: '信用卡結帳完成'
+        else
+          redirect_to payment_order_path, notice: '付款失敗'
         end
-        cart_foods.destroy_all 
-        redirect_to order_path, notice: '信用卡結帳完成'
       else
-        redirect_to payment_order_path, notice: '付款失敗'
+        redirect_to orders_path, notice: '訂單已完成付款'
       end
-    else
-      redirect_to orders_path, notice: '訂單已完成付款'
-    end
+    end    
   end
 
   private

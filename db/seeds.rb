@@ -17,7 +17,7 @@ def discount_price
 end
 
 10.times do |i|
-  User.create(name: Faker::Name.name, password: 111111, phone: '0923111111', email: "giver#{i+1}@breakwaste", address:Faker::Address.street)
+  User.create(name: Faker::Name.name, password: 111111, phone: '0923111111', email: "giver#{i+1}@breakwaste.com", address:Faker::Address.street)
 end
 
 50.times do |i|
@@ -34,9 +34,9 @@ end
 
 Food.all.each do |food|
   food.avatar.attach(io: File.open("app/assets/images/trees/tree#{rand(1..5)}.png"), filename: 'tree1.png')
-    # food.avatar.attach(io: URI.open("https://picsum.photos/300/300/?random=#{rand(1..10)}"), filename: 'tree1.png')
+  # food.avatar.attach(io: URI.open("https://picsum.photos/300/300/?random=#{rand(1..10)}"), filename: 'tree1.png')
 end
 
-
+#如果seed無法產出，可暫時先把food.rb的第14行 "validates :avatar, attached: true, content_type: [:png, :jpg]" 註解
 puts "完成!"
 
