@@ -137,16 +137,23 @@ p.list_store_name{
   content: "Sold Out";
   font-size: 35px;
   text-align: center;
-  padding-top: 120px;
+  padding: 160px 0;
   letter-spacing: 10px;
   color: rgba(255,255,255, .8);
   
-  width: 290px;
-  height: 290px;
+  width: 97%;
   border-radius: 10px;
   background-color: rgba(150, 150, 150, 0.8);
 
   top: 47px;
   left: 7px;
   position: absolute;
+}
+@media screen and (min-width: 768px){
+  .col_img_sold_out::after{
+    content: "Sold Out";
+    padding-top: 120px;
+    width: 290px;
+    height: 290px;
+  }
 }
