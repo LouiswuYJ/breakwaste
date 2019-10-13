@@ -46,6 +46,7 @@ class OrdersController < ApplicationController
     @cart_foods = current_cart.cart_foods.where(giver_id: giver_id)
     @order = current_user.rescuer_orders.new(order_params)
     @order.giver_id = giver_id
+    @order.user_id = current_user.id
     @cart_foods.each do |food|
       @order.order_items << OrderItem.new(food_id: food.food_id, quantity: food.quantity, giver_id: food.giver_id, rescuer_id: current_user.id)
     end
@@ -55,7 +56,7 @@ class OrdersController < ApplicationController
       redirect_to payment_order_path(@order)
     else
       render 'carts/checkout'
-    end    
+    end  
   end
 
   def show
