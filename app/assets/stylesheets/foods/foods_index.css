@@ -41,6 +41,9 @@
   .col_list:hover{
     border: 3px solid  rgb(255, 195, 0);
   }
+  .col_list_sold_out:hover{
+    border: 3px solid #eee;
+  }
 
 /*--- 商店title ---*/
 p.list_store_name{
