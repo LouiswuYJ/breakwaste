@@ -55,17 +55,17 @@ a > span.navbar_cart {
     <ul class="navbar-nav">
       <% if user_signed_in? %>
 
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to "新增食物", new_food_path, class:'nav-link px-2'%>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to "我的小樹", my_tree_path(current_user.id), class: 'nav-link px-2' %>
         </li>
 
-        <li class="nav-item dropdown">
+        <li class="nav-item active dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">會員中心</a>
 
-          <div class="dropdown-menu p-3" aria-labelledby="navbarDropdown">
+          <div class="active dropdown-menu p-3" aria-labelledby="navbarDropdown">
             <%= link_to "Rescuer訂單", orders_path, class: 'dropdown-item px-2' %>
             <%= link_to "Giver訂單", giver_orders_path, class: 'dropdown-item px-2' %>
             <%= link_to "我的商店", store_food_path(current_user.id), class: 'dropdown-item px-2' %>
@@ -93,6 +93,5 @@ a > span.navbar_cart {
         
       <% end %>
     </ul>
-
   </div>
 </nav>
