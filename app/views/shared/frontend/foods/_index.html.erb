@@ -23,7 +23,6 @@
                 <!--- 打折數 off --->
                 <span class="off <%='off_sold_out' if food.quantity == 0 %>"><p><span><%= (food.origin_price - food.discount_price)*100/(food.origin_price) %></span>%off</p></span>
               </div>
-
             </div>   
 
             <div class="col-12 col_foods_info">
@@ -60,7 +59,7 @@
             </div>
           </div><!--- 數量為 0 蓋板 --->   
       <% end %>
-    </div>
-  </div>
-</div>
+    </div><!--- row_stor_list --->
+  </div><!--- container_list --->
+</div><!--- section_foods_store --->
 
