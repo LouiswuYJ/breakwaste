@@ -5,12 +5,12 @@
 <% end %>
 
 <div class="section_foods_index">
-  <div class="container-fluid container_foods_list p-0">
-    <div class="row_foods_list no-gutters">
+  <div class="container container_foods_list p-0">
+    <div class="row_foods_list">
 
       <% @foods.each do |food| %>
           <!--- 數量為 0 蓋板 --->
-          <div class=" col_list <%= 'col_list_sold_out' if food.quantity == 0 %>">
+          <div class=" col_list p-0 <%= 'col_list_sold_out' if food.quantity == 0 %>">
 
             <div><!--- 商店名稱 --->
               <p class="list_store_name <%='list_store_name_sold_out' if food.quantity == 0 %>">

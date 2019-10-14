@@ -2,19 +2,22 @@
   width: 100%;
 }
 .row_foods_list{
+  width: 355px;
+  margin: auto;
   padding: 20px 0 100px;
 }
 @media screen and (min-width: 768px){
   .row_foods_list{
-    width: 100%;
+    width: 930px;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
-    padding: 20px 0.8% 100px;
+    padding: 20px 0 100px;
   }
 }
 .col_list{
   width: 355px;
-  margin: 10px;
+  margin: 10px auto;
   position: relative;
   border-radius: 5px;
   border: 3px solid #eee;
@@ -54,7 +57,7 @@ span.off{
   width: 80px;
   height: 80px;
   right: 10px;
-  bottom: 309px;
+  bottom: 308px;
   position: relative;
   position: absolute;
   overflow: visible;
