@@ -21,6 +21,10 @@
   font-size: 22px;
   margin-right: 8px;
 }
+.col_orders_show > p > i.user{
+  font-size: 20px;
+  margin-right: 8px;
+}
 .order_show_item > p > span{
   font-size: 22px;
   color: rgb(195, 0, 0);
