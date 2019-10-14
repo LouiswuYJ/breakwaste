@@ -56,22 +56,30 @@ a > span.navbar_cart {
       <% if user_signed_in? %>
 
         <li class="nav-item active">
-          <%= link_to "新增食物", new_food_path, class:'nav-link px-2'%>
-        </li>
-        <li class="nav-item active">
           <%= link_to "我的小樹", my_tree_path(current_user.id), class: 'nav-link px-2' %>
         </li>
 
         <li class="nav-item active dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">會員中心</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">RESCUER</a>
 
           <div class="active dropdown-menu p-3" aria-labelledby="navbarDropdown">
-            <%= link_to "Rescuer訂單", orders_path, class: 'dropdown-item px-2' %>
-            <%= link_to "Giver訂單", giver_orders_path, class: 'dropdown-item px-2' %>
-            <%= link_to "我的商店", store_food_path(current_user.id), class: 'dropdown-item px-2' %>
-            <%= link_to "完售商品", history_foods_path, class: 'dropdown-item px-2' %>
-            <%= link_to "個人資料", user_registration_path, class: 'dropdown-item px-2' %>
+            <%= link_to "RESCUER訂單", orders_path, class: 'dropdown-item px-2' %>
           </div>
+        </li>
+
+        <li class="nav-item active dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GIVER</a>
+
+          <div class="active dropdown-menu p-3" aria-labelledby="navbarDropdown">
+            <%= link_to "Giver訂單", giver_orders_path, class: 'dropdown-item px-2' %>
+            <%= link_to "新增食物", new_food_path, class:'nav-link px-2'%>
+            <%= link_to "我的商店", store_food_path(current_user.id), class: 'dropdown-item px-2' %>
+            <%= link_to "歷史紀錄", history_foods_path, class: 'dropdown-item px-2' %>
+          </div>
+        </li>
+
+        <li class="nav-item active">
+          <%= link_to "個人檔案", user_registration_path, class: 'dropdown-item px-2' %>
         </li>
 
         <li class="nav-item active">        
