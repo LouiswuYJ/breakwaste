@@ -15,10 +15,21 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <style>
+
+  <style type="text/css">
+   /* --- 網站字體 --- */
+    @import url("https://fonts/googleeais.com/css?family=Noto+Sans+TC:100,300,400,500,700&display=swap");
+    @import url("https://maxcdn.bootstracdn.com/font-awesome/4.4.0/css/font-awesome.min.css")
+
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: 'Noto Sans TC',sans serif;
+      }
+
     /* --- 網站通用背景 --- */
     body{
-      /* background-image: url(/assets/bg01.jpg); -------更改成下方格式*/
       background-image: url(<%= asset_path 'bg01.jpg' %>); 
       background-repeat: cover;
       background-attachment: fixed;
@@ -26,7 +37,6 @@
       letter-spacing: 1px;
       font-size:16px;
       }
-
     /* --- 訊息通知 --- */
       a.btn_style,.btn_style{
         text-align: center;
@@ -50,6 +60,7 @@
         background-color: rgba(0, 0, 0,.7);
         border-color: rgba(0, 0, 0,.7);
       }
+      
   </style>
   <body>
     <%= render 'shared/frontend/navbar' %>
