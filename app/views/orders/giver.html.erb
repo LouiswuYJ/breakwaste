@@ -16,7 +16,6 @@
             <th>訂單編號</th>
             <th>買家名稱</th>
             <th>訂單建立</th>
-            <th>備註</th>
             <th>付款狀態</th>
             <th>詳細</th>
           </tr>
@@ -27,9 +26,8 @@
             <td data-th="訂單編號"><%= order.friendly_id.upcase%></td>
             <td data-th="買家名稱"><%= order.recipient %></td>
             <td data-th="訂單建立"><%= I18n.l(order.created_at, formats: :default) %></td>
-            <td data-th="備註"><%= order.note%></td>
             <td data-th="付款狀態"><%= order.aasm.human_state%></td>
-            <td data-th="詳細"><%= link_to "詳細內容", giver_order_order_path(order), class:'btn btn-success btn-style' %></td>
+            <td data-th="詳細"><%= link_to "詳細內容", giver_order_order_path(order), class:'btn btn-success btn-sm' %></td>
           </tr>
           <%end%>
         </tbody>
