@@ -52,8 +52,8 @@
           <div class="dropdown-menu p-3" aria-labelledby="navbarDropdown">
             <%= link_to "Rescuer訂單", orders_path, class: 'dropdown-item px-2' %>
             <%= link_to "Giver訂單", giver_orders_path, class: 'dropdown-item px-2' %>
-            <%= link_to "我的店家", store_food_path(current_user.id), class: 'dropdown-item px-2' %>
-            <%= link_to "歷史紀錄", history_foods_path, class: 'dropdown-item px-2' %>
+            <%= link_to "我的商店", store_food_path(current_user.id), class: 'dropdown-item px-2' %>
+            <%= link_to "完售商品", history_foods_path, class: 'dropdown-item px-2' %>
             <%= link_to "個人資料", user_registration_path, class: 'dropdown-item px-2' %>
           </div>
         </li>

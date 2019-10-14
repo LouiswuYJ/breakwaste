@@ -55,7 +55,7 @@ class FoodsController < ApplicationController
   end
 
   def history
-    @foods = Food.where(user_id: current_user.id)
+    @foods = Food.where(user_id: current_user.id, quantity: 0)
   end
 
   # def add_to_cart
