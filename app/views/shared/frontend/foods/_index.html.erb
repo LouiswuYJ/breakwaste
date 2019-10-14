@@ -9,21 +9,21 @@
     <div class="row_foods_list no-gutters">
 
       <% @foods.each do |food| %>
-        <a href="/foods/<%=food.id %>" class="text-decoration-none">
           <!--- 數量為 0 蓋板 --->
-          <div class=" col_list col_img <%= 'col_img_sold_out' if food.quantity == 0 %>">
+          <div class=" col_list <%= 'col_list_sold_out' if food.quantity == 0 %>">
 
-            <div>
+            <div><!--- 商店名稱 --->
               <p class="list_store_name <%='list_store_name_sold_out' if food.quantity == 0 %>">
               <span style="font-size: 20px; color: #000;">
               <i class="fa fa-home" aria-hidden="true"></i>
-              <%= link_to User.find(food.user_id).name, store_food_path(food.user_id) %></p><span>
+              <%= link_to User.find(food.user_id).name, store_food_path(food.user_id), class: 'store_name text-decoration-none'%></p><span>
 
-              <div>
+              <div class="list_image <%='list_image_sold_out' if food.quantity == 0 %>">
                 <%= image_tag food.avatar.variant(resize: '300x300!'), :class => "img_list" if food.avatar.attached? %>
                 <!--- 打折數 off --->
                 <span class="off <%='off_sold_out' if food.quantity == 0 %>"><p><span><%= (food.origin_price - food.discount_price)*100/(food.origin_price) %></span>%off</p></span>
               </div>
+
             </div>   
 
             <div class="col-12 col_foods_info">
@@ -42,7 +42,7 @@
               <p><!-- #到時候在修正成只顯示區域 -->
                 <span style="font-size: 22px; margin-right:5px">
                 <i class="fa fa-street-view" aria-hidden="true"></i>
-                </span><%= food.address %>
+                </span><%= ((food.address)[0,6]) %>
               </p>
 
               <p><span style="font-size: 20px; margin-right:5px">
@@ -59,7 +59,6 @@
               <%= link_to "MORE", food_path(food.id), class:'btn btn-dark' %>
             </div>
           </div><!--- 數量為 0 蓋板 --->   
-        </a>
       <% end %>
     </div>
   </div>
