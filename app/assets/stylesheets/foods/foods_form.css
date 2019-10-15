@@ -1,19 +1,32 @@
 .create_form{
-  padding: 20px;
-  text-align: center;
-  <%# background-image: url(/assets/header04.jpg); -------更改成下方格式 %>
-  background-image: url(<%= asset_path 'header04.jpg' %>);
+  text-align: center;/*
+  background-image: url(/assets/header04.jpg);
+  background-image: url(<%= asset_path 'header04.jpg' %>);*/
+
+  background-color: rgb(255, 221, 109);
+  padding: 10px;
+  letter-spacing: 3px;
 }
-.container_form{
-  background-color: #fff;
+.create_form > h3{
+  font-size: 26px;
+  color: rgb(0, 0, 0);
 }
 .row_form{
-  padding: 30px 0 100px 0;
+  margin: 40px auto 100px;
 }
 .col_form{
-  width: 100%;
   margin: auto;
+  padding: 10px !important;
+  border-radius: 30px;
   background-color: #fff;
+}
+@media screen and (min-width: 768px){
+  .col_form.new{
+    margin: auto;
+    padding: 70px !important;
+
+    background-color: #fff;
+  }
 }
 .label_form{
   font-size: 18px;
@@ -30,9 +43,9 @@
   padding: 5px;
   outline: none;
   padding-left: 15px;
-  border-radius: 5px;
-  border: 2px solid #ccc;
-  background-color: #fff;
+  border-radius: 10px;
+  border: 2px solid rgb(240, 240, 240);
+  background-color: rgb(240, 240, 240);
 }
 div.select_form{
   width: 100%;
