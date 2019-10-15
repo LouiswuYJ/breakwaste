@@ -13,12 +13,12 @@
       </div>
 
       <div class="col-12 col_orders_show order_show_item p-4 my-2">
-        
+
         <% @order.order_items.each do |order_item| %>
           <p><span><%= order_item.food.title%></span><i class="fa fa-shopping-basket"></i> x <%= order_item.quantity%> 件</p>
           <p><i class="fa fa-home home"></i>聯絡資訊 <%= @giver.address %> <%= @giver.phone%></p>
           <p><i class="fa fa-clock-o time"></i>提取時間 <%= I18n.l(order_item.food.pickup_time, formats: :default) %> ～ <%= order_item.food.endup_time.strftime("%H:%M") %></p>
-          <i class="fa fa-commenting-o msg"></i>備註 <%= @order.note%>
+          <i class="fa fa-commenting-o msg mb-4"></i>備註 <%= @order.note%>
           <div class="subtotal">小計<span><%= order_item.total_price %></span>元</div>
         <% end %>
       </div>
