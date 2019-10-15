@@ -13,7 +13,7 @@ class CartFoodsController < ApplicationController
         @cart_food.giver_id = Food.find_by(id: params[:format]).user_id
       end
       if @cart_food.save
-        redirect_to foods_path, notice: '已加入購物車！！'
+        redirect_to cart_path, notice: "#{@cart_food.food.title} #{@cart_food.quantity} 份已加入購物車！！"
       else
         redirect_to foods_path, notice: '加入失敗'
       end

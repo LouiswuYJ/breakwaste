@@ -4,7 +4,7 @@
 
       <div class="col-lg-10 col-11 pb-2">
         <div class="foods_history_title text-center">
-          <h1>貼文歷史紀錄</h1>
+          <h1>完售商品</h1>
         </div>
       </div>
 
@@ -33,7 +33,7 @@
                 <td  data-th="提貨時間"><%= I18n.l(food.pickup_time, formats: :default) %> ～ <%=food.endup_time.strftime("%H:%M") %></td>
                 <td  data-th="原始價"><%= food.origin_price %></td>
                 <td  data-th="救援價"><%= food.discount_price %></td>
-                <td  data-th="上架"><%= link_to "重新上架", new_food_path("food_id" => food.id), class: 'btn btn-sm btn-warning' %></td>
+                <td  data-th="上架"><%= link_to "重新上架", edit_food_path(food.id), class: 'btn btn-sm btn-warning' %></td>
                 <td  data-th="刪除"><%= link_to "刪除紀錄", food_path(food.id), method:'delete', class:'btn btn-sm btn-danger', data: {confirm: '確定要刪除嗎？'} %></td>
               </tr>
             </tbody>

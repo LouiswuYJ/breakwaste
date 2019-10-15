@@ -16,17 +16,19 @@
         </div>
 
         <div class="col-lg-8 col-12 col_checkout_info">
+          <div class="carts_show_price name">
+            <p><%= link_to @food_giver.name, store_food_path(@food_giver.id) %></p>
+          </div> 
           <% @cart_foods.each do |cart_food| %>
-            <div class="carts_show_price">
-              <p><%= link_to User.find_by(id: cart_food.food.user_id).name, store_food_path(cart_food.giver_id) %></p>
+            <div class="carts_show_price card">
               <h5><%= cart_food.food.title%></h5>
               <p>提取時間：<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%=cart_food.food.endup_time.strftime("%H:%M") %></p>
+              <p>地址：<%= cart_food.food.address%></p>
               <span>＄<%= cart_food.food.discount_price%></span>
               <del>原價<%= cart_food.food.origin_price%></del>
               數量：<%= cart_food.quantity%>
             </div>
           <%end%>
-
           <div class="checkout_total text-right">
             總價 <span>＄<%= @order_total_price%></span>
           </div>

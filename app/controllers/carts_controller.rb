@@ -34,6 +34,7 @@ class CartsController < ApplicationController
   def checkout
     @order = current_user.rescuer_orders.build(giver_id: params[:giver_id])
     @cart_foods = current_cart.cart_foods.where(giver_id: params[:giver_id])
+    @food_giver = User.find(params[:giver_id])
     redirect_to '/404.html' if @cart_foods.blank?
 
     @givers = User.joins(:cart_food_givens).where('cart_foods.cart_id = ?', current_cart.id).distinct
