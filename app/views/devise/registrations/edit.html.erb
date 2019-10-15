@@ -5,6 +5,11 @@
       <h1>編輯資料</h1>
     </div>   
   </div>
+    <% flash.each do |key, value| %>
+    <div class="alert alert-warning <%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
 
   <div class="container-fluid container_profile justify-content-center p-0">
     <div class="row no-gutters row_profile">
@@ -58,13 +63,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-    
-
