@@ -8,54 +8,6 @@
   border-radius: 50%;
   margin-bottom: 30px;
 }
-/* --- icon --- */
-.col_orders_show > i.msg{
-  font-size: 20px;
-  margin-right: 8px;
-}
-.col_orders_show > p > i.time{
-  font-size: 22px;
-  margin-right: 8px;
-}
-.col_orders_show > p > i.home{
-  font-size: 22px;
-  margin-right: 8px;
-}
-.col_orders_show > p > i.user{
-  font-size: 20px;
-  margin-right: 8px;
-}
-.order_show_item > p > span{
-  font-size: 22px;
-  color: rgb(195, 0, 0);
-  margin-right: 50px;
-}
-@media screen and (min-width: 768px){
-  .order_show_item > p > span{
-    margin-right: 30px;
-  }
-}
-
-/*--- Subtotal 小計---*/
-.col_orders_show > div.subtotal{
-  display: inline-block;
-  float: right;
-  margin-top: 30px;
-}
-.col_orders_show > div.subtotal > span{
-  font-size: 20px;
-  color: rgb(195, 0, 0);
-  margin: 0 5px;
-}
-@media screen and (min-width: 768px){
-  .col_orders_show > div.subtotal{
-    margin-top: 0px;
-  }
-  .col_orders_show > div.subtotal > span{
-    font-size: 20px;
-    color: rgb(195, 0, 0);
-  }  
-}
 
 /* ordershow */
 .row_orders_show{

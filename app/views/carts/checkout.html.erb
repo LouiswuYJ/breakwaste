@@ -21,12 +21,12 @@
           </div> 
           <% @cart_foods.each do |cart_food| %>
             <div class="carts_show_price card">
-              <h5><%= cart_food.food.title%></h5>
-              <p>提取時間：<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%=cart_food.food.endup_time.strftime("%H:%M") %></p>
+             <h5><%= cart_food.food.title%></h5>
+              <p>數量：<%= cart_food.quantity %></p>
               <p>地址：<%= cart_food.food.address%></p>
-              <span>＄<%= cart_food.food.discount_price%></span>
-              <del>原價<%= cart_food.food.origin_price%></del>
-              數量：<%= cart_food.quantity%>
+              <p>提取時間：<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%=cart_food.food.endup_time.strftime("%H:%M") %></p>
+              <p><span class="discount_price">＄<%= cart_food.food.discount_price%></span>
+              <del class="origin_price">原價<%= cart_food.food.origin_price%></del></p>
             </div>
           <%end%>
           <div class="checkout_total text-right">
@@ -54,7 +54,7 @@
 
           <div class="col_checkout_btn text-center">
             <%= form.hidden_field :cart_food_id, value: @cart_foods.ids %>
-            <%= form.submit '建立訂單', class: 'btn btn-success btn_style' %>
+            <%= form.submit '建立訂單', class: 'btn btn-success btn-lg' %>
           </div> 
 
           <% end %>
@@ -64,4 +64,3 @@
     </div><!-- back -->
   </div><!-- container -->
 </div><!-- section_checkout -->
-<%= render 'shared/frontend/footer' %>

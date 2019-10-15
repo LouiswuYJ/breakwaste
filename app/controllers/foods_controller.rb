@@ -16,7 +16,7 @@ class FoodsController < ApplicationController
   end
 
   def new
-    if current_user.name.empty?
+    if current_user.name.nil?
       redirect_to edit_user_registration_path, notice: '新增貼文前請先填寫個人資料！'
     else
       old_food_params = Food.find_by(id: params[:food_id]) &.as_json || {}  

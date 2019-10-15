@@ -7,17 +7,23 @@
 <div class="section_orders_show">
   <div class="container-fluid container_orders_show justify-content-center p-0">
     <div class="row no-gutters row_orders_show justify-content-center">
-
-   
-      <div class="ccol-11 col_orders_show order_show_title text-center  mb-4">
+ 
+      <div class="ccol-11 col_orders_show order_show_title text-center mb-4">
         <h1>訂單編號 <span><%= @order.slug.upcase%></span></h1>
-      </div>   
-      <% @order.order_items.each do |order_item| %>
-        <div class="col-12 col_orders_show order_show_item p-4 my-2">
-          <p><%= order_item.food.title%>&nbsp;&nbsp;數量：<%= order_item.quantity%></p>
-          <p>可領取時間：<%= I18n.l(order_item.food.pickup_time, formats: :default) %> ～ <%= order_item.food.endup_time.strftime("%H:%M") %></p>
-        </div>
-      <% end %>
+      </div>
+
+      <div class="col-12 col_orders_show order_show_item p-4 my-2">
+
+        <% @order.order_items.each do |order_item| %>
+          <p><span><%= order_item.food.title%></span><i class="fa fa-shopping-basket"></i> x <%= order_item.quantity%> 件</p>
+          <p><i class="fa fa-home home"></i>聯絡資訊 <%= @giver.address %>
+          <i class="fa fa-phone ml-3 mr-1"></i><%= @giver.phone%></p>
+          <p><i class="fa fa-clock-o time"></i>提取時間 <%= I18n.l(order_item.food.pickup_time, formats: :default) %> ～ <%= order_item.food.endup_time.strftime("%H:%M") %></p>
+          <i class="fa fa-commenting-o msg mb-4"></i>備註 <%= @order.note%>
+          <div class="subtotal">小計<span><%= order_item.total_price %></span>元</div>
+        <% end %>
+      </div>
+
       <div class="col-11 order_show_btn text-center">
         <p>總金額 <span class="show_checkout_btn"><%= @total_price %></span> 元</p>  
         <%= link_to "繼續購物", foods_path, class:'btn btn-success btn-lg mr-1' %>
@@ -29,4 +35,3 @@
     </div>
   </div>
 </div>
-<%= render 'shared/frontend/footer' %>

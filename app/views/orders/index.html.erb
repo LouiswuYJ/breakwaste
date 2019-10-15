@@ -17,10 +17,7 @@
             <th>訂單編號</th>
             <th>商店名稱</th>
             <th>訂單建立</th>
-            <th>備註</th>
             <th>付款狀態</th>
-            <th>付款</th>
-            <th>取消</th>
             <th>詳細</th>
           </tr>
         </thead>
@@ -30,12 +27,12 @@
             <td data-th="訂單編號"><%= order.friendly_id.upcase%></td>
             <td data-th="商店名稱"><%= User.find(order.giver_id).name %></td>
             <td data-th="訂單建立"><%= I18n.l(order.created_at, formats: :default) %></td>
-            <td data-th="備註"><%= order.note %></td>
             <td data-th="付款狀態"><%= order.aasm.human_state%></td>
-            <td data-th="付款"><%= link_to "前往付款", payment_order_path(order), class: 'btn btn-danger btn-sm' if order.may_pay? %>
-            </td>
-            <td data-th="取消"><%= link_to "取消訂單", order_path(order), method: 'delete', class: 'btn btn-secondary btn-sm', data: {confirm: '確定要取消訂單嗎？'} if order.may_pay? %></td>
-            <td data-th="詳細"><%= link_to "詳細內容", order_path(order), class:'btn btn-success btn-sm' %></td>
+            <td data-th="詳細">
+
+            <%= link_to "前往付款", payment_order_path(order), class: 'btn btn-danger btn-sm' if order.may_pay? %>
+            <%= link_to "取消訂單", order_path(order), method: 'delete', class: 'btn btn-secondary btn-sm', data: {confirm: '確定要取消訂單嗎？'} if order.may_pay? %>
+            <%= link_to "詳細內容", order_path(order), class:'btn btn-success btn-sm' %></td>
           </tr>
           <%end%>
         </tbody>
@@ -43,4 +40,3 @@
     </div>
   </div>
 </div>
-<%= render 'shared/frontend/footer' %>

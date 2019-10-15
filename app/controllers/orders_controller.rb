@@ -62,6 +62,7 @@ class OrdersController < ApplicationController
       order_item_price = Food.find(food_id).discount_price
       @total_price = sum + order_item_price * order_item.quantity
     end
+    @giver = Food.find_by(user_id: @order.giver_id)
   end
 
   def destroy
