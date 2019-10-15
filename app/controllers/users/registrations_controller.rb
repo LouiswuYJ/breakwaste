@@ -25,6 +25,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to new_user_registration_path
     end
   end
+
+  def after_update_path_for(resource)
+    foods_path (resource)
+  end
   # GET /resource/sign_up
   # def new
   #   super
