@@ -1,5 +1,8 @@
 ---
 "zh-TW":
+  errors:
+    messages:
+      not_saved: 
   devise:
     sessions:
       user:
@@ -20,6 +23,7 @@
   activerecord:
     errors:
       messages:
+        not_saved:
         record_invalid: '校驗失敗: %{errors}'
         restrict_dependent_destroy:
           has_one: 由於 %{record} 需要此記錄，所以無法移除記錄
@@ -135,6 +139,7 @@
   errors:
     format: "%{attribute} %{message}"
     messages:
+      not_saved:
       accepted: 必須是可被接受的
       blank: 不能為空白
       confirmation: 與 %{attribute} 須一致

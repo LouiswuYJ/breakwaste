@@ -16,15 +16,19 @@ class FoodsController < ApplicationController
   end
 
   def new
-    old_food_params = Food.find_by(id: params[:food_id]) &.as_json || {}  
-    if user_signed_in?
-      @food = Food.new(old_food_params)
-      if @food.avatar.attached?
-        avatar_id = @food.avatar.id
-        @food.avatar = ActiveStorage::Blob.find(avatar_id)
-      end
+    if current_user.name.empty?
+      redirect_to edit_user_registration_path, notice: '新增貼文前請先填寫個人資料！'
     else
-      redirect_to user_session_path   
+      old_food_params = Food.find_by(id: params[:food_id]) &.as_json || {}  
+      if user_signed_in?
+        @food = Food.new(old_food_params)
+        if @food.avatar.attached?
+          avatar_id = @food.avatar.id
+          @food.avatar = ActiveStorage::Blob.find(avatar_id)
+        end
+      else
+        redirect_to user_session_path   
+      end  
     end
   end
 

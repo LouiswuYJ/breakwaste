@@ -17,6 +17,22 @@
 .dropdown-menu > a:hover{
   background-color: rgb(255, 225, 130);
 }
+li.nav-item{
+  margin: auto 0;
+}
+a > i.navbar_cart::before {
+  font-size:30px;
+  color: #000;
+  vertical-align: text-bottom;
+}
+a > span.navbar_cart {
+  color: #fff;
+  font-size:20px;
+  padding: 0 6px;
+  border-radius: 50%;
+  background-color: #f00;
+  vertical-align: text-bottom;
+}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-warning navbar_foods">
@@ -58,9 +74,9 @@
           </div>
         </li>
 
-        <li class="nav-item">
-          <%= link_to "購物車(#{current_cart.foods.count})", cart_path("food_id" => current_cart.foods.ids), class: 'nav-link px-2' if current_cart.present?%>
-        </li>
+        <li class="nav-item active">        
+          <%= link_to "<i class='fa fa-shopping-cart navbar_cart'></i><span class='navbar_cart'>#{current_cart.foods.count}</span>".html_safe, cart_path("food_id" => current_cart.foods.ids), class: 'nav-link px-2' unless current_cart.cart_foods.empty? %>
+        </li>    
 
         <li class="nav-item">
           <%= link_to "登出", destroy_user_session_path, class: 'nav-link px-2', method: 'delete', data: {confirm: '確定要登出嗎？'} %>
