@@ -1,0 +1,61 @@
+.row_orders_givers {
+  background-color: #fff;
+  padding: 40px;
+  margin: auto;
+}
+.orders_giver_header > img{
+  width: 200px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+
+/* ordershow */
+.row_orders_show{
+  background-color: #fff;
+  padding: 40px;
+  margin: auto;
+}
+@media screen and (min-width: 768px){
+  .row_orders_show{
+    padding: 40px 10%;
+  }
+}
+.order_show_title > h1{
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+.order_show_title > h1 > span{
+  color: rgb(195, 0, 0);
+}
+.col_orders_show > ul > li{
+  list-style-type: none;
+}
+.orders_show_img > img{
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+.order_show_item{
+  background-color: #eee;
+  border-radius: 10px;
+}
+.order_show_item > i {
+  font-size: 100px;
+}
+.order_show_btn{
+  padding-bottom: 60px;
+}
+@media screen and (min-width: 768px){
+  .order_show_btn{
+    padding-top: 10px;
+  }
+}
+.order_show_btn > p{
+  margin: 15px 0 20px;
+  font-size: 20px;
+}
+.order_show_btn > p > span{
+  font-size: 28px;
+  color: rgb(195, 0, 0);
+}
+

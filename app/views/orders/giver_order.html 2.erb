@@ -1,0 +1,30 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-warning <%= key %>">
+    <%= value %>
+  </div>
+<% end %>
+
+<!--- 與orders-show頁面同CSS --->
+<div class="section_giver_order">
+  <div class="container-fluid container_orders_show justify-content-center p-0">
+    <div class="row no-gutters row_orders_show justify-content-center">
+
+     <div class="ccol-11 col_orders_show order_show_title text-center mb-4">
+        <h1>親愛的Giver</h1>
+        <h1>恭喜食物售出囉！</h1>
+        <h1>訂單編號為 <span><%= @giver_orders.slug.upcase%></span></h1>
+      </div>   
+      <% @giver_orders.order_items.each do |order_item| %>
+        <div class="col-12 col_orders_show order_show_item p-4 my-2">
+          <p>名稱：<%= order_item.food.title%>&nbsp;&nbsp;數量：<%= order_item.quantity%></p>
+          <p>可領取時間:<%= I18n.l(order_item.food.pickup_time, formats: :default) %> ～ <%= order_item.food.endup_time.strftime("%H:%M") %></p>
+        </div>
+      <% end %>
+      <div class="col-11 order_show_btn text-center">
+        <p>總金額 <span class="show_checkout_btn"><%= @total_price %></span> 元<p>
+        <%= link_to "全部訂單", giver_orders_path, class:'btn btn-warning btn-lg ml-1' %>
+      </div>  
+    </div>
+  </div>
+</div>
+
