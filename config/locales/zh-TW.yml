@@ -155,7 +155,7 @@
     messages:
       not_saved: 會員註冊失敗
       accepted: 必須是可被接受的
-      blank: 為必填喔 !
+      blank: 為必填
       confirmation: 與 %{attribute} 須一致
       empty: 不能留空
       equal_to: 必須等於 %{count}
@@ -168,7 +168,7 @@
       less_than: 必須小於 %{count}
       less_than_or_equal_to: 必須小於或等於 %{count}
       model_invalid: '校驗失敗: %{errors}'
-      not_a_number: 必須是數字喔!
+      not_a_number: 必須是數字
       not_an_integer: 必須是整數
       odd: 必須是奇數
       other_than: 不可以是 %{count} 個字
