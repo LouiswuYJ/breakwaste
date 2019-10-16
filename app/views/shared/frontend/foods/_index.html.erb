@@ -55,7 +55,9 @@
                 <%= link_to "編輯", edit_food_path(food.id),class:'btn btn-warning btn_foods_list' %>
                 <%= link_to "刪除", food_path(food.id), method:'delete', class:'btn btn-danger btn_foods_list', data: {confirm: '確定要刪除嗎？'} %> 
               <% end %>
-              <%= link_to "MORE", food_path(food.id), class:'btn btn-dark' %>
+              <% if food.quantity != 0 %>
+                <%= link_to "MORE", food_path(food.id), class:'btn btn-dark' %>                
+              <% end %>
             </div>
           </div><!--- 數量為 0 蓋板 --->   
       <% end %>
