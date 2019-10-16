@@ -23,7 +23,7 @@ input.search{
   margin: 10px 0;
   padding-left: 15px;
   border-radius: 5px;
-  border: 5px solid #000;
+  border: 5px solid #343a40;
 }
 @media screen and (min-width: 768px){
   input.search{
@@ -31,11 +31,16 @@ input.search{
   }
 }
 .foods_search_btn{
-  width: 80px;
-  height: 50px;
-  font-size: 18px;
-  margin-left: -15px;
-  margin-top: -6px;
+  width: 120px;
+  height: 51px;
+}
+@media screen and (min-width: 768px){
+  .foods_search_btn{
+    width: 80px;
+    height: 50px;
+    margin-left: -15px;
+    margin-top: -4px;
+  }
 }
 .row_about{
   margin: 60px 0;
