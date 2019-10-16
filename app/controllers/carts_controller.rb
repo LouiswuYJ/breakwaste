@@ -25,9 +25,9 @@ class CartsController < ApplicationController
   def destroy_cart
     if current_cart_foods
       current_user.cart.cart_foods.destroy_all
-      redirect_to foods_path, notice: '購物車已清空！！'
+      redirect_to foods_path, notice: '購物車已清空！'
     else
-      redirect_to foods_path, notice: '購物車已經是空的了喔！！' 
+      redirect_to foods_path, notice: '購物車已經是空的了喔！' 
     end   
   end
 

@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
     if @cart_foods.each {|cart_food| cart_food.quantity <= Food.find(cart_food.food_id).quantity}  #若選購的食物數量不足庫存就notice
       if @order.save
         @cart_foods.destroy_all
-        redirect_to payment_order_path(@order), notice: '商品已從購物車移除，訂單成立！'
+        redirect_to payment_order_path(@order), notice: '訂單已成立！若要檢視商品請至「買家訂單」查看！'
       else
         render "carts/checkout"
       end   
