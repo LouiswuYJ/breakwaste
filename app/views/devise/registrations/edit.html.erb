@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-  <div class="container-fluid container_profile justify-content-center p-0">
-    <div class="row no-gutters row_profile">
+  <div class="container container_profile justify-content-center p-0">
+    <div class="row row_profile p-0">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form_profile"}) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 

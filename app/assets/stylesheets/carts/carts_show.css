@@ -1,14 +1,19 @@
+.section_carts_show{
+  background-color: #fff;
+  padding: 0 0 150px 0;
+}
 .row_carts_show{
-  background-color: rgba(255,255,255,.6);
+  background-color: #fff;
   padding: 40px 0 150px;
 }
 @media screen and (min-width: 768px){
   .row_carts_show{
-    padding: 40px 5% 25%;
+    padding: 40px 0 25px 0;
   }
 }
 .row_carts_show > h1{
-  font-size: 34px;
+  margin: auto;
+  font-size: 28px;
 }
 @media screen and (min-width: 768px){
   .ow_carts_show > h1{
@@ -35,9 +40,6 @@
   position: relative;
   background-color: #fff;
 }
-.carts_show_info:hover{
-  background-color: rgb(245, 245, 245);
-}
 .carts_show_info > h5{
   margin-bottom: 1.5rem;
   line-height: 1;
@@ -49,22 +51,73 @@
 }
 
 .carts_show_price > span{
-  font-size: 26px;
+  display: inline-block;
+  font-size: 20px;
   color: rgb(195, 0, 0);
+}
+@media screen and (min-width: 768px){
+  .carts_show_price > span{
+    font-size: 26px;
+  }
 }
 .carts_show_price > del{
+  display: inline-block;
   color: #aaa;
-  margin-right: 20px;
+  margin-left: 10px;
 }
-
-.carts_show_count{
-  background-color: #fff;
-  margin-bottom: 20px;
-  border: 1px solid #000;
+.carts_show_price > p{
+  display: block; 
+  margin-top: 25px;
+  text-align: right;
 }
-.carts_show_count > span{
-  font-size: 26px;
+@media screen and (min-width: 768px){
+  .carts_show_price > p{
+    display: inline-block; 
+    margin-top: 0;
+    padding-top: 5px;
+    float: right;
+  }
+}
+.carts_show_price > p > span{
+  font-size: 22px;
   color: rgb(195, 0, 0);
+}
+@media screen and (min-width: 768px){
+  .carts_show_count{
+    text-align: right;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border: 1px solid #000;
+    padding: 10px 15px 2px 15px;
+  }
+  .carts_show_count > p{
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .carts_show_count > p > span{
+    font-size: 26px;
+    color: rgb(195, 0, 0);
+  }
+}
+@media screen and (max-width: 767px){
+  .carts_show_count{
+    background-color: #fff;
+    margin-bottom: 20px;
+    border: 1px solid #000;
+    padding: 15px 15px 2px 15px;
+  }
+  .carts_show_count > p{
+    display: inline-block;
+  }
+  .carts_show_count > p > span{
+    font-size: 26px;
+    color: rgb(195, 0, 0);
+  }
+  .carts_show_count > a.checkout{
+    display: inline-block;
+    float: right;
+    padding-top: 10px;
+  }
 }
 .carts_show_count > .carts_show_checkout_btn{
   vertical-align: bottom;
@@ -72,18 +125,13 @@
 
 
 .carts_show_clear{
+  text-align: center;
   margin-bottom: 100px;
 }
-.carts_show_clear > .btn_clear{
-  margin-right: 50px;
-}
-
 
 .items{
   border-bottom: 1px solid #000;
 }
-
-
 
 ul.my-cart > li{
   list-style-type: none;

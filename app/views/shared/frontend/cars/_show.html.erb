@@ -1,5 +1,5 @@
 <div class="section_carts_show">
-  <div class="container-fluid container_carts_show p-0">
+  <div class="container container_carts_show p-0">
 
     <% flash.each do |key, value| %>
       <div class="alert alert-warning <%= key %>">
@@ -7,8 +7,8 @@
       </div>
     <% end %>
 
-    <div class="row no-gutters justify-content-center row_carts_show">
-      <h1 class="py-1">我的購物車</h1>
+    <div class="row no-gutters row_carts_show">
+      <h1 class="pb-3">我的購物車</h1>
       <div class="col-12 col_carts_show">
         
         <% @givers.each do |giver_info| %> 
@@ -20,26 +20,30 @@
 
             <!-- 商品資訊 -->          
             <% @cart_foods.where(giver_id: giver_info.id).each do |giver| %>
+
               <div class="carts_show_info p-3">             
                 <p style="font-size: 20px"><%= link_to "刪除", cart_path(giver.id), method: 'delete', class: 'btn-sm btn-danger btn_del', data:{confirm: '確定要刪除嗎？'} %><%= giver.food.title%><p>
-                <p>提取時間: <%= I18n.l(giver.food.pickup_time, formats: :default) %> ～ <%=giver.food.endup_time.strftime("%H:%M") %></p>
+                <p>數量：<%= giver.quantity%></p>
+                <p>提取時間：<%= I18n.l(giver.food.pickup_time, formats: :default) %> ～ <%=giver.food.endup_time.strftime("%H:%M") %></p>
+                
                 <div class="carts_show_price">
                   <span>＄<%= giver.food.discount_price%></span>
                   <del>原價<%= giver.food.origin_price%></del>
-                  數量：<%= giver.quantity%>
-                  <p class="text-right">小計：$<%= giver.total_price%></p>
+                  <p>小計 <span><%= giver.total_price%></span> 元</p>
                 </div> 
+
               </div>
             <%end%><!-- 商品資訊 -->
-            <div class="carts_show_count text-right p-3">
-            總金額 <span class="show_checkout_btn mr-4">＄<%= @total_prices_all[giver_info.id]%></span> 
-              <%= link_to "結帳", checkout_cart_path("giver_id" => giver_info.id), class:'btn btn-success btn-md' %>
-          </div>
-          </div><!-- carts_show_item-->
+
+            <div class="carts_show_count">
+              <p>總金額 <span class="show_checkout_btn"><%= @total_prices_all[giver_info.id]%></span> 元</p>
+              <%= link_to "結帳", checkout_cart_path("giver_id" => giver_info.id), class:'btn btn-success btn-md checkout' %>
+            </div>
+          </div><!-- carts_show_item-->   
         <% end %>
-        <div class="col-12 carts_show_clear text-right">
-            <%= link_to "繼續購物", foods_path, class:'btn btn-warning btn-md btn_clear' %>
+        <div class="col-12 carts_show_clear text-center">
           <%if @current_cart.cart_foods.count != 0 %>
+            <%= link_to "繼續購物", foods_path, class:'btn btn-warning btn-md mr-1' %>
             <%= link_to "清空購物車", destroy_cart_cart_path, method: 'delete', class: 'btn btn-danger btn-md btn_clear', data:{confirm: '確定要清空嗎？'} %>
           <% end %>
         </div>

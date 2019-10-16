@@ -1,8 +1,22 @@
-.create_form{
-  text-align: center;/*
-  background-image: url(/assets/header04.jpg);
-  background-image: url(<%= asset_path 'header04.jpg' %>);*/
+.row_form{
+  margin: 40px auto 100px;
+}
+.col_form{
+  margin: auto;
+  padding: 30px !important;
+  border-radius: 30px;
+  background-color: #fff;
+}
+@media screen and (min-width: 768px){
+  .col_form{
+    margin: auto;
+    padding: 70px !important;
+    background-color: #fff;
+  }
+}
 
+.create_form{
+  text-align: center;
   background-color: rgb(255, 221, 109);
   padding: 10px;
   letter-spacing: 3px;
@@ -11,23 +25,7 @@
   font-size: 26px;
   color: rgb(0, 0, 0);
 }
-.row_form{
-  margin: 40px auto 100px;
-}
-.col_form{
-  margin: auto;
-  padding: 10px !important;
-  border-radius: 30px;
-  background-color: #fff;
-}
-@media screen and (min-width: 768px){
-  .col_form.new{
-    margin: auto;
-    padding: 70px !important;
 
-    background-color: #fff;
-  }
-}
 .label_form{
   font-size: 18px;
 }
