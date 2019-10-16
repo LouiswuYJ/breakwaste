@@ -1,10 +1,10 @@
 .row_carts_show{
-  background-color: #fff;
+  background-color: rgba(255,255,255,.6);
   padding: 40px 0 150px;
 }
 @media screen and (min-width: 768px){
   .row_carts_show{
-    padding: 40px 5% 150px;
+    padding: 40px 5% 25%;
   }
 }
 .row_carts_show > h1{
@@ -25,7 +25,7 @@
   text-decoration: none;
 }
 .carts_show_store > a:hover{
-  color: #fff;
+  color: #eee;
 }
 
 
@@ -33,6 +33,7 @@
   padding: 10px;
   border: 1px solid #000;
   position: relative;
+  background-color: #fff;
 }
 .carts_show_info:hover{
   background-color: rgb(245, 245, 245);
@@ -47,7 +48,6 @@
   right: 15px;
 }
 
-
 .carts_show_price > span{
   font-size: 26px;
   color: rgb(195, 0, 0);
@@ -58,6 +58,7 @@
 }
 
 .carts_show_count{
+  background-color: #fff;
   margin-bottom: 20px;
   border: 1px solid #000;
 }
