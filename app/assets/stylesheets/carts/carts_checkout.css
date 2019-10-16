@@ -38,6 +38,9 @@
     margin: 20px 40px 0;
   }
 }
+.checkout_total > p{
+  font-size: 18px;
+}
 .col_checkout_btn{
   padding: 30px 0 100px;
 }
@@ -70,16 +73,25 @@
   }
 }
 
-.carts_checkout_price.card > p > span.discount_price{
+.carts_checkout_price > p > span.discount_price{
   display: inline-block;
   color: rgb(195,0,0);
   font-size: 24px;
   margin-right: 18px;
 }
-.carts_checkout_price.card > p > del.origin_price{
+.carts_checkout_price > p > del.origin_price{
   display: inline-block;
   color: #aaa;
   font-size: 16px;
+}
+.carts_checkout_price > p.total_price{
+  display: inline-block;
+  text-align: right;
+  font-size: 18px;
+}
+.carts_checkout_price > p.total_price >span{
+  color: rgb(195,0,0);
+  font-size: 24px;
 }
 
 
@@ -87,9 +99,10 @@
 .checkout_total{
   margin-bottom: 50px;
 }
-.checkout_total > span{
+.checkout_total > p > span{
   font-size: 30px;
   color: rgb(195, 0, 0);
+  margin-right: 30px;
 }
 ul.checkout{
   margin-bottom: 50px;

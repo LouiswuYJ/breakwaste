@@ -31,10 +31,12 @@
               <p>提取時間：<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%=cart_food.food.endup_time.strftime("%H:%M") %></p>
               <p><span class="discount_price">＄<%= cart_food.food.discount_price%></span>
               <del class="origin_price mt-3">原價<%= cart_food.food.origin_price%></del></p>
+              <!--
+              <p class="total_price">小計 <span><%= cart_food.total_price%></span> 元</p>-->
             </div>
           <%end%>
           <div class="checkout_total text-right">
-            總價 <span>＄<%= @order_total_price%></span>
+            <p>總價 <span>＄<%= @order_total_price%></span></p>
           </div>
         </div>
 
