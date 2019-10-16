@@ -1,5 +1,6 @@
 <style>
 .navbar_foods > a{
+  text-decoration: none;
   font-size: 18px;
   color: #000;
 }
@@ -33,11 +34,11 @@ a > span.navbar_cart {
   background-color: #f00;
   vertical-align: text-bottom;
 }
+
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-warning navbar_foods">
-  <a class="navbar-brand" href="https://breakwaste.site/">盛食找餐 BreakWaste</a>
-  <!-- 只是方便自己作業 https://breakwaste.site/ -->
+  <%= link_to '盛食找餐 BreakWaste', search_foods_path, class: "navbar-nav" %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -47,8 +48,7 @@ a > span.navbar_cart {
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="https://breakwaste.site/foods">食物救援 <span class="sr-only">(current)</span></a>
-        <!-- 只是方便自己作業 https://breakwaste.site/foods-->
+        <%= link_to '食物救援', foods_path, class: "nav-link ml-2" %>
       </li>
     </ul>
 
@@ -60,26 +60,26 @@ a > span.navbar_cart {
         </li>
 
         <li class="nav-item active dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">RESCUER</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">我是買家</a>
 
           <div class="active dropdown-menu p-3" aria-labelledby="navbarDropdown">
-            <%= link_to "RESCUER訂單", orders_path, class: 'dropdown-item px-2' %>
+            <%= link_to "買家訂單", orders_path, class: 'dropdown-item px-2' %>
           </div>
         </li>
 
         <li class="nav-item active dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GIVER</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">我是賣家</a>
 
           <div class="active dropdown-menu p-3" aria-labelledby="navbarDropdown">
-            <%= link_to "Giver訂單", giver_orders_path, class: 'dropdown-item px-2' %>
-            <%= link_to "新增食物", new_food_path, class:'nav-link px-2'%>
-            <%= link_to "我的商店", store_food_path(current_user.id), class: 'dropdown-item px-2' %>
+            <%= link_to "新增商品", new_food_path, class:'dropdown-item px-2'%>
+            <%= link_to "我的商店", store_food_path(current_user.id), class: 'dropdown-item px-2' %>        
             <%= link_to "完售商品", history_foods_path, class: 'dropdown-item px-2' %>
+            <%= link_to "賣家訂單", giver_orders_path, class: 'dropdown-item px-2' %>
           </div>
         </li>
 
         <li class="nav-item active">
-          <%= link_to "個人檔案", user_registration_path, class: 'dropdown-item px-2' %>
+          <%= link_to "個人檔案", user_registration_path,  class: 'dropdown-item px-2' %>
         </li>
 
         <li class="nav-item active">        

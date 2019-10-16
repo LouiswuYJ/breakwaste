@@ -1,9 +1,11 @@
+.row_checkout{
+  background-color: rgba(255,255,255,.3);
+}
 @media screen and (min-width: 768px){
   .row_checkout{
-    padding: 30px 0 100px;
+    padding: 40px 0 10%;
   }
 }
-
 
 .col_checkout_info,.col_checkout_title,.col_checkout_recipent,.col_checkout_btn{
   background-color: #fff;
@@ -16,11 +18,11 @@
 }
 
 
-.col_checkout_info > .carts_show_price{
+.col_checkout_info > .carts_checkout_price{
  padding: 0 8%;
 }
 @media screen and (min-width: 768px){
-  .col_checkout_info > .carts_show_pric{
+  .col_checkout_info > .carts_checkoutpric{
     padding: 0 10%;
   }
 }
@@ -36,6 +38,9 @@
     margin: 20px 40px 0;
   }
 }
+.checkout_total > p{
+  font-size: 18px;
+}
 .col_checkout_btn{
   padding: 30px 0 100px;
 }
@@ -46,12 +51,12 @@
 }
 
 
-.carts_show_price > h5{
+.carts_checkout_price > h5{
   margin-bottom: 10px;
   line-height: 1;
 }
 @media screen and (min-width: 768px){
-  .carts_show_price > h5{
+  .carts_checkout_price > h5{
     display: inline-block;
     font-size: 24px;
     margin-top: 20px;
@@ -59,25 +64,34 @@
   }
 }
 
-.carts_show_price > p{
+.carts_checkout_price > p{
   margin: 0px 0 5px 0;
 }
 @media screen and (min-width: 768px){
-  .carts_show_price > p{
+  .carts_checkout_price > p{
     font-size: 18px;
   }
 }
 
-.carts_show_price.card > p > span.discount_price{
+.carts_checkout_price > p > span.discount_price{
   display: inline-block;
   color: rgb(195,0,0);
   font-size: 24px;
   margin-right: 18px;
 }
-.carts_show_price.card > p > del.origin_price{
+.carts_checkout_price > p > del.origin_price{
   display: inline-block;
   color: #aaa;
   font-size: 16px;
+}
+.carts_checkout_price > p.total_price{
+  display: inline-block;
+  text-align: right;
+  font-size: 18px;
+}
+.carts_checkout_price > p.total_price >span{
+  color: rgb(195,0,0);
+  font-size: 24px;
 }
 
 
@@ -85,9 +99,10 @@
 .checkout_total{
   margin-bottom: 50px;
 }
-.checkout_total > span{
+.checkout_total > p > span{
   font-size: 30px;
   color: rgb(195, 0, 0);
+  margin-right: 30px;
 }
 ul.checkout{
   margin-bottom: 50px;
@@ -108,17 +123,17 @@ ul.checkout > li{
   border: 1px solid #aaa;
 }
 
-.carts_show_price.name{
+.carts_checkout_price.name{
   margin-bottom: 0px;
   font-size: 18px;
 }
 @media screen and (min-width: 768px){
-  .carts_show_price.name{
+  .carts_checkout_price.name{
     margin-bottom: 0px;
     font-size: 30px;
   }
 }
-.carts_show_price.card{
+.carts_checkout_price.card{
   margin-bottom: 30px;
   border: none;
 }

@@ -16,7 +16,7 @@
         </div>
 
         <div class="col-lg-8 col-12 col_checkout_info">
-          <div class="carts_show_price name">
+          <div class="carts_checkout_price name">
             <% if @food_giver.nil? %>
              <%= User.find(params[:order][:cart_food_id]).name %>
             <% else %>
@@ -24,17 +24,19 @@
             <% end %>
           </div> 
           <% @cart_foods.each do |cart_food| %>
-            <div class="carts_show_price card">
+            <div class="carts_checkout_price card">
              <h5><%= cart_food.food.title%></h5>
-              <p>數量：<%= cart_food.quantity %></p>
+              <p><span><i class="fa fa-shopping-basket"></i> x <%= cart_food.quantity %></span> 份</p>
               <p>地址：<%= cart_food.food.address%></p>
               <p>提取時間：<%= I18n.l(cart_food.food.pickup_time, formats: :default) %> ～ <%=cart_food.food.endup_time.strftime("%H:%M") %></p>
               <p><span class="discount_price">＄<%= cart_food.food.discount_price%></span>
-              <del class="origin_price">原價<%= cart_food.food.origin_price%></del></p>
+              <del class="origin_price mt-3">原價<%= cart_food.food.origin_price%></del></p>
+              <!--
+              <p class="total_price">小計 <span><%= cart_food.total_price%></span> 元</p>-->
             </div>
           <%end%>
           <div class="checkout_total text-right">
-            總價 <span>＄<%= @order_total_price%></span>
+            <p>總價 <span>＄<%= @order_total_price%></span></p>
           </div>
         </div>
 

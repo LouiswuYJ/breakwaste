@@ -1,7 +1,16 @@
+.section_orders_show,.section_giver_order{
+  background-color: #fff;
+  padding-bottom: 65%;
+}
+@media screen and (min-width: 1081px){
+  .section_orders_show,.section_giver_order{
+    padding-bottom: 25%;
+  }
+}
 /* --- 訂單編號 & GIVER訂單詳細 --- */
 .row_orders_show{
   background-color: #fff;
-  padding: 60px 5% 80px;
+  padding: 60px 8% 80px;
   margin: auto;
 }
 @media screen and (min-width: 768px){

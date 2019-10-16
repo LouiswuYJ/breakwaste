@@ -1,14 +1,13 @@
 .section_profile{
   background-color: #fff;
-  height: 100%;
   padding-top: 1px;
 }
 .row_profile{
-  padding: 20px 0 100px 0;
+  padding: 40px 0 100px 0;
 }
 @media screen and (min-width: 768px){
   .row_profile{
-    padding: 50px 0 100px 0;
+    padding: 50px 0 30% 0;
   }
 }
 .profile_logo > img{

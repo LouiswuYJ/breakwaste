@@ -5,7 +5,7 @@
 @media screen and (min-width: 768px){
   .row_foods_show{
     background-color: #fff;
-    padding: 15px 15%;
+    padding: 15px 15% 10% 15%;
   }
 }
 .col_show_img,.col_show_info,.col_show_map{
