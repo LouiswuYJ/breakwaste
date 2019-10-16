@@ -47,12 +47,19 @@ class OrdersController < ApplicationController
       @order.order_items << OrderItem.new(food_id: food.food_id, quantity: food.quantity, giver_id: food.giver_id, rescuer_id: current_user.id)
     end
     #把購物車裡的東西拿出來，一條一條塞入order_items 
+    cart_food_id = params[:order][:cart_food_id]
+    user_id = CartFood.find(cart_food_id).giver_id
+    cart_foods = CartFood.where(giver_id: user_id)
+    calc_total_prices_all(cart_foods)
     if @cart_foods.each {|cart_food| cart_food.quantity <= Food.find(cart_food.food_id).quantity}  #若選購的食物數量不足庫存就notice
-      @order.save
-      @cart_foods.destroy_all
-      redirect_to payment_order_path(@order)
+      if @order.save
+        @cart_foods.destroy_all
+        redirect_to payment_order_path(@order)
+      else
+        render "carts/checkout"
+      end   
     else
-      redirect_to orders_path, notice: "慢了一步！目前數量不足喔！"
+      redirect_to orders_path, notice: "慢了一步！已經被別人買走了喔！"
     end
   end
 
@@ -115,4 +122,16 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:recipient, :phone, :note)
   end  
+
+  def hash_total_prices_all(cart_foods)
+    @total_prices_all = cart_foods.reduce({}) do |rs, cf|
+      rs[cf.giver_id] ||= 0
+      rs[cf.giver_id] += cf.total_price
+      rs
+    end
+  end
+
+  def calc_total_prices_all(cart_foods)
+    @order_total_price = hash_total_prices_all(cart_foods).values.sum
+  end
 end

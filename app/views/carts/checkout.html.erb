@@ -17,7 +17,11 @@
 
         <div class="col-lg-8 col-12 col_checkout_info">
           <div class="carts_show_price name">
-            <p><%= link_to @food_giver.name, store_food_path(@food_giver.id) %></p>
+            <% if @food_giver.nil? %>
+             <%= User.find(params[:order][:cart_food_id]).name %>
+            <% else %>
+              <p><%= link_to @food_giver.name, store_food_path(@food_giver.id) %></p>
+            <% end %>
           </div> 
           <% @cart_foods.each do |cart_food| %>
             <div class="carts_show_price card">

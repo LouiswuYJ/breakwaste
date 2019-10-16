@@ -1,9 +1,11 @@
 class FoodsController < ApplicationController
   # require 'net/http'
-  before_action :find_food, only: [:edit, :update, :destroy, :store]
+  before_action :find_food, only: [:edit, :update, :destroy]
 
   def index
     @foods = Food.search(params[:search]).order(created_at: :desc)
+    return @foods if @foods.count >= 1
+    redirect_to foods_path, notice: '無搜尋到符合條件的食物，但您應該會喜歡這些！'
   end
 
   def show
@@ -61,16 +63,6 @@ class FoodsController < ApplicationController
   def history
     @foods = Food.where(user_id: current_user.id, quantity: 0)
   end
-
-  # def add_to_cart
-  #   @add_food = CartFood.find_or_create_by(id: params[:id])
-  #   if user_signed_in?
-  #     current_cart.cart_foods << [@add_food]   #current_cart寫在appication_controller.rb
-  #     redirect_to foods_path, notice: '已加入購物車！'  
-  #   else
-  #     redirect_to new_user_session_path
-  #   end
-  # end
 
   def store
     if user_signed_in?
