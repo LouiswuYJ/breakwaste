@@ -3,29 +3,29 @@ class MyTreeController < ApplicationController
   before_action :recuser_money, only: [:show]
 
   def show
-    @save_orders = (Order.all.count)*2 #網站總訂單數
+    if current_user.id == params[:id].to_i
+      @save_orders = (Order.where(status: 'paid').count)*2 #網站總訂單數
+    else
+      redirect_to '/404.html' 
+    end
   end
 
   private
   def order_count #計算訂單總數
-    giver_orders = current_user.giver_orders.count #計算Giver訂單總數
-    rescuer_orders = current_user.rescuer_orders.count #計算Rescuer訂單總數
+    giver_orders = current_user.giver_orders.where(status: 'paid').count #計算Giver訂單總數
+    rescuer_orders = current_user.rescuer_orders.where(status: 'paid').count #計算Rescuer訂單總數
     @order_count = giver_orders + rescuer_orders
   end
 
   def recuser_money #計算省下的錢
-    rescuer_items = current_user.rescuer_orders.map do |order|
+    rescuer_items = current_user.rescuer_orders.where(status: 'paid').map do |order|
       order.order_items.map do |item| 
-        if item.food.origin_price >= item.food.discount_price
-          item.food.origin_price - item.food.discount_price
-        else
-          0
-        end
+        (item.food.origin_price - item.food.discount_price) * item.quantity
       end
     end
     #把登入者的rescuer_orders一項一項抽出來，分項計算，order_item中每一項食物原價減去折扣價
     @rescuer_money = rescuer_items.flatten.sum 
-    #rescuer_items計算結果會是雙重陣列，先抽出來再計算總金額    
+    #rescuer_items計算結果會是雙重陣列，先抽出來再計算總金額  
   end
 
 
