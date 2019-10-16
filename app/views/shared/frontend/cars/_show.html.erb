@@ -1,12 +1,11 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-warning <%= key %>">
+    <%= value %>
+  </div>
+<% end %>
+
 <div class="section_carts_show">
   <div class="container container_carts_show p-0">
-
-    <% flash.each do |key, value| %>
-      <div class="alert alert-warning <%= key %>">
-        <%= value %>
-      </div>
-    <% end %>
-
     <div class="row no-gutters row_carts_show">
       <h1 class="pb-3">我的購物車</h1>
       <div class="col-12 col_carts_show">
@@ -23,7 +22,7 @@
 
               <div class="carts_show_info p-3">             
                 <p style="font-size: 20px"><%= link_to "刪除", cart_path(giver.id), method: 'delete', class: 'btn-sm btn-danger btn_del', data:{confirm: '確定要刪除嗎？'} %><%= giver.food.title%><p>
-                <p>數量：<%= giver.quantity%></p>
+                <p><span><i class="fa fa-shopping-basket"></i> x <%= giver.quantity%></span> 份</p>
                 <p>提取時間：<%= I18n.l(giver.food.pickup_time, formats: :default) %> ～ <%=giver.food.endup_time.strftime("%H:%M") %></p>
                 
                 <div class="carts_show_price">
