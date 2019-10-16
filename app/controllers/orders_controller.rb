@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
   def payment
     @order = Order.friendly.find(params[:id])
     if @order.order_items.map {|order_item| order_item.quantity <= Food.find(order_item.food_id).quantity}.any?(false) #只要陣列有flase就notice數量不足
-      redirect_to orders_path, notice: "慢了一步！您要的食物庫存數量不足喔！"
+      redirect_to orders_path, notice: "慢了一步，已經被別人買走了！請取消訂單並至食物救援重新選購吧！"
     else
       @token = braintree_gateway.client_token.generate
     end
@@ -54,12 +54,12 @@ class OrdersController < ApplicationController
     if @cart_foods.each {|cart_food| cart_food.quantity <= Food.find(cart_food.food_id).quantity}  #若選購的食物數量不足庫存就notice
       if @order.save
         @cart_foods.destroy_all
-        redirect_to payment_order_path(@order), notice: '購物車已清空，訂單成立！'
+        redirect_to payment_order_path(@order), notice: '商品已從購物車移除，訂單成立！'
       else
         render "carts/checkout"
       end   
     else
-      redirect_to orders_path, notice: "慢了一步！已經被別人買走了喔！"
+      redirect_to orders_path, notice: "慢了一步，已經被別人買走了！請取消訂單並至食物救援重新選購吧！"
     end
   end
 
