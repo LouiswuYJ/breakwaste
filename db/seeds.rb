@@ -24,7 +24,7 @@ end
   User.find(rand(1..5)).foods.create(title:Faker::Food.title,
                             address:Faker::Address.street,
                             phone:Faker::Food.formats,
-                            quantity:Faker::Number.between(from: 1, to: 10),
+                            quantity:Faker::Number.between(from: 3, to: 20),
                             origin_price: origin_price,
                             discount_price: discount_price,
                             pickup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
@@ -33,7 +33,7 @@ end
 end
 
 Food.all.each do |food|
-  food.avatar.attach(io: File.open("app/assets/images/trees/tree#{rand(1..5)}.png"), filename: 'tree1.png')
+  food.avatar.attach(io: File.open("app/assets/images/food_img/food#{rand(1..10)}.jpg"), filename: "food#{rand(1..10)}.jpg")
   # food.avatar.attach(io: URI.open("https://picsum.photos/300/300/?random=#{rand(1..10)}"), filename: 'tree1.png')
 end
 

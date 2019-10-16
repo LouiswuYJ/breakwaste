@@ -28,7 +28,8 @@
         <p>總金額 <span class="show_checkout_btn"><%= @total_price %></span> 元</p>  
         <%= link_to "繼續購物", foods_path, class:'btn btn-success btn-lg mr-1' %>
         <%= link_to "全部訂單", orders_path,class:'btn btn-warning btn-lg ml-1' %>
-      <% unless current_user.cart_foods.empty? %>
+        <%= link_to "前往付款", payment_order_path(@order), class: 'btn btn-danger btn-lg ml-1' if @order.may_pay? %>
+      <% if current_user.cart_foods.present? && @order.status == "paid"%>
         <%= link_to "繼續結帳", cart_path, class:'btn btn-primary btn-lg ml-1' %>        
       <% end %>  
       </div>  

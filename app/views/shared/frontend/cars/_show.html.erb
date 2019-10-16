@@ -38,9 +38,10 @@
           </div><!-- carts_show_item-->
         <% end %>
         <div class="col-12 carts_show_clear text-right">
+            <%= link_to "繼續購物", foods_path, class:'btn btn-warning btn-md btn_clear' %>
           <%if @current_cart.cart_foods.count != 0 %>
             <%= link_to "清空購物車", destroy_cart_cart_path, method: 'delete', class: 'btn btn-danger btn-md btn_clear', data:{confirm: '確定要清空嗎？'} %>
-          <%end%>
+          <% end %>
         </div>
       </div><!-- col_carts_show -->  
     </div><!-- row_carts_show -->
