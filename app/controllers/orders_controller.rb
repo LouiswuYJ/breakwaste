@@ -101,7 +101,7 @@ class OrdersController < ApplicationController
             origin_post_quantity = @food.quantity 
             rescuer_buy_quantity = order_item.quantity
             @food.quantity = origin_post_quantity - rescuer_buy_quantity
-            @food.save
+            @food.save(validate: false)
           end
           cart_foods.destroy_all 
           redirect_to order_path, notice: '信用卡結帳完成'

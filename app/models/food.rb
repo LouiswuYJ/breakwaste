@@ -1,6 +1,6 @@
 class Food < ApplicationRecord
-  validates_presence_of :title, :address, :phone, :quantity
-  # validates :quantity, numericality: { greater_than_or_equal_to: 1 }
+  validates_presence_of :title, :address, :phone
+  validates :quantity, numericality: { greater_than_or_equal_to: 1 }
   validates :origin_price, numericality: { only_integer: true }
   validates :discount_price, numericality: { less_than: :origin_price }
   validates :pickup_time, :endup_time, presence: true
