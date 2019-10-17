@@ -21,7 +21,7 @@ end
 end
 
 50.times do |i|
-  User.find(rand(1..5)).foods.create(title:Faker::Food.title,
+  food = User.find(rand(1..5)).foods.build(title:Faker::Food.title,
                             address:Faker::Address.street,
                             phone:Faker::Food.formats,
                             quantity:Faker::Number.between(from: 3, to: 20),
@@ -30,12 +30,15 @@ end
                             pickup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
                             endup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
                             description:Faker::Food.tw_description)
+  food.avatar.attach(io: File.open("app/assets/images/food_img/food#{rand(1..10)}.jpg"), filename: "food#{rand(1..10)}.jpg")
+  food.save                          
 end
 
-Food.all.each do |food|
-  food.avatar.attach(io: File.open("app/assets/images/food_img/food#{rand(1..10)}.jpg"), filename: "food#{rand(1..10)}.jpg")
-  # food.avatar.attach(io: URI.open("https://picsum.photos/300/300/?random=#{rand(1..10)}"), filename: 'tree1.png')
-end
+# Food.all.each do |food|
+#   food.avatar.attach(io: File.open("app/assets/images/food_img/food#{rand(1..10)}.jpg"), filename: "food#{rand(1..10)}.jpg")
+#   food.save
+#   # food.avatar.attach(io: URI.open("https://picsum.photos/300/300/?random=#{rand(1..10)}"), filename: 'tree1.png')
+# end
 
 #如果seed無法產出，可暫時先把food.rb的第14行 "validates :avatar, attached: true, content_type: [:png, :jpg]" 註解
 puts "完成!"

@@ -1,5 +1,6 @@
 class Food < ApplicationRecord
-  validates_presence_of :title, :address, :quantity, :phone
+  validates_presence_of :title, :address, :phone
+  validates :quantity, numericality: { greater_than_or_equal_to: 1 }
   validates :origin_price, numericality: { only_integer: true }
   validates :discount_price, numericality: { less_than: :origin_price }
   validates :pickup_time, :endup_time, presence: true
@@ -11,7 +12,7 @@ class Food < ApplicationRecord
 
   has_many :order_items, dependent: :delete_all
   has_one_attached :avatar
-  # validates :avatar, attached: true, content_type: [:png, :jpg]
+  validates :avatar, attached: true, content_type: [:png, :jpg]
   
 
   def self.search(search)
