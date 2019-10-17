@@ -20,7 +20,7 @@
           <p><i class="fa fa-user-circle-o user"></i>聯絡資訊 <%= Order.find_by(rescuer_id: order_item.rescuer_id).recipient%>
           <i class="fa fa-phone ml-3 mr-1"></i><%= Order.find_by(rescuer_id: order_item.rescuer_id).phone%></p>
           <p><i class="fa fa-clock-o time"></i>提取時間 <%= I18n.l(order_item.food.pickup_time, formats: :default) %> ～ <%= order_item.food.endup_time.strftime("%H:%M") %></p>
-          <i class="fa fa-commenting-o msg"></i>備註 <%= @giver_orders.note%>
+          <i class="fa fa-commenting-o msg mb-4"></i>備註 <%= @giver_orders.note%>
           <div class="subtotal">小計<span><%= order_item.total_price %></span>元</div>
         <% end %>  
       </div>

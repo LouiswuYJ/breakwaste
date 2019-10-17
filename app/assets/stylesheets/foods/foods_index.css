@@ -4,7 +4,7 @@
 .row_foods_list{
   width: 355px;
   margin: auto;
-  padding: 20px 0 100px;
+  padding: 20px 0;
 }
 @media (min-width: 768px) and (max-width: 979px) {
   .row_foods_list{
@@ -12,7 +12,7 @@
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    padding: 20px 0 100px;
+    padding: 20px 0 20px;
   }
 }
 @media screen and (min-width: 980px){
@@ -21,7 +21,7 @@
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    padding: 20px 0 100px;
+    padding: 20px 0 20px;
   }
 }
 .col_list{
@@ -164,5 +164,19 @@ span.off > p > span{
     margin: 10px 5px;
     top: 40px;
     right: 5px;
+  }
+}
+/*---- foods_index_kaminari ----*/
+.foods_index_kaminari{
+  margin:20px 0 100px 0;
+}
+@media (min-width: 768px) and (max-width: 979px){
+  .foods_index_kaminari{
+    margin:50px 0 150px 0;
+  }
+}
+@media screen and (min-width: 980px){
+  .foods_index_kaminari{
+    margin:50px 0 150px 0;
   }
 }
