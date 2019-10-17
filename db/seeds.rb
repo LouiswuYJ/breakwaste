@@ -24,7 +24,7 @@ end
   food = User.find(rand(1..5)).foods.build(title:Faker::Food.title,
                             address:Faker::Address.street,
                             phone:Faker::Food.formats,
-                            quantity:Faker::Number.between(from: 3, to: 20),
+                            quantity:Faker::Number.between(from: 1, to: 15),
                             origin_price: origin_price,
                             discount_price: discount_price,
                             pickup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
