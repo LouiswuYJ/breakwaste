@@ -9,26 +9,26 @@ puts "產出10筆PO文資料"
 
 # current_user = User.create(name: Faker::Name.name, password: '111111', phone: '0923111111', email: 'example@gmail.com', role: 'giver')
 def origin_price
-  Faker::Number.between(from: 50, to: 1000)  
+  Faker::Number.between(from: 50, to: 500)  
 end
 
 def discount_price
-  origin_price * 0.6
+  origin_price * 0.4
 end
 
 10.times do |i|
   User.create(name: Faker::Name.name, password: 111111, phone: '0923111111', email: "giver#{i+1}@breakwaste.com", address:Faker::Address.street)
 end
 
-50.times do |i|
+20.times do |i|
   food = User.find(rand(1..5)).foods.build(title:Faker::Food.title,
                             address:Faker::Address.street,
                             phone:Faker::Food.formats,
                             quantity:Faker::Number.between(from: 1, to: 15),
                             origin_price: origin_price,
                             discount_price: discount_price,
-                            pickup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
-                            endup_time:Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
+                            pickup_time:Faker::Time.between_dates(from: Date.today, to: Date.today, period: :afternoon),
+                            endup_time:Faker::Time.between_dates(from: Date.today, to: Date.today, period: :evening),
                             description:Faker::Food.tw_description)
   food.avatar.attach(io: File.open("app/assets/images/food_img/food#{rand(1..10)}.jpg"), filename: "food#{rand(1..10)}.jpg")
   food.save                          
