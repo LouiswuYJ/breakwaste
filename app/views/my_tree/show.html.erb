@@ -4,14 +4,17 @@
     <div class="col-lg-5 col-11 m-auto">
       <div class="little_tree">
         <%= order_count(@order_count) %>
-      </div> 
+      </div>
     </div>
-    <div class="col-lg-5 col-11 little_tree_info m-auto text-center py-5">
-      <h3 class="pb-5">我的小樹</h3>
+    <div class="col-lg-5 col-11 little_tree_info text-center">
+      <h2 class="py-5">我的小樹</h2>
       <p> 您已累積訂單 <%= @order_count %> 筆 </p>
       <p>「盛食找餐」已為您成功省下 <%= @rescuer_money %> 元</p> 
       <p>降低總碳排放量 約 <%= @save_orders %>公斤</p>
-      <%= link_to '繼續拯救地球', foods_path, class: 'btn btn-warning my_tree_btn p-3 mt-5' %>
+      <%= link_to '繼續拯救地球', foods_path, class: 'btn btn-warning my_tree_btn my-5 py-3' %>
+    </div>
+    <div class="col-12 grassland text-center">
+      <%= image_tag("grassland02.png") %>
     </div>
   </div>
 </div>

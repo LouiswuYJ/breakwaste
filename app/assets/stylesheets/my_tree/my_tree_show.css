@@ -1,18 +1,18 @@
 .my_little_tree{
-  height: 130%;
+  padding-bottom: 20%;
   background-color: rgba(255,255,255,0.7);
 }
 @media screen and (min-width: 768px){
   .my_little_tree{
-    height: 100%;
+    height: 900px
   }
 }
 .row_my_tree{
-  padding: 20px 0 100px 0;
+  padding: 20px 0 55px 0;
 }
 @media screen and (min-width: 768px){
   .row_my_tree{
-    padding: 50px 10% 30px;
+    padding: 80px 10% 30px;
   }
 }
 .little_tree{ 
@@ -23,10 +23,27 @@
   background-color: #eee;
   border-radius: 20px;
   box-shadow:5px 5px 10px gray;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px){
+  .little_tree_info{
+    background-color: #eee;
+    border-radius: 20px;
+    box-shadow:5px 5px 10px gray;
+    margin-right: auto;
+  }
 }
 .little_tree_info > p {
   font-size: 20px;
+  margin: 0 10px;
 }
+@media screen and (min-width: 768px){
+  .little_tree_info > p {
+    font-size: 20px;
+    margin: 25px 10px;
+  }
+}
+
 a.my_tree_btn{
   width: 200px;
   font-size: 24px;
@@ -35,4 +52,10 @@ a.my_tree_btn{
 .my_tree_btn:hover{
   background: rgb(255, 210, 80);
   border: 1px solid rgb(255, 210, 80);
+}
+div.grassland{
+  margin-top: 30px;
+}
+div.grassland > img{
+  width: 100%;
 }
