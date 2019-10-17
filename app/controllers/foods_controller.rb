@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
   before_action :find_food, only: [:edit, :update, :destroy]
 
   def index
-    @foods = Food.search(params[:search]).order(created_at: :desc).page(params[:page]).per(6)
+    @foods = Food.search(params[:search]).order(created_at: :desc).page(params[:page]).per(15)
     return @foods if @foods.count >= 1
     redirect_to foods_path, notice: '無搜尋到符合條件的食物，但您應該會喜歡這些！'
   end
