@@ -25,9 +25,11 @@
         <% end %>  
       </div>
 
-      <div class="col-11 order_show_btn text-center">
+      <div class="col-11 order_show_count text-center">
         <p>總金額 <span class="show_checkout_btn"><%= @total_price %></span> 元<p>
-        <%= link_to "全部訂單", giver_orders_path, class:'btn btn-warning btn-lg ml-1' %>
+        <div class="order_show_btn mt-4">
+        <%= link_to "全部訂單", giver_orders_path, class:'btn btn-warning btn-lg' %>
+        </div>
       </div>
     </div>
   </div>
