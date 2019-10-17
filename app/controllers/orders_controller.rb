@@ -3,11 +3,11 @@ class OrdersController < ApplicationController
   before_action :find_order, only: [:show, :transaction, :destroy, :payment, :transaction]
   
   def index
-    @rescuer_orders = current_user.rescuer_orders.order(created_at: :asc)
+    @rescuer_orders = current_user.rescuer_orders.order(created_at: :asc).page(params[:page]).per(6)
   end
 
   def giver
-    @giver_orders = current_user.giver_orders.order(created_at: :asc)    
+    @giver_orders = current_user.giver_orders.order(created_at: :asc).page(params[:page]).per(6)    
   end
 
   def payment

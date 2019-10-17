@@ -7,7 +7,8 @@ class Order < ApplicationRecord
   belongs_to :giver, class_name: 'User', foreign_key: :giver_id 
   belongs_to :rescuer, class_name: 'User', foreign_key: :rescuer_id 
    
-   
+
+
   def total_price
     order_items.reduce(0) { |sum, item| sum + item.total_price }
   end

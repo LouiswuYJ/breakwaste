@@ -7,6 +7,7 @@
     padding-bottom: 25%;
   }
 }
+
 /* --- 訂單編號 & GIVER訂單詳細 --- */
 .row_orders_show{
   background-color: #fff;
@@ -40,20 +41,22 @@
 .order_show_item > i {
   font-size: 100px;
 }
-.order_show_btn{
+.order_show_count{
   padding-bottom: 60px;
 }
-@media screen and (min-width: 768px){
-  .order_show_btn{
-    padding-top: 10px;
-  }
-}
-.order_show_btn > p{
+.order_show_count > p{
   margin: 15px 0 20px;
   font-size: 20px;
 }
-.order_show_btn > p > span{
+.order_show_count > p > span{
   font-size: 28px;
   color: rgb(195, 0, 0);
+}
+@media screen and (max-width: 768px){
+  .order_show_btn > a{
+    display: block;
+    width: 140px;
+    margin: 10px auto;
+  }
 }
 

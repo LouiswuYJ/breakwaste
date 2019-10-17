@@ -61,7 +61,7 @@ class FoodsController < ApplicationController
   end
 
   def history
-    @foods = Food.where(user_id: current_user.id, quantity: 0)
+    @foods = Food.where(user_id: current_user.id, quantity: 0).page(params[:page]).per(6)
   end
 
   def store
