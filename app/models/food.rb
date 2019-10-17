@@ -12,7 +12,7 @@ class Food < ApplicationRecord
 
   has_many :order_items, dependent: :delete_all
   has_one_attached :avatar
-  # validates :avatar, attached: true, content_type: [:png, :jpg]
+  validates :avatar, attached: true, content_type: [:png, :jpg]
   
 
   def self.search(search)
