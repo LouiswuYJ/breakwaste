@@ -48,7 +48,7 @@ class FoodsController < ApplicationController
 
   def update
     if @food.update(clean_params)
-      redirect_to foods_path, notice: "更新成功"
+      redirect_to store_food_path(@food.user_id), notice: "更新成功"
     else
       render :edit
     end
@@ -65,6 +65,7 @@ class FoodsController < ApplicationController
   end
 
   def store
+    @find_food_user = User.find(params[:id])
     if user_signed_in?
       @foods = current_user.foods
       @giver_store = Food.where(user_id: params[:id])
