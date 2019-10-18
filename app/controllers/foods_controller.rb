@@ -67,10 +67,10 @@ class FoodsController < ApplicationController
   def store
     @find_food_user = User.find(params[:id])
     if user_signed_in?
-      if current_user.name.nil?
+      if current_user.id == @find_food_user.id && current_user.name.nil?  
         redirect_to user_registration_path, notice: '請先填寫個人資料'
-      elsif current_user.name.empty?  
-        redirect_to edit_user_registration_path, notice: '請先填寫個人資料'
+      elsif  current_user.id == @find_food_user.id && current_user.name.empty?
+        redirect_to user_registration_path, notice: '請先填寫個人資料'
       else  
         @foods = current_user.foods
         @giver_store = Food.where(user_id: params[:id])
