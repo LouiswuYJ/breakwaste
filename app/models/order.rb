@@ -3,7 +3,11 @@ class Order < ApplicationRecord
   friendly_id :order_generator, use: :slugged
   
   has_many :order_items, dependent: :delete_all
-  validates_presence_of :recipient, :phone
+  # validates_presence_of :recipient, :phone
+  validates :phone, presence: true, numericality: true, length: { maximum: 10, too_long: "最多只能輸入10個字" }
+  validates :recipient, presence: true, length: { maximum: 7, too_long: "最多只能輸入7個字" }
+  validates :note, length: { maximum: 30, too_long: "最多只能輸入30個字" }
+
   belongs_to :giver, class_name: 'User', foreign_key: :giver_id 
   belongs_to :rescuer, class_name: 'User', foreign_key: :rescuer_id 
    

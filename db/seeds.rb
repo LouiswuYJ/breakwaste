@@ -31,6 +31,7 @@ end
                             endup_time:Faker::Time.between_dates(from: Date.today, to: Date.today, period: :midnight),
                             description:Faker::Food.tw_description)
   food.avatar.attach(io: File.open("app/assets/images/food_img/food#{rand(1..10)}.jpg"), filename: "food#{rand(1..10)}.jpg")
+  byebug
   food.save                          
 end
 
