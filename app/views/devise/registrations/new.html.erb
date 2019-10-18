@@ -24,8 +24,7 @@
           <%= f.label :password_confirmation, '密碼確認: ', class: "label_form" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input_form" %>
         </div>
-
-        <div class="form-group ">
+        <div class="recaptcha">
           <%= recaptcha_tags site_key: ENV["RECAPTCHA_V2_CHECKBOX_SITE_KEY"] %>
         </div>
         <hr class="colorgraph"> <!---- 我是線 ---->    
