@@ -13,6 +13,7 @@
     email: 信箱
     recipient: 領取人
     note: 備註
+    description: 描述
   errors:
     messages:
       not_saved: 
