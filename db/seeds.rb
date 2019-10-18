@@ -27,8 +27,8 @@ end
                             quantity:Faker::Number.between(from: 1, to: 15),
                             origin_price: origin_price,
                             discount_price: discount_price,
-                            pickup_time:Faker::Time.between_dates(from: Date.today, to: Date.today, period: :afternoon),
-                            endup_time:Faker::Time.between_dates(from: Date.today, to: Date.today, period: :evening),
+                            pickup_time:Faker::Time.between_dates(from: Date.today, to: Date.today, period: :evening),
+                            endup_time:Faker::Time.between_dates(from: Date.today, to: Date.today, period: :midnight),
                             description:Faker::Food.tw_description)
   food.avatar.attach(io: File.open("app/assets/images/food_img/food#{rand(1..10)}.jpg"), filename: "food#{rand(1..10)}.jpg")
   food.save                          
