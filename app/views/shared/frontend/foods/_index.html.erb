@@ -16,7 +16,7 @@
               <p class="list_store_name <%='list_store_name_sold_out' if food.quantity == 0 %>">
               <span style="font-size: 20px; color: #000;">
               <i class="fa fa-home" aria-hidden="true"></i>
-              <%= link_to "#{User.find(food.user_id).name}#{User.find(food.user_id).id}", store_food_path(food.user_id), class: 'store_name text-decoration-none'%></p><span>
+              <%= link_to find_food_user(food).name, store_food_path(food.user_id), class: 'store_name text-decoration-none'%></p><span>
 
               <div class="list_image <%='list_image_sold_out' if food.quantity == 0 %>">
                 <%= image_tag url_for(food.avatar.variant(resize: '300x300!')), :class => "img_list" if food.avatar.attached? %>

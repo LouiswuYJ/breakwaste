@@ -10,18 +10,17 @@
       <h1 class="pb-3">我的購物車</h1>
       <div class="col-12 col_carts_show">
         
-        <% @givers.each do |giver_info| %> 
+        <% @givers.ids.each do |giver_info| %> 
 
           <div class="carts_show_item mx-5 mb-3">   
             <div class="carts_show_store">
-               <%= link_to User.find(giver_info.id).name, store_food_path(giver_info.id), class: "text-decoration-none" %>
+               <%= link_to find_food_giver(giver_info).name, store_food_path(giver_info), class: "text-decoration-none" %>
             </div>
 
             <!-- 商品資訊 -->          
-            <% @cart_foods.where(giver_id: giver_info.id).each do |giver| %>
-
+            <% find_rescuer_cart_foods(giver_info).each do |giver| %>
               <div class="carts_show_info p-3">             
-                <p style="font-size: 20px"><%= link_to "刪除", cart_path(giver.id), method: 'delete', class: 'btn-sm btn-danger btn_del', data:{confirm: '確定要刪除嗎？'} %><%= giver.food.title%><p>
+                <p style="font-size: 20px"><%= link_to "刪除", cart_path(giver), method: 'delete', class: 'btn-sm btn-danger btn_del', data:{confirm: '確定要刪除嗎？'} %><%= giver.food.title%><p>
                 <p><span><i class="fa fa-shopping-basket"></i> x <%= giver.quantity%></span> 份</p>
                 <p>提取時間：<%= I18n.l(giver.food.pickup_time, formats: :default) %> ～ <%=giver.food.endup_time.strftime("%H:%M") %></p>
                 
@@ -35,8 +34,8 @@
             <%end%><!-- 商品資訊 -->
 
             <div class="carts_show_count">
-              <p>總金額 <span class="show_checkout_btn"><%= @total_prices_all[giver_info.id]%></span> 元</p>
-              <%= link_to "結帳", checkout_cart_path("giver_id" => giver_info.id), class:'btn btn-success btn-md checkout' %>
+              <p>總金額 <span class="show_checkout_btn"><%= @total_prices_all[giver_info]%></span> 元</p>
+              <%= link_to "結帳", checkout_cart_path("giver_id" => giver_info), class:'btn btn-success btn-md checkout' %>
             </div>
           </div><!-- carts_show_item-->   
         <% end %>
