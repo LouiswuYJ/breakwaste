@@ -25,6 +25,7 @@ gem 'rails_12factor', group: :production
 gem 'active_storage_validations'
 gem "aws-sdk-s3", require: false
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem "rubyzip", ">= 1.3.0"
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

@@ -9,7 +9,7 @@
 
       <div class="col-lg-6 col-12 col_show_info m-auto px-4">
         <div class="show_info m-auto">
-          <p><%= link_to User.find(@food.user_id).name, store_food_path(@food.user_id) %></p>
+          <p><%= link_to find_food_user(@food).name, store_food_path(@food.user_id) %></p>
           <h1><%= @food.title %></h1>
           <p class="show_price m-auto">
             <strong>$<%= @food.discount_price %></strong>
@@ -29,7 +29,6 @@
           <% end %>
         </div>
       </div>
-
       <div class="col-12 col_show_map m-auto px-3">
         <div class="m-auto" id="map"></div>
         <script>

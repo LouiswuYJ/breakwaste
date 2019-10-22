@@ -1,8 +1,11 @@
 class Food < ApplicationRecord
-  validates_presence_of :title, :address, :phone
+  validates_presence_of :address, length: { maximum: 30, too_long: "最多只能輸入30個字" }
+  validates :phone, presence: true, numericality: true, length: { maximum: 10, too_long: "最多只能輸入10個字" }
+  validates :title, presence: true, length: { maximum: 7, too_long: "最多只能輸入7個字" }
+  validates :description, length: { maximum: 200, too_long: "最多只能輸入200個字" }
   validates :quantity, numericality: { greater_than_or_equal_to: 1 }
-  validates :origin_price, numericality: { only_integer: true }
-  validates :discount_price, numericality: { less_than: :origin_price }
+  validates :origin_price, numericality: { only_integer: true }, length: { maximum: 7, too_long: "最多只能到7位數" }
+  validates :discount_price, numericality: { less_than: :origin_price }, length: { maximum: 7, too_long: "最多只能到7位數" }
   validates :pickup_time, :endup_time, presence: true
   validate :pickup_time_after_now
 

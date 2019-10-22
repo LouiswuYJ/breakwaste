@@ -25,7 +25,7 @@
           <% @rescuer_orders.each do |order|%>
           <tr class="text-center">
             <td data-th="訂單編號"><%= order.friendly_id.upcase%></td>
-            <td data-th="商店名稱"><%= User.find(order.giver_id).name %></td>
+            <td data-th="商店名稱"><%= find_giver(order.giver_id).name %></td>
             <td data-th="訂單建立"><%= I18n.l(order.created_at, formats: :default) %></td>
             <td data-th="付款狀態"><%= order.aasm.human_state%></td>
             <td data-th="詳細">
