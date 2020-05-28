@@ -24,7 +24,7 @@ gem "braintree", "~> 2.98.0"
 gem 'rails_12factor', group: :production
 gem 'active_storage_validations'
 gem "aws-sdk-s3", require: false
-gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'kaminari', '~> 1.2'
 gem "rubyzip", ">= 1.3.0"
 
 # Use Puma as the app server
